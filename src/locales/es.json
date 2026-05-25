@@ -1,0 +1,290 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "benefits": "Beneficios",
+    "achievements": "Logros",
+    "successStories": "Casos de Éxito",
+    "contact": "Contáctanos",
+    "faqs": "Preguntas Frecuentes"
+  },
+  "hero": {
+    "overline": "ENTRENAMIENTO DE VENTAS CON IA · EST. 2002",
+    "headline": ["Entrena", "a", "tu", "Fuerza", "de", "Ventas", "con", "IA!"],
+    "subtext": "Potencia a tu equipo comercial con simuladores de IA y un coach virtual que entrega retroalimentación inmediata, objetiva e imparcial — a escala.",
+    "contactCta": "Contáctanos",
+    "demoCta": "Demo",
+    "statClients": "Clientes corporativos",
+    "statUsers": "Usuarios activos",
+    "awardLine1": "Training Industry",
+    "awardLine2": "Top 20 · 2025"
+  },
+  "meet": {
+    "overline": "CONOCE LA PLATAFORMA",
+    "title": "Conoce RolPlay",
+    "body": "Con un firme compromiso con la innovación y la excelencia, proporcionamos herramientas e insights que empoderan a los equipos para prosperar en un entorno de mercado dinámico, asegurando que nuestros clientes alcancen el éxito sin precedentes.",
+    "aboutCta": "Nosotros",
+    "badge": "EST. 2002 · MÉXICO · CANADÁ",
+    "videoDuration": "VIDEO · 2:14",
+    "recognitionTitle": "Top 20 Coaching Basado en IA",
+    "recognitionSub": "RECONOCIMIENTO 2025"
+  },
+  "technology": {
+    "overline": "// TECNOLOGÍA",
+    "headline": "Soluciones tecnológicas para potenciar a tu {{highlight}} con IA.",
+    "highlight": "equipo de ventas"
+  },
+  "products": {
+    "overline": "NUESTRAS SOLUCIONES",
+    "title": "Nuestras soluciones, una misión",
+    "body": "Cada módulo resuelve un eslabón específico de la cadena — desde el manejo de objeciones hasta la retroalimentación del coaching. Funcionan aún mejor juntos.",
+    "product01": "PRODUCTO 01",
+    "product02": "PRODUCTO 02",
+    "product03": "PRODUCTO 03",
+    "product04": "PRODUCTO 04",
+    "product05": "PRODUCTO 05",
+    "product06": "PRODUCTO 06",
+    "product07": "PRODUCTO 07",
+    "items": [
+      {
+        "name": "Master Coach",
+        "tag": "INSIGNIA",
+        "desc": "Retroalimentación real. Sesiones rápidas y prácticas donde los representantes graban, refinan y dominan su pitch.",
+        "bullets": ["FEEDBACK REAL", "RÁPIDO · PRÁCTICO", "GRABA & REFINA"]
+      },
+      {
+        "name": "Simulador de Práctica",
+        "tag": "ENTRENAMIENTO",
+        "desc": "Practica escenarios del mundo real. Maneja objeciones en un entorno seguro con IA, una y otra vez.",
+        "bullets": ["ESCENARIOS REALES", "MANEJO DE OBJECIONES", "REPS ILIMITADOS"]
+      },
+      {
+        "name": "Certificador Experto",
+        "tag": "CERTIFICACIÓN",
+        "desc": "Valida la preparación de tu equipo con evaluaciones de certificación basadas en IA vinculadas a métricas reales.",
+        "bullets": ["VERIFICACIÓN", "PUNTUACIÓN IA", "CERTIFICACIONES"]
+      },
+      {
+        "name": "Coach No Verbal",
+        "tag": "COACHING",
+        "desc": "Analiza el lenguaje corporal, el tono y las microexpresiones para refinar cada dimensión de la comunicación.",
+        "bullets": ["LENGUAJE CORPORAL", "ANÁLISIS DE TONO", "MICROEXPRESIONES"]
+      },
+      {
+        "name": "Segundo Cerebro",
+        "tag": "CONOCIMIENTO",
+        "desc": "Tu hub de conocimiento potenciado por IA. Respuestas instantáneas, tarjetas de batalla e inteligencia de producto.",
+        "bullets": ["TARJETAS DE BATALLA", "INTELIGENCIA INSTANTÁNEA", "IA DE CONOCIMIENTO"]
+      },
+      {
+        "name": "CallMentorAI",
+        "tag": "LLAMADAS EN VIVO",
+        "desc": "Guía de IA en tiempo real durante llamadas de ventas en vivo — coaching silencioso invisible para el prospecto.",
+        "bullets": ["IA EN TIEMPO REAL", "COACHING SILENCIOSO", "GUÍA EN VIVO"]
+      },
+      {
+        "name": "Rolplay Analytics",
+        "tag": "ANALÍTICA",
+        "desc": "Dashboards detallados para toda tu organización comercial. Rastrea curvas de habilidades, tendencias e impacto en ingresos.",
+        "bullets": ["CURVAS DE HABILIDAD", "ANALÍTICA DE TENDENCIAS", "IMPACTO EN INGRESOS"]
+      }
+    ]
+  },
+  "why": {
+    "overline": "POR QUÉ IA",
+    "title": "¿Por qué entrenar con simuladores de IA?",
+    "body": "Entrenar a la fuerza de ventas con simuladores de inteligencia artificial proporciona retroalimentación inmediata y objetiva, personaliza los escenarios de entrenamiento y permite la práctica ilimitada. También asegura evaluaciones justas, facilita el seguimiento del progreso y prepara a los representantes para situaciones del mundo real.",
+    "contactCta": "Contáctanos",
+    "features": [
+      {
+        "title": "Retroalimentación inmediata y objetiva",
+        "body": "Elimina las críticas subjetivas. Reemplázalas con señales medibles y reproducibles."
+      },
+      {
+        "title": "Evaluaciones justas e imparciales",
+        "body": "Cada representante es evaluado con la misma rúbrica. Sin favoritos, sin incomodidad."
+      },
+      {
+        "title": "Escenarios multilingües",
+        "body": "Entrena equipos en EN, ES y en los idiomas que realmente hablan tus clientes."
+      },
+      {
+        "title": "Progreso que puedes rastrear",
+        "body": "Curvas de habilidades y análisis de tendencias en toda tu organización comercial."
+      }
+    ]
+  },
+  "edge": {
+    "overline": "// LA VENTAJA",
+    "title": "Retroalimentación objetiva e {{highlight}} — en cada interacción.",
+    "highlight": "imparcial",
+    "body": "Incluso un aumento del 5% en la precisión del mensaje se traduce en millones en el pipeline. Eso es lo que desbloquea el entrenamiento con IA."
+  },
+  "testimonial": {
+    "quote": "Gracias a Rolplay, nuestro equipo comercial mejoró significativamente sus resultados en pocas semanas. La experiencia del cliente mejoró notablemente.",
+    "attribution": "CLIENTE VERIFICADO · RETAIL"
+  },
+  "globe": {
+    "overline": "// PRESENCIA GLOBAL",
+    "title": "Empoderando equipos en {{highlight}} el mundo.",
+    "highlight": "todo",
+    "body": "Con sede en Toronto y Ciudad de México, Rolplay entrega coaching de ventas potenciado por IA a equipos empresariales en toda Norteamérica y más allá.",
+    "toronto": "Toronto, Canadá",
+    "mexicoCity": "Ciudad de México, México"
+  },
+  "kpi": {
+    "overline": "// IMPACTO MEDIBLE",
+    "title": "Resultados que {{highlight}}.",
+    "highlight": "escalan",
+    "body": "Ganancias de rendimiento reales, medidas y probadas en cada compromiso con clientes.",
+    "stats": [
+      { "value": 100, "suffix": "+", "label": "Clientes Corporativos" },
+      { "value": 100000, "suffix": "+", "label": "Usuarios Activos" },
+      { "value": 20, "suffix": "+", "label": "Años de Experiencia" },
+      { "value": 5, "suffix": "%", "label": "Aumento Promedio en Ingresos" }
+    ]
+  },
+  "subscribe": {
+    "overline": "// MANTENTE AL DÍA",
+    "title": "Recibe insights de ventas con IA {{highlight}}.",
+    "highlight": "directamente",
+    "body": "Únete a más de 10,000 líderes de ventas que reciben nuestra inteligencia semanal sobre coaching con IA, tendencias de rendimiento y estrategia comercial.",
+    "placeholder": "Tu correo electrónico",
+    "cta": "Suscribirme",
+    "loading": "Suscribiendo...",
+    "success": "¡Listo! Revisa tu bandeja de entrada.",
+    "error": "Algo salió mal. Inténtalo de nuevo.",
+    "privacy": "Sin spam. Cancela cuando quieras."
+  },
+  "contact": {
+    "overline": "PONTE EN CONTACTO",
+    "title": "Contáctanos",
+    "body": "¡Estamos aquí para apoyarte!",
+    "email": "info@rolplay.ai",
+    "phone": "+52 (55) 5093 7376",
+    "locations": "Toronto · Monterrey · CDMX"
+  },
+  "footer": {
+    "tagline": "Entrena a tu fuerza de ventas con simuladores e inteligencia artificial. La confianza de empresas Fortune durante más de 20 años.",
+    "locations": "Ubicaciones",
+    "contactTitle": "Contacto",
+    "copyright": "© 2025. TODOS LOS DERECHOS RESERVADOS.",
+    "award": "TRAINING INDUSTRY · TOP 20 · 2025",
+    "cities": [
+      { "city": "Toronto", "country": "Canadá" },
+      { "city": "Monterrey", "country": "México" },
+      { "city": "Ciudad de México", "country": "México" }
+    ]
+  },
+  "about": {
+    "overline": "NOSOTROS",
+    "title": "Somos RolPlay",
+    "body": "Rolplay es una empresa tecnológica que transforma el rendimiento comercial mediante simulaciones de coaching potenciadas por IA. Combinamos ciencia del comportamiento, IA conversacional y metodología de ventas probada para entregar resultados medibles.",
+    "mission": "Nuestra Misión",
+    "missionText": "Empoderar a los equipos comerciales con las herramientas de entrenamiento con IA más efectivas disponibles — ayudando a cada representante a rendir al máximo, de forma consistente.",
+    "founded": "Fundación",
+    "foundedYear": "2002",
+    "hq": "Sede",
+    "hqLocation": "Toronto, Canadá y Ciudad de México, México",
+    "team": "Equipo",
+    "teamSize": "50+ profesionales"
+  },
+  "benefits": {
+    "overline": "BENEFICIOS",
+    "title": "Construido para el rendimiento",
+    "body": "Cada función de Rolplay está diseñada para cerrar la brecha entre el entrenamiento y los resultados reales.",
+    "items": [
+      {
+        "title": "Retroalimentación Instantánea con IA",
+        "body": "Los representantes reciben retroalimentación objetiva y detallada inmediatamente después de cada práctica — sin esperas, sin sesgos."
+      },
+      {
+        "title": "Práctica Ilimitada",
+        "body": "Escenarios de ventas bajo demanda. Los representantes practican cuantas veces sea necesario hasta dominar el tema."
+      },
+      {
+        "title": "Coaching Personalizado",
+        "body": "El plan de coaching de cada representante se adapta a sus fortalezas individuales, brechas y ritmo de aprendizaje."
+      },
+      {
+        "title": "Evaluación Justa",
+        "body": "Las rúbricas estandarizadas de IA aseguran que cada representante sea medido por los mismos criterios objetivos."
+      },
+      {
+        "title": "Multilingüe",
+        "body": "Despliega escenarios en inglés, español o cualquier idioma que demanden tus mercados."
+      },
+      {
+        "title": "Dashboard de Analítica",
+        "body": "Rastrea el rendimiento individual y del equipo con dashboards en tiempo real e informes de tendencias."
+      }
+    ]
+  },
+  "achievements": {
+    "overline": "LOGROS",
+    "title": "Reconocidos globalmente",
+    "body": "Reconocimiento de la industria que valida nuestro compromiso con la innovación y los resultados de los clientes.",
+    "award1Title": "Top 20 Coaching Basado en IA",
+    "award1Sub": "Training Industry · 2025",
+    "award2Title": "Mejor Plataforma de Habilitación de Ventas",
+    "award2Sub": "Enterprise Tech Awards · 2024",
+    "award3Title": "Innovación en L&D",
+    "award3Sub": "HR Tech Summit · 2024"
+  },
+  "successStories": {
+    "overline": "CASOS DE ÉXITO",
+    "title": "Clientes que se transformaron",
+    "body": "Resultados reales de equipos comerciales reales que confiaron en Rolplay para elevar su rendimiento.",
+    "attribution": "CLIENTE VERIFICADO"
+  },
+  "faqs": {
+    "overline": "PREGUNTAS FRECUENTES",
+    "title": "Preguntas frecuentes",
+    "body": "Todo lo que necesitas saber sobre Rolplay y cómo funciona.",
+    "items": [
+      {
+        "q": "¿Cómo funciona Rolplay?",
+        "a": "Rolplay proporciona simulaciones de roleplay potenciadas por IA donde los representantes de ventas practican pitches, manejo de objeciones y escenarios de negociación. La IA proporciona retroalimentación inmediata y objetiva en cada sesión."
+      },
+      {
+        "q": "¿Qué idiomas soporta Rolplay?",
+        "a": "Rolplay actualmente soporta inglés y español, con soporte adicional de idiomas disponible en planes enterprise."
+      },
+      {
+        "q": "¿Cuánto tiempo tarda el onboarding?",
+        "a": "La mayoría de los equipos están completamente integrados y ejecutando sus primeras simulaciones en 2 semanas."
+      },
+      {
+        "q": "¿Hay una aplicación móvil?",
+        "a": "Sí. Rolplay es completamente responsivo y funciona en todos los dispositivos. Una aplicación móvil dedicada está en el roadmap."
+      },
+      {
+        "q": "¿Cómo se mide el rendimiento?",
+        "a": "La plataforma rastrea más de 50 métricas verbales y no verbales por sesión y las muestra en tu dashboard de analítica."
+      }
+    ]
+  },
+  "access": {
+    "title": "Bienvenido a la Demo",
+    "subtitle": "Ingresa tus credenciales para acceder a la plataforma Rolplay",
+    "roleLabel": "Rol del Puesto",
+    "rolePlaceholder": "Selecciona tu rol",
+    "emailLabel": "Correo Electrónico",
+    "emailPlaceholder": "tu@correo.com",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "••••••••",
+    "submitBtn": "Acceder a la Plataforma",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "noAccount": "¿No tienes cuenta?",
+    "contactUs": "Contáctanos"
+  },
+  "common": {
+    "learnMore": "Saber Más",
+    "getStarted": "Comenzar",
+    "contactUs": "Contáctanos",
+    "viewAll": "Ver Todo",
+    "loading": "Cargando...",
+    "error": "Algo salió mal",
+    "back": "Regresar"
+  }
+}

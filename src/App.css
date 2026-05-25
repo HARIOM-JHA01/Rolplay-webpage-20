@@ -1,0 +1,5 @@
+.App {
+    min-height: 100vh;
+    background: var(--bg-void);
+    color: var(--text-primary);
+}

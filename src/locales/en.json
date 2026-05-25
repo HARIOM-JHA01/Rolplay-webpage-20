@@ -1,0 +1,290 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "benefits": "Benefits",
+    "achievements": "Achievements",
+    "successStories": "Success Stories",
+    "contact": "Contact Us",
+    "faqs": "FAQs"
+  },
+  "hero": {
+    "overline": "AI-POWERED SALES TRAINING · EST. 2002",
+    "headline": ["Train", "your", "Sales", "Force", "with", "Simulators", "and", "Artificial", "Intelligence!"],
+    "subtext": "Empower your commercial team with AI simulators and a virtual coach that delivers immediate, objective and unbiased feedback — at scale.",
+    "contactCta": "Contact Us",
+    "demoCta": "Demo",
+    "statClients": "Corporate clients",
+    "statUsers": "Active users",
+    "awardLine1": "Training Industry",
+    "awardLine2": "Top 20 · 2025"
+  },
+  "meet": {
+    "overline": "MEET THE PLATFORM",
+    "title": "Meet RolPlay",
+    "body": "With a firm commitment to innovation and excellence, we provide tools and insights that empower teams to thrive in a dynamic market environment, ensuring our clients achieve unparalleled success.",
+    "aboutCta": "About Us",
+    "badge": "EST. 2002 · MEXICO · CANADA",
+    "videoDuration": "VIDEO · 2:14",
+    "recognitionTitle": "Top 20 AI-Based Coaching",
+    "recognitionSub": "2025 RECOGNITION"
+  },
+  "technology": {
+    "overline": "// TECHNOLOGY",
+    "headline": "Technology solutions to empower your {{highlight}} with AI.",
+    "highlight": "sales team"
+  },
+  "products": {
+    "overline": "OUR SOLUTIONS",
+    "title": "Our solutions, one mission",
+    "body": "Each module solves a specific link in the chain — from objection handling to coaching feedback. They work even better together.",
+    "product01": "PRODUCT 01",
+    "product02": "PRODUCT 02",
+    "product03": "PRODUCT 03",
+    "product04": "PRODUCT 04",
+    "product05": "PRODUCT 05",
+    "product06": "PRODUCT 06",
+    "product07": "PRODUCT 07",
+    "items": [
+      {
+        "name": "Master Coach",
+        "tag": "FLAGSHIP",
+        "desc": "Real feedback. Fast, practical sessions where reps record, refine and master their pitch.",
+        "bullets": ["REAL FEEDBACK", "FAST · PRACTICAL", "RECORD & REFINE"]
+      },
+      {
+        "name": "Practice Simulator",
+        "tag": "TRAINING",
+        "desc": "Practice real-world scenarios. Handle objections in a safe, AI-driven environment, again and again.",
+        "bullets": ["REAL SCENARIOS", "OBJECTION HANDLING", "UNLIMITED REPS"]
+      },
+      {
+        "name": "Expert Certificator",
+        "tag": "CERTIFICATION",
+        "desc": "Validate your team's readiness with AI-driven certification assessments tied to real performance metrics.",
+        "bullets": ["READINESS CHECKS", "AI SCORING", "CERTIFICATIONS"]
+      },
+      {
+        "name": "Non-Verbal Coach",
+        "tag": "COACHING",
+        "desc": "Analyse body language, tone and micro-expressions to refine every dimension of communication.",
+        "bullets": ["BODY LANGUAGE", "TONE ANALYSIS", "MICRO-EXPRESSIONS"]
+      },
+      {
+        "name": "Second Brain",
+        "tag": "KNOWLEDGE",
+        "desc": "Your AI-powered knowledge hub. Instant answers, battle cards and product intel at your reps' fingertips.",
+        "bullets": ["BATTLE CARDS", "INSTANT INTEL", "KNOWLEDGE AI"]
+      },
+      {
+        "name": "CallMentorAI",
+        "tag": "LIVE CALLS",
+        "desc": "Real-time AI guidance during live sales calls — whisper coaching that stays invisible to the prospect.",
+        "bullets": ["REAL-TIME AI", "WHISPER COACHING", "LIVE GUIDANCE"]
+      },
+      {
+        "name": "Rolplay Analytics",
+        "tag": "ANALYTICS",
+        "desc": "Deep-dive dashboards across your entire commercial org. Track skill curves, trends and revenue impact.",
+        "bullets": ["SKILL CURVES", "TREND ANALYTICS", "REVENUE IMPACT"]
+      }
+    ]
+  },
+  "why": {
+    "overline": "WHY AI",
+    "title": "Why train with AI simulators?",
+    "body": "Training sales force with artificial intelligence simulators provides immediate and objective feedback, customizes training scenarios, and allows unlimited practice. It also ensures fair evaluations, makes progress tracking easier, and prepares sales representatives for real-world situations, enhancing their confidence and effectiveness.",
+    "contactCta": "Contact Us",
+    "features": [
+      {
+        "title": "Immediate & objective feedback",
+        "body": "Eliminate gut-feel critiques. Replace them with measurable, replayable signal."
+      },
+      {
+        "title": "Fair, unbiased evaluations",
+        "body": "Every rep is graded against the same rubric. No favourites, no awkwardness."
+      },
+      {
+        "title": "Multilingual scenarios",
+        "body": "Train teams in EN, ES, and the languages your customers actually speak."
+      },
+      {
+        "title": "Progress you can track",
+        "body": "Skill curves and trend analytics across your entire commercial org."
+      }
+    ]
+  },
+  "edge": {
+    "overline": "// THE EDGE",
+    "title": "Objective & {{highlight}} feedback — at every interaction.",
+    "highlight": "unbiased",
+    "body": "Even a 5% lift in messaging accuracy compounds into millions in pipeline. That is what AI-powered training unlocks."
+  },
+  "testimonial": {
+    "quote": "Thanks to Rolplay, our commercial team significantly improved their results in just a few weeks. Customer experience improved notably.",
+    "attribution": "VERIFIED CLIENT · RETAIL"
+  },
+  "globe": {
+    "overline": "// GLOBAL PRESENCE",
+    "title": "Empowering teams {{highlight}} the world.",
+    "highlight": "across",
+    "body": "Headquartered in Toronto and Mexico City, Rolplay delivers AI-powered sales coaching to enterprise teams across North America and beyond.",
+    "toronto": "Toronto, Canada",
+    "mexicoCity": "Mexico City, Mexico"
+  },
+  "kpi": {
+    "overline": "// MEASURABLE IMPACT",
+    "title": "Results that {{highlight}}.",
+    "highlight": "compound",
+    "body": "Real performance gains, measured and proven across every client engagement.",
+    "stats": [
+      { "value": 100, "suffix": "+", "label": "Corporate Clients" },
+      { "value": 100000, "suffix": "+", "label": "Active Users" },
+      { "value": 20, "suffix": "+", "label": "Years of Expertise" },
+      { "value": 5, "suffix": "%", "label": "Avg. Revenue Lift" }
+    ]
+  },
+  "subscribe": {
+    "overline": "// STAY AHEAD",
+    "title": "Get AI sales insights {{highlight}}.",
+    "highlight": "delivered",
+    "body": "Join 10,000+ sales leaders receiving our weekly intelligence on AI coaching, performance trends and commercial strategy.",
+    "placeholder": "Enter your email",
+    "cta": "Subscribe",
+    "loading": "Subscribing...",
+    "success": "You're in! Check your inbox.",
+    "error": "Something went wrong. Please try again.",
+    "privacy": "No spam. Unsubscribe anytime."
+  },
+  "contact": {
+    "overline": "GET IN TOUCH",
+    "title": "Contact Us",
+    "body": "We're here to support you!",
+    "email": "info@rolplay.ai",
+    "phone": "+52 (55) 5093 7376",
+    "locations": "Toronto · Monterrey · CDMX"
+  },
+  "footer": {
+    "tagline": "Train your sales force with simulators and artificial intelligence. Trusted by Fortune-ranked companies for over 20 years.",
+    "locations": "Locations",
+    "contactTitle": "Contact",
+    "copyright": "© 2025. ALL RIGHTS RESERVED.",
+    "award": "TRAINING INDUSTRY · TOP 20 · 2025",
+    "cities": [
+      { "city": "Toronto", "country": "Canada" },
+      { "city": "Monterrey", "country": "Mexico" },
+      { "city": "Mexico City", "country": "Mexico" }
+    ]
+  },
+  "about": {
+    "overline": "ABOUT US",
+    "title": "We are RolPlay",
+    "body": "Rolplay is a technology company that transforms commercial performance through AI-powered coaching simulations. We combine behavioral science, conversational AI, and proven sales methodology to deliver measurable results.",
+    "mission": "Our Mission",
+    "missionText": "To empower commercial teams with the most effective AI training tools available — helping every rep perform at their best, consistently.",
+    "founded": "Founded",
+    "foundedYear": "2002",
+    "hq": "Headquarters",
+    "hqLocation": "Toronto, Canada & Mexico City, Mexico",
+    "team": "Team",
+    "teamSize": "50+ professionals"
+  },
+  "benefits": {
+    "overline": "BENEFITS",
+    "title": "Built for performance",
+    "body": "Every feature of Rolplay is engineered to close the gap between training and real results.",
+    "items": [
+      {
+        "title": "Instant AI Feedback",
+        "body": "Reps get objective, detailed feedback immediately after every practice — no waiting, no bias."
+      },
+      {
+        "title": "Unlimited Practice",
+        "body": "Sales scenarios on demand. Reps practice as many times as needed until mastery is achieved."
+      },
+      {
+        "title": "Personalized Coaching",
+        "body": "Every rep's coaching plan is tailored to their individual strengths, gaps and learning pace."
+      },
+      {
+        "title": "Fair Evaluation",
+        "body": "Standardized AI rubrics ensure every rep is measured by the same objective criteria."
+      },
+      {
+        "title": "Multilingual",
+        "body": "Deploy scenarios in English, Spanish or any language your markets demand."
+      },
+      {
+        "title": "Analytics Dashboard",
+        "body": "Track individual and team performance with real-time dashboards and trend reporting."
+      }
+    ]
+  },
+  "achievements": {
+    "overline": "ACHIEVEMENTS",
+    "title": "Recognized globally",
+    "body": "Industry recognition validating our commitment to innovation and client outcomes.",
+    "award1Title": "Top 20 AI-Based Coaching",
+    "award1Sub": "Training Industry · 2025",
+    "award2Title": "Best Sales Enablement Platform",
+    "award2Sub": "Enterprise Tech Awards · 2024",
+    "award3Title": "Innovation in L&D",
+    "award3Sub": "HR Tech Summit · 2024"
+  },
+  "successStories": {
+    "overline": "SUCCESS STORIES",
+    "title": "Clients who transformed",
+    "body": "Real results from real commercial teams who trusted Rolplay to elevate their performance.",
+    "attribution": "VERIFIED CLIENT"
+  },
+  "faqs": {
+    "overline": "FAQS",
+    "title": "Frequently asked questions",
+    "body": "Everything you need to know about Rolplay and how it works.",
+    "items": [
+      {
+        "q": "How does Rolplay work?",
+        "a": "Rolplay provides AI-powered roleplay simulations where sales reps practice pitches, objection handling and negotiation scenarios. The AI provides immediate, objective feedback on every session."
+      },
+      {
+        "q": "What languages does Rolplay support?",
+        "a": "Rolplay currently supports English and Spanish, with additional language support available on enterprise plans."
+      },
+      {
+        "q": "How long does onboarding take?",
+        "a": "Most teams are fully onboarded and running their first simulations within 2 weeks."
+      },
+      {
+        "q": "Is there a mobile app?",
+        "a": "Yes. Rolplay is fully responsive and works on all devices. A dedicated mobile app is on the roadmap."
+      },
+      {
+        "q": "How is performance measured?",
+        "a": "The platform tracks over 50 verbal and non-verbal metrics per session and surfaces them in your analytics dashboard."
+      }
+    ]
+  },
+  "access": {
+    "title": "Welcome to the Demo",
+    "subtitle": "Enter your credentials to access the Rolplay platform",
+    "roleLabel": "Job Role",
+    "rolePlaceholder": "Select your role",
+    "emailLabel": "Email",
+    "emailPlaceholder": "your@email.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "••••••••",
+    "submitBtn": "Access Platform",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "contactUs": "Contact us"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "viewAll": "View All",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "back": "Back"
+  }
+}
