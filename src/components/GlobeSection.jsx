@@ -15,11 +15,18 @@ const LOCATIONS = [
     color: "#C0392B",
   },
   {
+    lat: 25.6866,
+    lng: -100.3161,
+    labelKey: "globe.monterrey",
+    altitude: 0.06,
+    color: "#E74C3C",
+  },
+  {
     lat: 19.4326,
     lng: -99.1332,
     labelKey: "globe.mexicoCity",
     altitude: 0.06,
-    color: "#E74C3C",
+    color: "#FF6B5B",
   },
 ];
 
@@ -30,13 +37,13 @@ function GlobeFallback({ t }) {
         <div className="w-32 h-32 rounded-full border border-[#C0392B]/20 flex items-center justify-center">
           <div className="w-4 h-4 rounded-full bg-[#C0392B] shadow-[0_0_16px_rgba(192,57,43,0.8)]" />
         </div>
-        {LOCATIONS.map((loc) => (
+        {LOCATIONS.map((loc, idx) => (
           <div
             key={loc.labelKey}
             className="absolute flex flex-col items-center gap-1"
             style={{
-              top: loc.lat > 30 ? "20%" : "60%",
-              left: loc.lng < -90 ? "30%" : "45%",
+              top: loc.lat > 40 ? "18%" : loc.lat > 24 ? "42%" : "65%",
+              left: idx === 0 ? "55%" : idx === 1 ? "28%" : "35%",
             }}
           >
             <MapPin size={14} style={{ color: loc.color }} />

@@ -9,6 +9,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import WhatsAppOrb from "@/components/WhatsAppOrb";
 import Preloader from "@/components/Preloader";
 import ElevenLabsWidget from "@/components/ElevenLabsWidget";
+import CursorSparks from "@/components/CursorSparks";
 
 import Home from "@/pages/Home";
 import About from "@/pages/About";
@@ -22,6 +23,7 @@ function App() {
   return (
     <div className="App" data-testid="app-root">
       <Preloader />
+      <CursorSparks />
       <BrowserRouter>
         <ScrollProgress />
         <Navigation />

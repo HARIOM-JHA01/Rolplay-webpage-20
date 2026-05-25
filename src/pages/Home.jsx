@@ -196,7 +196,7 @@ export default function Home() {
 
           <div className="lg:col-span-6 relative">
             <VideoPlayer
-              iframeSrc="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              iframeSrc="https://www.youtube.com/embed/Kc6hkD61E28"
               title={t("meet.title")}
               className="shadow-[0_0_60px_rgba(0,0,0,0.6)]"
             />

@@ -5,32 +5,16 @@ import { Menu, X, Facebook, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const Logo = () => (
-  <div className="flex items-center gap-2.5 group" data-testid="brand-logo">
-    <div className="relative w-9 h-9">
-      <svg viewBox="0 0 40 40" className="w-9 h-9" aria-hidden="true">
-        <g stroke="#C0392B" strokeWidth="1" fill="none" opacity="0.95">
-          <circle cx="20" cy="6" r="2.4" fill="#C0392B" />
-          <circle cx="6" cy="14" r="2" fill="#C0392B" />
-          <circle cx="34" cy="14" r="2" fill="#C0392B" />
-          <circle cx="10" cy="30" r="2" fill="#fff" />
-          <circle cx="30" cy="30" r="2" fill="#fff" />
-          <circle cx="20" cy="22" r="2.6" fill="#C0392B" />
-          <line x1="20" y1="6" x2="6" y2="14" />
-          <line x1="20" y1="6" x2="34" y2="14" />
-          <line x1="6" y1="14" x2="20" y2="22" />
-          <line x1="34" y1="14" x2="20" y2="22" />
-          <line x1="20" y1="22" x2="10" y2="30" />
-          <line x1="20" y1="22" x2="30" y2="30" />
-          <line x1="10" y1="30" x2="30" y2="30" strokeOpacity="0.3" />
-        </g>
-      </svg>
-      <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ boxShadow: "0 0 22px rgba(192,57,43,0.6)" }} />
+  <div className="flex items-center group" data-testid="brand-logo">
+    <div className="relative overflow-hidden rounded-md transition-all duration-500 group-hover:drop-shadow-[0_0_12px_rgba(192,57,43,0.7)]">
+      <img
+        src="/logo.png"
+        alt="RolPlay"
+        className="h-9 w-auto object-contain"
+        style={{ filter: "brightness(1.05) contrast(1.05)" }}
+        draggable={false}
+      />
     </div>
-    <span className="font-display text-2xl tracking-tight">
-      <span className="text-[#C0392B]">Rol</span>
-      <span className="text-white">Play</span>
-    </span>
   </div>
 );
 
@@ -198,6 +182,8 @@ export default function Navigation() {
                   <button
                     key={lang}
                     onClick={() => switchLang(lang)}
+                    data-testid={`mobile-lang-${lang.toLowerCase()}`}
+                    aria-pressed={activeLang === lang}
                     className={`px-3 py-1 rounded-full text-xs font-mono tracking-widest transition-all ${
                       activeLang === lang
                         ? "bg-[#C0392B] text-white"
