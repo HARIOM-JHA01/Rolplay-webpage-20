@@ -1,7 +1,26 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mic, MicOff, X, Phone, PhoneOff } from "lucide-react";
+import { MicOff, X, PhoneOff } from "lucide-react";
 import { useConversation } from "@11labs/react";
+
+/* ── Custom AI voice waveform icon ───────────────────────── */
+const WaveformIcon = ({ size = 26, className = "" }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    className={className}
+    aria-hidden="true"
+  >
+    {/* 5 bars — outer short, inner tall, center tallest */}
+    <rect x="1"  y="9"  width="2.8" height="6"  rx="1.4" fill="currentColor" />
+    <rect x="5.3" y="5" width="2.8" height="14" rx="1.4" fill="currentColor" />
+    <rect x="9.6" y="1" width="2.8" height="22" rx="1.4" fill="currentColor" />
+    <rect x="13.9" y="5" width="2.8" height="14" rx="1.4" fill="currentColor" />
+    <rect x="18.2" y="9" width="2.8" height="6"  rx="1.4" fill="currentColor" />
+  </svg>
+);
 
 const AGENT_ID = process.env.REACT_APP_ELEVENLABS_AGENT_ID || "";
 
@@ -113,10 +132,10 @@ function VoicePanel({ onClose }) {
                 <div className="w-6 h-6 border-2 border-[#C0392B] border-t-transparent rounded-full animate-spin" />
               ) : isConnected ? (
                 isSpeaking
-                  ? <Mic size={28} className="text-white" />
+                  ? <WaveformIcon size={28} className="text-white" />
                   : <MicOff size={28} className="text-white/70" />
               ) : (
-                <Mic size={28} className="text-zinc-500" />
+                <WaveformIcon size={28} className="text-zinc-500" />
               )}
             </motion.div>
           </div>
@@ -143,7 +162,7 @@ function VoicePanel({ onClose }) {
               onClick={handleStart}
               className="flex items-center gap-2 px-7 py-3 rounded-full bg-[#C0392B] text-white text-sm font-semibold hover:bg-[#E74C3C] transition-colors shadow-[0_0_24px_rgba(192,57,43,0.4)]"
             >
-              <Phone size={15} />
+              <WaveformIcon size={15} className="text-white" />
               Start Conversation
             </button>
           )}
@@ -174,7 +193,7 @@ export default function ElevenLabsWidget() {
         className="fixed bottom-24 right-6 z-40 w-14 h-14 rounded-full bg-[#C0392B] text-white grid place-items-center shadow-[0_0_30px_rgba(192,57,43,0.6)] hover:bg-[#E74C3C] transition-colors"
         data-testid="elevenlabs-fab"
       >
-        <Mic size={22} />
+        <WaveformIcon size={22} className="text-white" />
       </motion.button>
 
       <AnimatePresence>
