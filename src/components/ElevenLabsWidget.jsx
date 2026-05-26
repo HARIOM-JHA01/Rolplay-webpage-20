@@ -1,35 +1,14 @@
-import { lazy, Suspense, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X } from "lucide-react";
 
-const ConversationWidget = lazy(() =>
-  import("@11labs/react").then((mod) => ({ default: mod.useConversation ? ElevenLabsInner : ElevenLabsInner }))
-);
-
-// Inner component that uses the hook — only rendered after lazy load
-function ElevenLabsInner({ onClose }) {
-  // Agent ID should be set via env var: REACT_APP_ELEVENLABS_AGENT_ID
-  const agentId = process.env.REACT_APP_ELEVENLABS_AGENT_ID || "";
-
-  if (!agentId) {
-    return (
-      <div className="p-6 text-center">
-        <p className="text-zinc-400 text-sm">
-          ElevenLabs agent not configured.
-          <br />
-          Set <code className="text-[#C0392B]">REACT_APP_ELEVENLABS_AGENT_ID</code> in your environment.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <elevenlabs-convai agent-id={agentId} style={{ width: "100%", height: "100%" }} />
-  );
-}
+const agentId = process.env.REACT_APP_ELEVENLABS_AGENT_ID || "";
 
 export default function ElevenLabsWidget() {
   const [open, setOpen] = useState(false);
+
+  // Don't render the FAB at all if no agent is configured
+  if (!agentId) return null;
 
   return (
     <>
@@ -86,17 +65,12 @@ export default function ElevenLabsWidget() {
                 </button>
               </div>
 
-              {/* Widget area */}
+              {/* ElevenLabs web component */}
               <div className="flex-1 overflow-hidden">
-                <Suspense
-                  fallback={
-                    <div className="h-full flex items-center justify-center">
-                      <div className="w-8 h-8 border-2 border-[#C0392B] border-t-transparent rounded-full animate-spin" />
-                    </div>
-                  }
-                >
-                  <ElevenLabsInner onClose={() => setOpen(false)} />
-                </Suspense>
+                <elevenlabs-convai
+                  agent-id={agentId}
+                  style={{ width: "100%", height: "100%", display: "block" }}
+                />
               </div>
             </motion.div>
           </>
