@@ -12,6 +12,7 @@ export default function WhatsAppOrb() {
       className="fixed bottom-6 right-6 z-[60] flex items-center gap-3"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      aria-label="Chat on WhatsApp"
       data-testid="whatsapp-orb"
     >
       <AnimatePresence>
@@ -29,9 +30,11 @@ export default function WhatsAppOrb() {
       <motion.span
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
-        className="relative w-14 h-14 rounded-full grid place-items-center text-white animate-pulse-green"
+        className="relative w-14 h-14 rounded-full grid place-items-center text-white"
         style={{
           background: "linear-gradient(135deg, #25D366, #128C7E)",
+          boxShadow: "0 0 0 0 rgba(37,211,102,0.4)",
+          animation: "whatsapp-pulse 2.5s ease-in-out infinite",
         }}
       >
         <MessageCircle size={22} fill="white" strokeWidth={1.5} />

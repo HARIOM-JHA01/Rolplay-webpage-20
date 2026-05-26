@@ -15,6 +15,7 @@ import ProductShowcase from "@/components/ProductShowcase";
 import KPIGrid from "@/components/KPIGrid";
 import GlobeSection from "@/components/GlobeSection";
 import SubscribeForm from "@/components/SubscribeForm";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 const FEATURE_ICONS = [Zap, ShieldCheck, Globe, BarChart3];
 
@@ -108,7 +109,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.3, duration: 0.7 }}
-              className="mt-10 flex flex-wrap items-center gap-3"
+              className="mt-10 flex flex-wrap items-center gap-3 [&>*]:min-h-[44px]"
             >
               <PrimaryCTA
                 href="https://calendly.com/viridiana-flores-audioweb/30min"
@@ -175,7 +176,7 @@ export default function Home() {
       </section>
 
       {/* ── MEET ROLPLAY ──────────────────────────────────── */}
-      <section className="relative py-32 overflow-hidden" data-testid="meet-rolplay-section">
+      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden" data-testid="meet-rolplay-section">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6">
             <SectionHeader
@@ -216,9 +217,57 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── AWARDS ────────────────────────────────────────── */}
+      <section className="relative py-16 md:py-24 overflow-hidden bg-[#050508]" data-testid="awards-section">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
+          <div className="font-mono text-[11px] tracking-[0.3em] text-[#C0392B] uppercase mb-4">
+            {t("awards.overline")}
+          </div>
+          <h2 className="font-display text-2xl md:text-4xl text-white mb-10">
+            {t("awards.title")}
+          </h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col items-center gap-3"
+            >
+              <img
+                src="/medal1.jpg"
+                alt={t("awards.badge1")}
+                loading="lazy"
+                className="w-40 h-40 object-contain hover:scale-105 transition-transform duration-300"
+              />
+              <div className="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase">
+                {t("awards.badge1")}
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.12 }}
+              className="flex flex-col items-center gap-3"
+            >
+              <img
+                src="/medal2.jpg"
+                alt={t("awards.badge2")}
+                loading="lazy"
+                className="w-40 h-40 object-contain hover:scale-105 transition-transform duration-300"
+              />
+              <div className="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase">
+                {t("awards.badge2")}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* ── TECHNOLOGY TAGLINE ────────────────────────────── */}
       <section
-        className="relative py-24 border-y border-white/5 overflow-hidden"
+        className="relative py-16 md:py-24 border-y border-white/5 overflow-hidden"
         data-testid="technology-section"
       >
         <NeuralNetwork className="opacity-30" density={0.00007} />
@@ -250,7 +299,7 @@ export default function Home() {
       <ProductShowcase />
 
       {/* ── WHY TRAIN WITH AI ─────────────────────────────── */}
-      <section className="relative py-32 overflow-hidden" data-testid="why-section">
+      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden" data-testid="why-section">
         <div
           className="absolute inset-0 pointer-events-none opacity-30"
           style={{ background: "radial-gradient(ellipse at 80% 20%, rgba(192,57,43,0.4), transparent 50%)" }}
@@ -319,8 +368,11 @@ export default function Home() {
       {/* ── KPI GRID ──────────────────────────────────────── */}
       <KPIGrid />
 
+      {/* ── TESTIMONIALS CAROUSEL ─────────────────────────── */}
+      <TestimonialsCarousel />
+
       {/* ── STAT CALLOUT ──────────────────────────────────── */}
-      <section className="relative py-24 overflow-hidden" data-testid="stat-callout">
+      <section className="relative py-16 md:py-24 overflow-hidden" data-testid="stat-callout">
         <NeuralNetwork className="opacity-25" density={0.00006} />
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <GlassCard
@@ -367,7 +419,7 @@ export default function Home() {
 
       {/* ── TESTIMONIAL ───────────────────────────────────── */}
       <section
-        className="relative py-32 overflow-hidden border-y border-[#C0392B]/20"
+        className="relative py-16 md:py-24 lg:py-32 overflow-hidden border-y border-[#C0392B]/20"
         data-testid="testimonial-section"
       >
         <motion.div
@@ -436,12 +488,11 @@ export default function Home() {
       <SubscribeForm />
 
       {/* ── CONTACT ───────────────────────────────────────── */}
-      <section className="relative py-32" id="contact" data-testid="home-contact-section">
+      <section className="relative py-16 md:py-24 lg:py-32" id="contact" data-testid="home-contact-section">
         <div className="max-w-[1100px] mx-auto px-6 lg:px-10 text-center">
           <SectionHeader
             overline={t("contact.overline")}
             title={t("contact.title")}
-            redWord="Contact"
             body={t("contact.body")}
             align="center"
           />

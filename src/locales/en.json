@@ -9,9 +9,9 @@
     "faqs": "FAQs"
   },
   "hero": {
-    "overline": "AI-POWERED SALES TRAINING · EST. 2002",
+    "overline": "AI COACHING FOR OVER 20 YEARS",
     "headline": ["Train", "your", "Sales", "Force", "with", "Simulators", "and", "Artificial", "Intelligence!"],
-    "subtext": "Empower your commercial team with AI simulators and a virtual coach that delivers immediate, objective and unbiased feedback — at scale.",
+    "subtext": "Empower your team with learning and feedback through coaches and simulators powered by cutting-edge technology!",
     "contactCta": "Contact Us",
     "demoCta": "Demo",
     "statClients": "Corporate clients",
@@ -30,14 +30,14 @@
     "recognitionSub": "2025 RECOGNITION"
   },
   "technology": {
-    "overline": "// TECHNOLOGY",
-    "headline": "Technology solutions to empower your {{highlight}} with AI.",
-    "highlight": "sales team"
+    "overline": "Rolplay AI",
+    "headline": "Cutting-edge solutions to empower your {{highlight}} with AI.",
+    "highlight": "team"
   },
   "products": {
     "overline": "OUR SOLUTIONS",
-    "title": "Our solutions, one mission",
-    "body": "Each module solves a specific link in the chain — from objection handling to coaching feedback. They work even better together.",
+    "title": "Different solutions, one single goal",
+    "body": "Learning designed to practice, correct and improve",
     "product01": "PRODUCT 01",
     "product02": "PRODUCT 02",
     "product03": "PRODUCT 03",
@@ -278,6 +278,12 @@
     "forgotPassword": "Forgot password?",
     "noAccount": "Don't have an account?",
     "contactUs": "Contact us"
+  },
+  "awards": {
+    "overline": "// RECOGNITION",
+    "title": "Award-Winning Platform",
+    "badge1": "2025 Top 20 Company",
+    "badge2": "2024 Watch List Company"
   },
   "common": {
     "learnMore": "Learn More",

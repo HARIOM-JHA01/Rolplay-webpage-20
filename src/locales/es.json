@@ -9,9 +9,9 @@
     "faqs": "Preguntas Frecuentes"
   },
   "hero": {
-    "overline": "ENTRENAMIENTO DE VENTAS CON IA · EST. 2002",
+    "overline": "ENTRENAMIENTO CON IA DESDE HACE 20 AÑOS",
     "headline": ["Entrena", "a", "tu", "Fuerza", "de", "Ventas", "con", "IA!"],
-    "subtext": "Potencia a tu equipo comercial con simuladores de IA y un coach virtual que entrega retroalimentación inmediata, objetiva e imparcial — a escala.",
+    "subtext": "Potencia a tu equipo con aprendizaje y retroalimentación a través de coaches y simuladores impulsados por tecnología de última generación!",
     "contactCta": "Contáctanos",
     "demoCta": "Demo",
     "statClients": "Clientes corporativos",
@@ -30,14 +30,14 @@
     "recognitionSub": "RECONOCIMIENTO 2025"
   },
   "technology": {
-    "overline": "// TECNOLOGÍA",
-    "headline": "Soluciones tecnológicas para potenciar a tu {{highlight}} con IA.",
-    "highlight": "equipo de ventas"
+    "overline": "Rolplay AI",
+    "headline": "Soluciones con tecnología de punta para potenciar a tu {{highlight}} con IA.",
+    "highlight": "equipo"
   },
   "products": {
     "overline": "NUESTRAS SOLUCIONES",
-    "title": "Nuestras soluciones, una misión",
-    "body": "Cada módulo resuelve un eslabón específico de la cadena — desde el manejo de objeciones hasta la retroalimentación del coaching. Funcionan aún mejor juntos.",
+    "title": "Distintas soluciones, un sólo objetivo",
+    "body": "Aprendizaje diseñado para practicar, corregir y mejorar",
     "product01": "PRODUCTO 01",
     "product02": "PRODUCTO 02",
     "product03": "PRODUCTO 03",
@@ -278,6 +278,12 @@
     "forgotPassword": "¿Olvidaste tu contraseña?",
     "noAccount": "¿No tienes cuenta?",
     "contactUs": "Contáctanos"
+  },
+  "awards": {
+    "overline": "// RECONOCIMIENTO",
+    "title": "Plataforma Galardonada",
+    "badge1": "Top 20 Empresas 2025",
+    "badge2": "Empresa Watch List 2024"
   },
   "common": {
     "learnMore": "Saber Más",

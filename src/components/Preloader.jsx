@@ -5,14 +5,25 @@ export default function Preloader() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const onLoad = () => setVisible(false);
+    // Fail-safe: force dismiss after 4000ms regardless of load state
+    const timeout = setTimeout(() => setVisible(false), 4000);
+
+    const onLoad = () => {
+      clearTimeout(timeout);
+      setVisible(false);
+    };
+
     if (document.readyState === "complete") {
       // Already loaded — dismiss after brief frame
+      clearTimeout(timeout);
       const raf = requestAnimationFrame(() => setVisible(false));
       return () => cancelAnimationFrame(raf);
     }
     window.addEventListener("load", onLoad);
-    return () => window.removeEventListener("load", onLoad);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("load", onLoad);
+    };
   }, []);
 
   return (

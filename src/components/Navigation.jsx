@@ -60,7 +60,7 @@ export default function Navigation() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-strong border-b border-white/5" : "bg-transparent"
+        scrolled ? "glass-strong border-b border-white/5" : "bg-[#0A0A0E]/60 backdrop-blur-md"
       }`}
       data-testid="main-nav"
     >
