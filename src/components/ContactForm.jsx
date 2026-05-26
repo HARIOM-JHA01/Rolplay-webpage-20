@@ -65,7 +65,7 @@ export default function ContactForm({ variant = "compact" }) {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="John Doe"
+            placeholder="Your full name"
             className="mt-2 w-full bg-transparent border-b border-white/10 focus:border-[#C0392B] py-3 text-base text-white placeholder:text-zinc-600 focus:outline-none transition-colors"
             data-testid="contact-full-name-input"
           />

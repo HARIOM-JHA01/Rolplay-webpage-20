@@ -120,9 +120,9 @@
     "highlight": "imparcial",
     "body": "Incluso un aumento del 5% en la precisión del mensaje se traduce en millones en el pipeline. Eso es lo que desbloquea el entrenamiento con IA."
   },
-  "testimonial": {
-    "quote": "Gracias a Rolplay, nuestro equipo comercial mejoró significativamente sus resultados en pocas semanas. La experiencia del cliente mejoró notablemente.",
-    "attribution": "CLIENTE VERIFICADO · RETAIL"
+  "testimonials": {
+    "overline": "// VOCES DE CLIENTES",
+    "title": "Lo que dicen nuestros clientes"
   },
   "globe": {
     "overline": "// PRESENCIA GLOBAL",

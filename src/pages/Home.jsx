@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { Award, Sparkles, Zap, ShieldCheck, Globe, BarChart3, Mail, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -19,29 +18,8 @@ import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 const FEATURE_ICONS = [Zap, ShieldCheck, Globe, BarChart3];
 
-function TypewriterQuote({ text, start }) {
-  const [out, setOut] = useState("");
-  useEffect(() => {
-    if (!start) return;
-    let i = 0;
-    const interval = setInterval(() => {
-      i += 1;
-      setOut(text.slice(0, i));
-      if (i >= text.length) clearInterval(interval);
-    }, 22);
-    return () => clearInterval(interval);
-  }, [text, start]);
-  return (
-    <span>
-      {out}
-      <span className="cursor-blink" />
-    </span>
-  );
-}
-
 export default function Home() {
   const { t } = useTranslation();
-  const [quoteStart, setQuoteStart] = useState(false);
 
   const heroWords = t("hero.headline", { returnObjects: true });
   const whyFeatures = t("why.features", { returnObjects: true });
@@ -416,73 +394,6 @@ export default function Home() {
 
       {/* ── GLOBE ─────────────────────────────────────────── */}
       <GlobeSection />
-
-      {/* ── TESTIMONIAL ───────────────────────────────────── */}
-      <section
-        className="relative py-16 md:py-24 lg:py-32 overflow-hidden border-y border-[#C0392B]/20"
-        data-testid="testimonial-section"
-      >
-        <motion.div
-          onViewportEnter={() => setQuoteStart(true)}
-          viewport={{ once: true, margin: "-100px" }}
-          className="absolute inset-0"
-        >
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(ellipse at 50% 50%, rgba(192,57,43,0.25), transparent 60%), #050508",
-            }}
-          />
-          <NeuralNetwork className="opacity-30" intensity={1.2} />
-          {[...Array(28)].map((_, i) => (
-            <motion.span
-              key={i}
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: "100vh", opacity: [0, 0.8, 0] }}
-              transition={{
-                duration: 7 + Math.random() * 5,
-                repeat: Infinity,
-                delay: Math.random() * 5,
-                ease: "linear",
-              }}
-              className="absolute w-[2px] h-[2px] rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                background: "rgba(192, 57, 43, 0.9)",
-                boxShadow: "0 0 6px rgba(192,57,43,0.9)",
-              }}
-            />
-          ))}
-        </motion.div>
-
-        <div className="relative max-w-[1100px] mx-auto px-6 lg:px-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5, rotateZ: -12 }}
-            whileInView={{ opacity: 0.25, scale: 1, rotateZ: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            onAnimationComplete={() => setQuoteStart(true)}
-            className="font-display text-[14rem] leading-none text-[#C0392B] -mb-12 select-none"
-            aria-hidden
-          >
-            "
-          </motion.div>
-          <blockquote
-            className="font-display text-2xl md:text-4xl lg:text-5xl leading-tight max-w-4xl mx-auto"
-            data-testid="testimonial-quote"
-          >
-            <TypewriterQuote text={t("testimonial.quote")} start={quoteStart} />
-          </blockquote>
-          <div className="mt-10 flex items-center justify-center gap-4">
-            <div className="w-10 h-px bg-[#C0392B]" />
-            <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-400 uppercase">
-              {t("testimonial.attribution")}
-            </div>
-            <div className="w-10 h-px bg-[#C0392B]" />
-          </div>
-        </div>
-      </section>
 
       {/* ── EMAIL SUBSCRIBE ───────────────────────────────── */}
       <SubscribeForm />

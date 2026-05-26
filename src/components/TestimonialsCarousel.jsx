@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const TESTIMONIALS = [
   {
@@ -97,6 +98,7 @@ export default function TestimonialsCarousel() {
     exit: (d) => ({ opacity: 0, x: d > 0 ? -60 : 60 }),
   };
 
+  const { t: tr } = useTranslation();
   const t = TESTIMONIALS[index];
 
   return (
@@ -118,10 +120,10 @@ export default function TestimonialsCarousel() {
         {/* Overline */}
         <div className="text-center mb-10">
           <div className="font-mono text-[11px] tracking-[0.3em] text-[#C0392B] uppercase mb-3">
-            // CLIENT VOICES
+            {tr("testimonials.overline")}
           </div>
           <h2 className="font-display text-2xl md:text-3xl text-white">
-            What our clients say
+            {tr("testimonials.title")}
           </h2>
         </div>
 
