@@ -59,8 +59,8 @@ export default function Navigation() {
       initial={{ y: -32, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass-strong border-b border-white/5" : "bg-[#0A0A0E]/60 backdrop-blur-md"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white ${
+        scrolled ? "shadow-md border-b border-gray-100" : "border-b border-gray-200/60"
       }`}
       data-testid="main-nav"
     >
@@ -77,7 +77,7 @@ export default function Navigation() {
               data-testid={`nav-link-${l.to.replace(/\//g, "") || "home"}`}
               className={({ isActive }) =>
                 `relative px-3.5 py-2 text-sm font-medium tracking-wide transition-colors ${
-                  isActive ? "text-white" : "text-zinc-400 hover:text-white"
+                  isActive ? "text-[#C0392B]" : "text-zinc-600 hover:text-zinc-900"
                 } group`
               }
             >
@@ -97,7 +97,7 @@ export default function Navigation() {
 
         <div className="flex items-center gap-3">
           <div
-            className="hidden md:flex items-center glass rounded-full p-0.5 text-[11px] font-mono tracking-widest"
+            className="hidden md:flex items-center border border-gray-200 rounded-full p-0.5 text-[11px] font-mono tracking-widest bg-gray-50"
             data-testid="lang-toggle"
             role="group"
             aria-label="Language selector"
@@ -111,7 +111,7 @@ export default function Navigation() {
                 className={`px-2.5 py-1 rounded-full transition-all ${
                   activeLang === lang
                     ? "bg-[#C0392B] text-white"
-                    : "text-zinc-400 hover:text-white"
+                    : "text-zinc-500 hover:text-zinc-800"
                 }`}
               >
                 {lang}
@@ -119,13 +119,13 @@ export default function Navigation() {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-1.5 text-zinc-500">
+          <div className="hidden md:flex items-center gap-1.5 text-zinc-400">
             <a
               href="https://www.facebook.com/profile.php?id=61582917112897"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="w-8 h-8 rounded-full grid place-items-center hover:text-white hover:bg-white/5 transition"
+              className="w-8 h-8 rounded-full grid place-items-center hover:text-[#C0392B] hover:bg-red-50 transition"
               data-testid="nav-facebook"
             >
               <Facebook size={15} />
@@ -135,7 +135,7 @@ export default function Navigation() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="w-8 h-8 rounded-full grid place-items-center hover:text-white hover:bg-white/5 transition"
+              className="w-8 h-8 rounded-full grid place-items-center hover:text-[#C0392B] hover:bg-red-50 transition"
               data-testid="nav-linkedin"
             >
               <Linkedin size={15} />
@@ -144,7 +144,7 @@ export default function Navigation() {
 
           <button
             onClick={() => setOpen((o) => !o)}
-            className="lg:hidden w-10 h-10 grid place-items-center text-white"
+            className="lg:hidden w-10 h-10 grid place-items-center text-zinc-700 hover:text-zinc-900"
             data-testid="mobile-menu-toggle"
             aria-label="menu"
           >
@@ -159,7 +159,7 @@ export default function Navigation() {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            className="lg:hidden glass-strong border-t border-white/5"
+            className="lg:hidden bg-white border-t border-gray-100 shadow-lg"
             data-testid="mobile-menu"
           >
             <div className="px-6 py-4 flex flex-col gap-1">
@@ -169,8 +169,8 @@ export default function Navigation() {
                   to={l.to}
                   data-testid={`mobile-nav-link-${l.to.replace(/\//g, "") || "home"}`}
                   className={({ isActive }) =>
-                    `px-3 py-3 text-base rounded-md ${
-                      isActive ? "text-white bg-white/5" : "text-zinc-400"
+                    `px-3 py-3 text-base rounded-md font-medium ${
+                      isActive ? "text-[#C0392B] bg-red-50" : "text-zinc-600 hover:text-zinc-900 hover:bg-gray-50"
                     }`
                   }
                 >
@@ -187,7 +187,7 @@ export default function Navigation() {
                     className={`px-3 py-1 rounded-full text-xs font-mono tracking-widest transition-all ${
                       activeLang === lang
                         ? "bg-[#C0392B] text-white"
-                        : "text-zinc-400 glass"
+                        : "text-zinc-500 border border-gray-200 hover:text-zinc-800"
                     }`}
                   >
                     {lang}
