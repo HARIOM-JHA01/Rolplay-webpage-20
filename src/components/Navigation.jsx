@@ -1,7 +1,22 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Facebook, Linkedin } from "lucide-react";
+import { Menu, X, Facebook, Linkedin, Brain, PhoneCall, ExternalLink } from "lucide-react";
+
+const PRODUCT_LINKS = [
+  {
+    label: "Second Brain",
+    href: "https://second-brain-shz8.onrender.com/",
+    Icon: Brain,
+    testid: "nav-second-brain",
+  },
+  {
+    label: "CallMentor AI",
+    href: "https://callmentorai-rolplay.vercel.app/",
+    Icon: PhoneCall,
+    testid: "nav-callmentor",
+  },
+];
 import { useTranslation } from "react-i18next";
 
 const Logo = () => (
@@ -95,7 +110,29 @@ export default function Navigation() {
           ))}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
+
+          {/* ── Product quick-links ─────────────────────── */}
+          <div className="hidden lg:flex items-center gap-1.5 mr-1">
+            {PRODUCT_LINKS.map(({ label, href, Icon, testid }) => (
+              <a
+                key={testid}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid={testid}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wide border border-gray-200 text-zinc-600 hover:border-[#C0392B] hover:text-[#C0392B] hover:bg-red-50 transition-all duration-200 group"
+              >
+                <Icon size={12} strokeWidth={2.2} />
+                {label}
+                <ExternalLink size={9} className="opacity-0 group-hover:opacity-60 transition-opacity" />
+              </a>
+            ))}
+          </div>
+
+          {/* ── Thin separator ──────────────────────────── */}
+          <div className="hidden lg:block w-px h-5 bg-gray-200 mx-1" />
+
           <div
             className="hidden md:flex items-center border border-gray-200 rounded-full p-0.5 text-[11px] font-mono tracking-widest bg-gray-50"
             data-testid="lang-toggle"
@@ -177,6 +214,27 @@ export default function Navigation() {
                   {l.label}
                 </NavLink>
               ))}
+              {/* Product links in mobile menu */}
+              <div className="mt-3 pt-3 border-t border-gray-100">
+                <div className="px-3 mb-2 text-[10px] font-mono tracking-[0.2em] text-zinc-400 uppercase">
+                  Productos
+                </div>
+                {PRODUCT_LINKS.map(({ label, href, Icon, testid }) => (
+                  <a
+                    key={testid}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid={`mobile-${testid}`}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium text-zinc-600 hover:text-[#C0392B] hover:bg-red-50 transition-colors"
+                  >
+                    <Icon size={15} strokeWidth={2} className="text-[#C0392B]" />
+                    {label}
+                    <ExternalLink size={11} className="ml-auto text-zinc-300" />
+                  </a>
+                ))}
+              </div>
+
               <div className="flex items-center gap-2 mt-3 px-3">
                 {["EN", "ES"].map((lang) => (
                   <button
