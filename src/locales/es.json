@@ -266,9 +266,9 @@
     ]
   },
   "access": {
-    "title": "Bienvenido a la Demo",
+    "title": "Bienvenido a nuestra Demo",
     "subtitle": "Ingresa tus credenciales para acceder a la plataforma Rolplay",
-    "roleLabel": "Rol del Puesto",
+    "roleLabel": "Rol/Puesto",
     "rolePlaceholder": "Selecciona tu rol",
     "emailLabel": "Correo Electrónico",
     "emailPlaceholder": "tu@correo.com",
