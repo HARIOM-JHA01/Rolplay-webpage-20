@@ -4,26 +4,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Facebook, Linkedin, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const SecondBrainLogo = ({ size = 14 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-    <path d="M12 3C8.5 3 6 5.5 6 8.5c0 1.5.5 2.8 1.4 3.8C6.5 13.2 6 14.5 6 16c0 2.8 2.2 5 5 5h2c2.8 0 5-2.2 5-5 0-1.5-.5-2.8-1.4-3.7C17.5 11.3 18 10 18 8.5 18 5.5 15.5 3 12 3z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <circle cx="9" cy="9" r="1" fill="currentColor"/>
-    <circle cx="15" cy="9" r="1" fill="currentColor"/>
-    <circle cx="12" cy="13" r="1" fill="currentColor"/>
-    <line x1="9" y1="9" x2="12" y2="13" stroke="currentColor" strokeWidth="0.8"/>
-    <line x1="15" y1="9" x2="12" y2="13" stroke="currentColor" strokeWidth="0.8"/>
-    <line x1="9" y1="9" x2="15" y2="9" stroke="currentColor" strokeWidth="0.8"/>
-  </svg>
+/* ── Second Brain logo image ── */
+const SecondBrainLogo = ({ size = 20 }) => (
+  <img
+    src="/second-brain-logo.jpg"
+    alt="Second Brain"
+    width={size}
+    height={size}
+    style={{ objectFit: "contain", display: "inline-block" }}
+    draggable={false}
+  />
 );
 
-const CallMentorLogo = ({ size = 14 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-    <path d="M12 4C8.7 4 6 6.7 6 10c0 2 .9 3.7 2.3 4.9L8 18h8l-.3-3.1C17.1 13.7 18 12 18 10c0-3.3-2.7-6-6-6z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <line x1="8" y1="18" x2="16" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <line x1="10" y1="20" x2="14" y2="20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-    <line x1="10" y1="10" x2="14" y2="10" stroke="currentColor" strokeWidth="1" strokeDasharray="1 1"/>
-    <line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" strokeWidth="1" strokeDasharray="1 1"/>
-  </svg>
+/* ── CallMentor AI logo image ── */
+const CallMentorLogo = ({ size = 20 }) => (
+  <img
+    src="/callmentor-logo.jpg"
+    alt="CallMentor AI"
+    width={size}
+    height={size}
+    style={{ objectFit: "contain", display: "inline-block" }}
+    draggable={false}
+  />
 );
 
 const PRODUCT_LINKS = [
@@ -145,7 +147,7 @@ export default function Navigation() {
                 data-testid={testid}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wide border border-gray-200 text-zinc-600 hover:border-[#C0392B] hover:text-[#C0392B] hover:bg-red-50 transition-all duration-200 group"
               >
-                <Icon size={12} strokeWidth={2.2} />
+                <Icon size={20} />
                 {label}
                 <ExternalLink size={9} className="opacity-0 group-hover:opacity-60 transition-opacity" />
               </a>
@@ -250,7 +252,7 @@ export default function Navigation() {
                     data-testid={`mobile-${testid}`}
                     className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium text-zinc-600 hover:text-[#C0392B] hover:bg-red-50 transition-colors"
                   >
-                    <Icon size={15} strokeWidth={2} className="text-[#C0392B]" />
+                    <Icon size={22} />
                     {label}
                     <ExternalLink size={11} className="ml-auto text-zinc-300" />
                   </a>
