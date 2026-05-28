@@ -2,8 +2,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 export default function ContactForm({ variant = "compact" }) {
+  const { t } = useTranslation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -50,7 +52,7 @@ export default function ContactForm({ variant = "compact" }) {
           className="rounded-full bg-[#C0392B] hover:bg-[#A93226] text-white text-sm font-medium px-6 py-3 flex items-center gap-2 shadow-[0_0_24px_rgba(192,57,43,0.4)] transition-all"
           data-testid="contact-submit-btn"
         >
-          {loading ? "Sending…" : "Send"} <ArrowRight size={14} />
+          {loading ? t("contact.sending") : t("contact.send")} <ArrowRight size={14} />
         </motion.button>
       </form>
     );

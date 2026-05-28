@@ -3,37 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const TESTIMONIALS = [
-  {
-    quote:
-      "Rolplay transformed how our 2,000+ reps practice objection handling. Close rates improved measurably within 90 days.",
-    author: "VP of Commercial Excellence",
-    company: "Global Pharmaceutical — Top 5 Worldwide",
-    region: "LATAM",
-  },
-  {
-    quote:
-      "The AI coach gives our team the repetitions they need without the judgment. Our reps arrive to client meetings genuinely prepared.",
-    author: "National Sales Director",
-    company: "Energy Sector — Fortune 500",
-    region: "Mexico",
-  },
-  {
-    quote:
-      "We replaced three separate training vendors with Rolplay. The ROI was visible in the first quarter.",
-    author: "Chief Revenue Officer",
-    company: "Financial Services — Regional Leader",
-    region: "Canada",
-  },
-  {
-    quote:
-      "Consistency across 41 markets was our challenge. Rolplay solved it. Every rep now follows the same proven methodology.",
-    author: "Head of Sales Enablement",
-    company: "Consumer Goods — Multinational",
-    region: "North America",
-  },
-];
-
 const AUTOPLAY_INTERVAL = 4000;
 
 export default function TestimonialsCarousel() {
@@ -42,13 +11,17 @@ export default function TestimonialsCarousel() {
   const timerRef = useRef(null);
   const pointerStartX = useRef(null);
 
+  const { t: tr } = useTranslation();
+  const items = tr("testimonials.items", { returnObjects: true });
+  const itemCount = Array.isArray(items) ? items.length : 1;
+
   const go = useCallback(
     (next) => {
-      const clamped = ((next % TESTIMONIALS.length) + TESTIMONIALS.length) % TESTIMONIALS.length;
+      const clamped = ((next % itemCount) + itemCount) % itemCount;
       setDirection(clamped > index ? 1 : -1);
       setIndex(clamped);
     },
-    [index]
+    [index, itemCount]
   );
 
   const prev = useCallback(() => go(index - 1), [go, index]);
@@ -58,19 +31,19 @@ export default function TestimonialsCarousel() {
   useEffect(() => {
     timerRef.current = setInterval(() => {
       setDirection(1);
-      setIndex((i) => (i + 1) % TESTIMONIALS.length);
+      setIndex((i) => (i + 1) % itemCount);
     }, AUTOPLAY_INTERVAL);
     return () => clearInterval(timerRef.current);
-  }, []);
+  }, [itemCount]);
 
   // Restart timer on manual nav
   const resetTimer = useCallback(() => {
     clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
       setDirection(1);
-      setIndex((i) => (i + 1) % TESTIMONIALS.length);
+      setIndex((i) => (i + 1) % itemCount);
     }, AUTOPLAY_INTERVAL);
-  }, []);
+  }, [itemCount]);
 
   const handlePrev = () => { prev(); resetTimer(); };
   const handleNext = () => { next(); resetTimer(); };
@@ -98,8 +71,7 @@ export default function TestimonialsCarousel() {
     exit: (d) => ({ opacity: 0, x: d > 0 ? -60 : 60 }),
   };
 
-  const { t: tr } = useTranslation();
-  const t = TESTIMONIALS[index];
+  const testimonial = Array.isArray(items) ? items[index] : {};
 
   return (
     <section
@@ -160,17 +132,17 @@ export default function TestimonialsCarousel() {
 
               <blockquote className="glass rounded-2xl p-8 md:p-12">
                 <p className="font-display text-xl md:text-2xl lg:text-3xl leading-snug text-white break-words">
-                  {t.quote}
+                  {testimonial.quote}
                 </p>
                 <footer className="mt-8 flex flex-wrap items-center justify-between gap-4">
                   <div>
-                    <div className="text-sm font-semibold text-white">{t.author}</div>
+                    <div className="text-sm font-semibold text-white">{testimonial.author}</div>
                     <div className="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase mt-0.5">
-                      {t.company}
+                      {testimonial.company}
                     </div>
                   </div>
                   <div className="px-3 py-1 rounded-full border border-[#C0392B]/40 font-mono text-[10px] tracking-[0.2em] text-[#C0392B] uppercase">
-                    {t.region}
+                    {testimonial.region}
                   </div>
                 </footer>
               </blockquote>
@@ -181,12 +153,12 @@ export default function TestimonialsCarousel() {
           <div className="mt-8 flex items-center justify-between">
             {/* Dots */}
             <div className="flex items-center gap-2" role="tablist" aria-label="Testimonial slides">
-              {TESTIMONIALS.map((_, i) => (
+              {Array.from({ length: itemCount }).map((_, i) => (
                 <button
                   key={i}
                   role="tab"
                   aria-selected={i === index}
-                  aria-label={`Testimonial ${i + 1} of ${TESTIMONIALS.length}`}
+                  aria-label={`Testimonial ${i + 1} of ${itemCount}`}
                   onClick={() => { go(i); resetTimer(); }}
                   className={`rounded-full transition-all duration-300 ${
                     i === index

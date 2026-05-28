@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MicOff, X, PhoneOff } from "lucide-react";
 import { useConversation } from "@11labs/react";
+import { useTranslation } from "react-i18next";
 
 /* ── Custom AI voice waveform icon ───────────────────────── */
 const WaveformIcon = ({ size = 26, className = "" }) => (
@@ -25,6 +26,7 @@ const WaveformIcon = ({ size = 26, className = "" }) => (
 const AGENT_ID = process.env.REACT_APP_ELEVENLABS_AGENT_ID || "";
 
 function VoicePanel({ onClose }) {
+  const { t } = useTranslation();
   const conversation = useConversation({
     onError: (err) => console.error("ElevenLabs:", err),
   });
@@ -70,17 +72,15 @@ function VoicePanel({ onClose }) {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 40, scale: 0.95 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed bottom-6 right-6 z-50 w-[300px] glass-strong rounded-2xl border border-[#C0392B]/30 overflow-hidden"
+        className="fixed bottom-6 right-6 z-50 w-[300px] glass-strong rounded-2xl border border-white/10 overflow-hidden"
         data-testid="elevenlabs-panel"
       >
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/5">
           <div>
-            <div className="font-display text-lg">
-              <span className="text-[#C0392B]">Rol</span>Play AI
-            </div>
-            <div className="font-mono text-[9px] tracking-[0.2em] text-zinc-500 uppercase">
-              Voice Assistant
+            <img src="/logo.png" alt="RolPlay" className="h-7 w-auto" />
+            <div className="font-mono text-[9px] tracking-[0.2em] text-zinc-500 uppercase mt-1">
+              {t("voice.title")}
             </div>
           </div>
           <button
@@ -142,9 +142,9 @@ function VoicePanel({ onClose }) {
 
           {/* Status label */}
           <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase text-center min-h-[16px]">
-            {isConnecting && "Connecting…"}
-            {isConnected && (isSpeaking ? "Agent speaking…" : "Listening…")}
-            {!isConnected && !isConnecting && "Tap to start"}
+            {isConnecting && t("voice.connecting")}
+            {isConnected && (isSpeaking ? t("voice.agentSpeaking") : t("voice.listening"))}
+            {!isConnected && !isConnecting && t("voice.tapToStart")}
           </div>
 
           {/* Action button */}
@@ -155,7 +155,7 @@ function VoicePanel({ onClose }) {
               className="flex items-center gap-2 px-7 py-3 rounded-full bg-white/10 border border-white/10 text-white text-sm font-semibold hover:bg-red-900/30 hover:border-[#C0392B]/40 transition-all disabled:opacity-50"
             >
               <PhoneOff size={15} />
-              End Call
+              {t("voice.endCall")}
             </button>
           ) : (
             <button
@@ -163,12 +163,12 @@ function VoicePanel({ onClose }) {
               className="flex items-center gap-2 px-7 py-3 rounded-full bg-[#C0392B] text-white text-sm font-semibold hover:bg-[#E74C3C] transition-colors shadow-[0_0_24px_rgba(192,57,43,0.4)]"
             >
               <WaveformIcon size={15} className="text-white" />
-              Start Conversation
+              {t("voice.startConversation")}
             </button>
           )}
 
           <p className="text-[10px] text-zinc-600 text-center leading-relaxed">
-            Your microphone will be requested.<br />Speak naturally — the AI responds with voice.
+            {t("voice.micNote")}
           </p>
         </div>
       </motion.div>

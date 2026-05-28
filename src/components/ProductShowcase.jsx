@@ -83,7 +83,7 @@ export default function ProductShowcase() {
         <SectionHeader
           overline={t("products.overline")}
           title={t("products.title")}
-          redWord="mission"
+          redWord={t("products.redWord")}
           body={t("products.body")}
         />
 

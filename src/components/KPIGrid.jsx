@@ -29,7 +29,7 @@ function useCountUp(target, duration = 1800, inView) {
   return count;
 }
 
-function KPIStat({ value, suffix, label, delay }) {
+function KPIStat({ value, prefix, suffix, label, delay }) {
   const [inView, setInView] = useState(false);
   const ref = useRef(null);
   const count = useCountUp(value, 2000, inView);
@@ -63,8 +63,9 @@ function KPIStat({ value, suffix, label, delay }) {
     >
       <div
         className="font-display text-6xl md:text-7xl leading-none text-white group-hover:text-[#C0392B] transition-colors duration-500"
-        aria-label={`${value}${suffix}`}
+        aria-label={`${prefix}${value}${suffix}`}
       >
+        <span className="text-[#C0392B]">{prefix}</span>
         {display}
         <span className="text-[#C0392B]">{suffix}</span>
       </div>
@@ -105,6 +106,7 @@ export default function KPIGrid() {
               <KPIStat
                 key={i}
                 value={stat.value}
+                prefix={stat.prefix ?? ""}
                 suffix={stat.suffix}
                 label={stat.label}
                 delay={i * 0.1}

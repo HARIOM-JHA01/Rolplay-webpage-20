@@ -1,5 +1,6 @@
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Building2, Globe, Play } from "lucide-react";
+import { Building2, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import PageShell from "@/components/PageShell";
 import NeuralNetwork from "@/components/NeuralNetwork";
@@ -8,82 +9,126 @@ import SectionHeader from "@/components/SectionHeader";
 import { PrimaryCTA } from "@/components/CTAButton";
 import VideoPlayer from "@/components/VideoPlayer";
 
-const locationCoords = [
-  { city: "Toronto", country: "Canada", x: 38, y: 28 },
-  { city: "Monterrey", country: "Mexico", x: 30, y: 48 },
-  { city: "Ciudad de México", country: "Mexico", x: 32, y: 56 },
+const TIMELINE = [
+  { year: "2007", event: "Fundación de Audioweb, empresa precursora de Rolplay." },
+  { year: "2013", event: "Incidente desarrollo de soluciones de e-learning y simuladores comerciales." },
+  { year: "2018", event: "Inicio de los primeros workshops, conferencias y e-learning." },
+  { year: "2019", event: "IA y Ventas — primeros reconocimientos." },
+  { year: "2020", event: "Renovación de centros virtuales y e-learning." },
+  { year: "2020", event: "Inicio de desarrollo de IA conversacional." },
+  { year: "2020", event: "Las innovaciones llevan a Rolplay a ser finalista en Hallivas." },
+  { year: "2021", event: "Rolplay llega a Canadá. Launcha Startup y Comercial." },
+  { year: "2022", event: "Desarrollo de startups. Inicio de la expansión hacia Tres Pinos." },
+  { year: "2023", event: "Cuenta con ley para expandir la empresa en distintas ciudades." },
+  { year: "2023", event: "Integración de IA a los entrenamientos en distintas plataformas." },
+  { year: "2024", event: "Otros hitos importantes en casos de éxito de IA, training 2024." },
 ];
 
-function GlobeViz() {
+function TimelineSlider() {
+  const trackRef = useRef(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const updateScrollState = useCallback(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 1);
+  }, []);
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", updateScrollState, { passive: true });
+    updateScrollState();
+    return () => el.removeEventListener("scroll", updateScrollState);
+  }, [updateScrollState]);
+
+  const handlePointerDown = (e) => {
+    isDragging.current = true;
+    startX.current = e.pageX - trackRef.current.offsetLeft;
+    scrollLeft.current = trackRef.current.scrollLeft;
+    trackRef.current.style.cursor = "grabbing";
+    trackRef.current.setPointerCapture(e.pointerId);
+  };
+
+  const handlePointerMove = (e) => {
+    if (!isDragging.current) return;
+    const x = e.pageX - trackRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.2;
+    trackRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  const handlePointerUp = () => {
+    isDragging.current = false;
+    if (trackRef.current) trackRef.current.style.cursor = "grab";
+  };
+
+  const scrollBy = (dir) => {
+    trackRef.current?.scrollBy({ left: dir * 280, behavior: "smooth" });
+  };
+
   return (
-    <div className="relative aspect-square w-full max-w-[460px] mx-auto" data-testid="about-globe">
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-0 rounded-full border border-dashed border-[#C0392B]/30"
-      />
-      <motion.div
-        animate={{ rotate: -360 }}
-        transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-3 rounded-full border border-[#C0392B]/20"
-      />
-      <svg viewBox="0 0 200 200" className="absolute inset-6 w-[calc(100%-3rem)] h-[calc(100%-3rem)]">
-        <defs>
-          <radialGradient id="globeFill" cx="35%" cy="35%" r="70%">
-            <stop offset="0%" stopColor="#1a1a26" />
-            <stop offset="60%" stopColor="#0a0a14" />
-            <stop offset="100%" stopColor="#050508" />
-          </radialGradient>
-          <radialGradient id="globeGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="80%" stopColor="rgba(192,57,43,0)" />
-            <stop offset="100%" stopColor="rgba(192,57,43,0.25)" />
-          </radialGradient>
-        </defs>
-        <circle cx="100" cy="100" r="92" fill="url(#globeFill)" stroke="rgba(192,57,43,0.35)" strokeWidth="0.5" />
-        <circle cx="100" cy="100" r="92" fill="url(#globeGlow)" />
-        {[30, 60, 100, 140, 170].map((y, i) => {
-          const dy = Math.abs(y - 100);
-          const w = Math.sqrt(92 * 92 - dy * dy);
-          return (
-            <line key={i} x1={100 - w} x2={100 + w} y1={y} y2={y}
-              stroke="rgba(192,57,43,0.25)" strokeWidth="0.5" />
-          );
-        })}
-        {[-60, -30, 0, 30, 60].map((deg) => (
-          <ellipse
-            key={deg}
-            cx="100" cy="100"
-            rx={Math.abs(92 * Math.cos((deg * Math.PI) / 180))}
-            ry="92"
-            fill="none"
-            stroke="rgba(192,57,43,0.18)"
-            strokeWidth="0.4"
-          />
-        ))}
-        <line x1="8" x2="192" y1="100" y2="100" stroke="rgba(192,57,43,0.5)" strokeWidth="0.6" />
-      </svg>
-      {locationCoords.map((l, i) => (
-        <motion.div
-          key={l.city}
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 + i * 0.2, type: "spring", stiffness: 180 }}
-          className="absolute z-10"
-          style={{ left: `${l.x}%`, top: `${l.y}%` }}
+    <div className="relative">
+      {/* Scroll arrows */}
+      {canScrollLeft && (
+        <button
+          onClick={() => scrollBy(-1)}
+          aria-label="Scroll left"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-9 h-9 rounded-full glass grid place-items-center text-zinc-400 hover:text-white border border-white/10 hover:border-[#C0392B]/40 transition-all"
         >
-          <div className="relative">
-            <span
-              className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#C0392B]/40"
-              style={{ width: 22, height: 22, animation: "pulse-red 2s ease-in-out infinite" }}
-            />
-            <span className="relative block w-3 h-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#C0392B] shadow-[0_0_15px_rgba(192,57,43,0.9)]" />
-            <div className="absolute left-3 top-0 ml-1 whitespace-nowrap font-mono text-[10px] tracking-[0.2em] text-white uppercase glass rounded-full px-2.5 py-1">
-              {l.city}
-            </div>
-          </div>
-        </motion.div>
-      ))}
+          ‹
+        </button>
+      )}
+      {canScrollRight && (
+        <button
+          onClick={() => scrollBy(1)}
+          aria-label="Scroll right"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-9 h-9 rounded-full glass grid place-items-center text-zinc-400 hover:text-white border border-white/10 hover:border-[#C0392B]/40 transition-all"
+        >
+          ›
+        </button>
+      )}
+
+      {/* Track */}
+      <div
+        ref={trackRef}
+        className="overflow-x-auto scrollbar-none cursor-grab select-none pb-6"
+        style={{ WebkitOverflowScrolling: "touch" }}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={handlePointerUp}
+      >
+        <div className="flex gap-0 relative" style={{ width: `${TIMELINE.length * 220}px` }}>
+          {/* Connecting line */}
+          <div className="absolute top-[28px] left-10 right-10 h-px bg-[#C0392B]/25 pointer-events-none" />
+
+          {TIMELINE.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.04 }}
+              className="flex flex-col items-center"
+              style={{ width: 220, flexShrink: 0, paddingLeft: 12, paddingRight: 12 }}
+            >
+              {/* Dot */}
+              <div className="relative z-10 w-4 h-4 rounded-full bg-[#C0392B] border-2 border-[#C0392B]/50 shadow-[0_0_10px_rgba(192,57,43,0.6)] mb-4" />
+
+              {/* Card */}
+              <div className="glass rounded-xl p-4 w-full border border-white/5 hover:border-[#C0392B]/30 transition-all duration-300">
+                <div className="font-display text-2xl text-[#C0392B] mb-2">{item.year}</div>
+                <p className="text-xs text-zinc-400 leading-relaxed">{item.event}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
@@ -105,7 +150,7 @@ export default function About() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <div className="font-mono text-[11px] tracking-[0.3em] text-[#C0392B] uppercase mb-5 flex items-center gap-3">
               <span className="w-10 h-px bg-[#C0392B]" />
-              {t("about.overline")} · EST. 2002
+              {t("about.overline")} · {t("about.estBadge")}
             </div>
             <h1 className="font-display text-[clamp(3rem,8.5vw,8rem)] leading-[0.9] tracking-tighter" data-testid="about-headline">
               {t("about.title").split("RolPlay").map((part, i, arr) =>
@@ -157,9 +202,9 @@ export default function About() {
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6">
             <SectionHeader
-              overline="OUR REASON FOR BEING"
+              overline={t("about.missionOverline")}
               title={t("about.mission")}
-              redWord="Mission"
+              redWord={t("about.missionRedWord")}
               body={t("about.missionText")}
             />
             <div className="mt-8">
@@ -168,40 +213,51 @@ export default function About() {
           </div>
           <div className="lg:col-span-6">
             <VideoPlayer
-              iframeSrc="https://www.youtube.com/embed/Kc6hkD61E28"
+              src="/about-mission.mp4"
               title={t("about.mission")}
             />
           </div>
         </div>
       </section>
 
-      {/* GLOBE */}
-      <section className="relative py-32 border-t border-white/5 overflow-hidden" data-testid="about-globe-section">
-        <div
-          className="absolute inset-0 pointer-events-none opacity-50"
-          style={{ background: "radial-gradient(ellipse at center, rgba(192,57,43,0.15), transparent 60%)" }}
-        />
-        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <SectionHeader
-              overline="OUR FOOTPRINT"
-              title="Three offices. One vision."
-              redWord="One vision."
-              body="From Toronto to Mexico City, our teams partner with leading companies to redefine how sales is taught, practiced and measured."
-            />
-            <div className="mt-8 space-y-3">
-              {locationCoords.map((l) => (
-                <div key={l.city} className="flex items-center gap-4 glass rounded-2xl px-5 py-4">
-                  <MapPin size={18} className="text-[#C0392B]" />
-                  <div>
-                    <div className="font-display text-xl">{l.city}</div>
-                    <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase">{l.country}</div>
-                  </div>
-                </div>
-              ))}
+      {/* FLASHCARDS */}
+      <section className="relative py-24 border-t border-white/5" data-testid="about-flashcards">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <GlassCard className="p-10 h-full">
+              <div className="font-display text-2xl md:text-3xl leading-tight mb-4">
+                Reconocimiento <span className="text-[#C0392B]">Global</span>
+              </div>
+              <p className="text-zinc-400 leading-relaxed">
+                {t("about.flashcard1Body")}
+              </p>
+            </GlassCard>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}>
+            <GlassCard className="p-10 h-full">
+              <div className="font-display text-2xl md:text-3xl leading-tight mb-4">
+                Presencia <span className="text-[#C0392B]">Internacional</span>
+              </div>
+              <p className="text-zinc-400 leading-relaxed">
+                {t("about.flashcard2Body")}
+              </p>
+            </GlassCard>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* TIMELINE */}
+      <section className="relative py-24 border-t border-white/5 overflow-hidden" data-testid="about-timeline">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+          <div className="text-center mb-12">
+            <div className="font-mono text-[11px] tracking-[0.3em] text-[#C0392B] uppercase mb-3">
+              {t("about.timelineOverline")}
             </div>
+            <h2 className="font-display text-2xl md:text-3xl text-white">
+              {t("about.timelineTitle")}
+            </h2>
           </div>
-          <GlobeViz />
+          <TimelineSlider />
         </div>
       </section>
     </PageShell>

@@ -1,23 +1,45 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Facebook, Linkedin, Brain, PhoneCall, ExternalLink } from "lucide-react";
+import { Menu, X, Facebook, Linkedin, ExternalLink } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
+const SecondBrainLogo = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <path d="M12 3C8.5 3 6 5.5 6 8.5c0 1.5.5 2.8 1.4 3.8C6.5 13.2 6 14.5 6 16c0 2.8 2.2 5 5 5h2c2.8 0 5-2.2 5-5 0-1.5-.5-2.8-1.4-3.7C17.5 11.3 18 10 18 8.5 18 5.5 15.5 3 12 3z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <circle cx="9" cy="9" r="1" fill="currentColor"/>
+    <circle cx="15" cy="9" r="1" fill="currentColor"/>
+    <circle cx="12" cy="13" r="1" fill="currentColor"/>
+    <line x1="9" y1="9" x2="12" y2="13" stroke="currentColor" strokeWidth="0.8"/>
+    <line x1="15" y1="9" x2="12" y2="13" stroke="currentColor" strokeWidth="0.8"/>
+    <line x1="9" y1="9" x2="15" y2="9" stroke="currentColor" strokeWidth="0.8"/>
+  </svg>
+);
+
+const CallMentorLogo = ({ size = 14 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <path d="M12 4C8.7 4 6 6.7 6 10c0 2 .9 3.7 2.3 4.9L8 18h8l-.3-3.1C17.1 13.7 18 12 18 10c0-3.3-2.7-6-6-6z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <line x1="8" y1="18" x2="16" y2="18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <line x1="10" y1="20" x2="14" y2="20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <line x1="10" y1="10" x2="14" y2="10" stroke="currentColor" strokeWidth="1" strokeDasharray="1 1"/>
+    <line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" strokeWidth="1" strokeDasharray="1 1"/>
+  </svg>
+);
 
 const PRODUCT_LINKS = [
   {
     label: "Second Brain",
     href: "https://second-brain-shz8.onrender.com/",
-    Icon: Brain,
+    Icon: SecondBrainLogo,
     testid: "nav-second-brain",
   },
   {
     label: "CallMentor AI",
     href: "https://callmentorai-rolplay.vercel.app/",
-    Icon: PhoneCall,
+    Icon: CallMentorLogo,
     testid: "nav-callmentor",
   },
 ];
-import { useTranslation } from "react-i18next";
 
 const Logo = () => (
   <div className="flex items-center group" data-testid="brand-logo">

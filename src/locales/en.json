@@ -22,9 +22,9 @@
   "meet": {
     "overline": "MEET THE PLATFORM",
     "title": "Meet RolPlay",
-    "body": "With a firm commitment to innovation and excellence, we provide tools and insights that empower teams to thrive in a dynamic market environment, ensuring our clients achieve unparalleled success.",
+    "body": "RolPlay is a technology company with 20+ years of expertise in training, coaching and AI-enabled performance evaluation.",
     "aboutCta": "About Us",
-    "badge": "EST. 2002 · MEXICO · CANADA",
+    "badge": "SINCE 2022 · MEXICO · CANADA",
     "videoDuration": "VIDEO · 2:14",
     "recognitionTitle": "Top 20 AI-Based Coaching",
     "recognitionSub": "2025 RECOGNITION"
@@ -45,6 +45,7 @@
     "product05": "PRODUCT 05",
     "product06": "PRODUCT 06",
     "product07": "PRODUCT 07",
+    "redWord": "goal",
     "items": [
       {
         "name": "Master Coach",
@@ -79,7 +80,7 @@
       {
         "name": "CallMentorAI",
         "tag": "LIVE CALLS",
-        "desc": "Real-time AI guidance during live sales calls — whisper coaching that stays invisible to the prospect.",
+        "desc": "Real-time commercial coaching during live sales calls, with intelligent and discreet guidance to improve every conversation.",
         "bullets": ["REAL-TIME AI", "WHISPER COACHING", "LIVE GUIDANCE"]
       },
       {
@@ -97,20 +98,20 @@
     "contactCta": "Contact Us",
     "features": [
       {
-        "title": "Immediate & objective feedback",
-        "body": "Eliminate gut-feel critiques. Replace them with measurable, replayable signal."
+        "title": "Get immediate & actionable feedback",
+        "body": "Identify strengths and areas for improvement instantly, with clear, measurable and consistent signals."
       },
       {
-        "title": "Fair, unbiased evaluations",
-        "body": "Every rep is graded against the same rubric. No favourites, no awkwardness."
+        "title": "Evaluate with consistent criteria",
+        "body": "All reps are measured against the same rubric, ensuring objective and fair comparisons."
       },
       {
-        "title": "Multilingual scenarios",
-        "body": "Train teams in EN, ES, and the languages your customers actually speak."
+        "title": "Train in your market's languages",
+        "body": "Prepare your team in Spanish, English and other key languages to replicate real customer conversations."
       },
       {
-        "title": "Progress you can track",
-        "body": "Skill curves and trend analytics across your entire commercial org."
+        "title": "Track progress across your entire team",
+        "body": "Visualize skill development, detect trends and track the impact of training."
       }
     ]
   },
@@ -122,7 +123,14 @@
   },
   "testimonials": {
     "overline": "// CLIENT VOICES",
-    "title": "What our clients say"
+    "title": "What our clients say",
+    "items": [
+      { "quote": "Thanks to Rolplay, our commercial team notably improved their results in just a few weeks. The customer experience improved remarkably.", "author": "CEO", "company": "Retail Company", "region": "Mexico" },
+      { "quote": "Rolplay improved the confidence and performance of our executives. In just weeks, we increased sales closures by 35%.", "author": "Commercial Manager", "company": "Financial Sector", "region": "LATAM" },
+      { "quote": "We trained 200 advisors in two weeks and reduced service errors by 48%.", "author": "Operations Director", "company": "National Retail Chain", "region": "United States" },
+      { "quote": "The simulators achieved realistic training. Our team communicates with much greater clarity.", "author": "Training Director", "company": "Multinational Pharmaceutical", "region": "Japan" },
+      { "quote": "With Rolplay our engineers practice real scenarios and doubled conversion in quotations.", "author": "Regional Sales Manager", "company": "Industrial B2B Company", "region": "LATAM" }
+    ]
   },
   "globe": {
     "overline": "// GLOBAL PRESENCE",
@@ -139,10 +147,10 @@
     "highlight": "compound",
     "body": "Real performance gains, measured and proven across every client engagement.",
     "stats": [
-      { "value": 100, "suffix": "+", "label": "Corporate Clients" },
-      { "value": 100000, "suffix": "+", "label": "Active Users" },
-      { "value": 20, "suffix": "+", "label": "Years of Expertise" },
-      { "value": 5, "suffix": "%", "label": "Avg. Revenue Lift" }
+      { "value": 5, "prefix": "+", "suffix": "%", "label": "Average Revenue Increase" },
+      { "value": 60, "prefix": "-", "suffix": "%", "label": "Training Cost Reduction" },
+      { "value": 40, "prefix": "-", "suffix": "%", "label": "Less Preparation Time" },
+      { "value": 24, "prefix": "", "suffix": "/7", "label": "Coaching Available for Your Team" }
     ]
   },
   "subscribe": {
@@ -163,7 +171,19 @@
     "body": "We're here to support you!",
     "email": "info@rolplay.ai",
     "phone": "+52 (55) 5093 7376",
-    "locations": "Toronto · Monterrey · CDMX"
+    "locations": "Toronto · Monterrey · CDMX",
+    "send": "Send",
+    "sending": "Sending…"
+  },
+  "voice": {
+    "title": "Voice Assistant",
+    "tapToStart": "Tap to start",
+    "startConversation": "Start Conversation",
+    "endCall": "End Call",
+    "micNote": "Your microphone will be requested. Speak naturally — the AI responds with voice.",
+    "connecting": "Connecting…",
+    "agentSpeaking": "Agent speaking…",
+    "listening": "Listening…"
   },
   "footer": {
     "tagline": "Train your sales force with simulators and artificial intelligence. Trusted by Fortune-ranked companies for over 20 years.",
@@ -180,15 +200,22 @@
   "about": {
     "overline": "ABOUT US",
     "title": "We are RolPlay",
-    "body": "Rolplay is a technology company that transforms commercial performance through AI-powered coaching simulations. We combine behavioral science, conversational AI, and proven sales methodology to deliver measurable results.",
+    "body": "RolPlay is a technology company with comprehensive expertise in training, coaching and performance evaluation, AI-enabled for over 20 years.",
     "mission": "Our Mission",
-    "missionText": "To empower commercial teams with the most effective AI training tools available — helping every rep perform at their best, consistently.",
+    "missionOverline": "OUR REASON FOR BEING",
+    "missionText": "RolPlay converts training into measurable performance through guided practice, AI evaluation and immediate feedback.",
+    "missionRedWord": "Mission",
+    "estBadge": "SINCE 2022",
     "founded": "Founded",
     "foundedYear": "2002",
     "hq": "Headquarters",
     "hqLocation": "Toronto, Canada & Mexico City, Mexico",
     "team": "Team",
-    "teamSize": "50+ professionals"
+    "teamSize": "50+ professionals",
+    "flashcard1Body": "In 2020, we positioned ourselves as winners in a program of the world's largest AI cluster, which led to our expansion to Toronto, Canada.",
+    "flashcard2Body": "More than 100,000 active users and more than 1,000 world-class corporate clients.",
+    "timelineOverline": "// OUR HISTORY",
+    "timelineTitle": "Our Story"
   },
   "benefits": {
     "overline": "BENEFITS",
