@@ -420,7 +420,7 @@ export default function Home() {
             </a>
             <span className="text-zinc-700">·</span>
             <a
-              href="tel:+525550937376"
+              href="tel:+525518006006"
               className="text-zinc-300 hover:text-[#C0392B] transition"
               data-testid="home-contact-phone"
             >

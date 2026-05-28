@@ -89,7 +89,7 @@ export default function Contact() {
           <div className="lg:col-span-5 space-y-4">
             <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mb-2">// DIRECT LINES</div>
             <CopyField label="Email" value="info@rolplay.ai" testid="contact-email-copy" />
-            <CopyField label="Phone" value="+52 (55) 5093 7376" testid="contact-phone-copy" />
+            <CopyField label="Phone" value="+52 55 1800 6006" testid="contact-phone-copy" />
 
             <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mt-8 mb-3">// SOCIAL</div>
             <div className="flex items-center gap-3">
