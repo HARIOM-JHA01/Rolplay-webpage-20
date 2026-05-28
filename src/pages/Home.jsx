@@ -216,7 +216,7 @@ export default function Home() {
                 src="/medal1.jpg"
                 alt={t("awards.badge1")}
                 loading="lazy"
-                className="w-40 h-40 object-contain hover:scale-105 transition-transform duration-300"
+                className="w-64 h-64 object-contain hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_30px_rgba(192,57,43,0.3)]"
               />
               <div className="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase">
                 {t("awards.badge1")}
@@ -233,7 +233,7 @@ export default function Home() {
                 src="/medal2.jpg"
                 alt={t("awards.badge2")}
                 loading="lazy"
-                className="w-40 h-40 object-contain hover:scale-105 transition-transform duration-300"
+                className="w-64 h-64 object-contain hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_30px_rgba(0,180,220,0.2)]"
               />
               <div className="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase">
                 {t("awards.badge2")}

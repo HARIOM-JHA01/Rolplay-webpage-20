@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, Trophy, Sparkles, Play } from "lucide-react";
+import { Sparkles, Play } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import PageShell from "@/components/PageShell";
 import NeuralNetwork from "@/components/NeuralNetwork";
@@ -10,17 +10,21 @@ import { PrimaryCTA } from "@/components/CTAButton";
 const awards = [
   {
     year: "2025",
-    icon: Trophy,
+    medal: "/medal1.jpg",
+    medalAlt: "Training Industry 2025 Top 20 Company",
     title: "Top 20 AI-Based Coaching & Learning Support Tools",
     body: "Rolplay has been recognized in Training Industry's Top 20 AI-Based Coaching and Learning Support Tools for 2025 — a global benchmark for AI-driven training innovation.",
     badge: "TRAINING INDUSTRY · TOP 20",
+    glowColor: "rgba(192,57,43,0.35)",
   },
   {
     year: "2024",
-    icon: Award,
+    medal: "/medal2.jpg",
+    medalAlt: "Training Industry 2024 Watch List Company",
     title: "AI in Training Companies Watch List",
     body: "Rolplay was named on Training Industry's 2024 AI in Training Companies Watch List, marking a year of accelerating innovation and customer impact.",
     badge: "WATCH LIST · 2024",
+    glowColor: "rgba(0,180,220,0.25)",
   },
 ];
 
@@ -57,36 +61,35 @@ export default function Achievements() {
       <section className="relative py-24 border-t border-white/5" data-testid="achievements-awards">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {awards.map((a, i) => {
-              const Icon = a.icon;
-              return (
-                <motion.div
-                  key={a.year}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: i * 0.15 }}
-                  data-testid={`award-card-${i}`}
-                >
-                  <GlassCard className="p-10 h-full relative">
-                    <div className="absolute top-6 right-6 font-display text-7xl text-white/5">
-                      {a.year}
-                    </div>
-                    <div className="w-16 h-16 rounded-2xl grid place-items-center mb-7 relative"
-                      style={{
-                        background: "linear-gradient(135deg, rgba(192,57,43,0.25), rgba(192,57,43,0.05))",
-                        boxShadow: "0 0 30px rgba(192,57,43,0.4), inset 0 0 20px rgba(192,57,43,0.15)",
-                      }}
-                    >
-                      <Icon size={26} className="text-[#C0392B]" />
-                    </div>
-                    <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mb-3">{a.badge}</div>
-                    <h3 className="font-display text-2xl md:text-3xl leading-tight mb-4">{a.title}</h3>
-                    <p className="text-zinc-400 leading-relaxed">{a.body}</p>
-                  </GlassCard>
-                </motion.div>
-              );
-            })}
+            {awards.map((a, i) => (
+              <motion.div
+                key={a.year}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: i * 0.15 }}
+                data-testid={`award-card-${i}`}
+              >
+                <GlassCard className="p-10 h-full relative">
+                  <div className="absolute top-6 right-6 font-display text-7xl text-white/5">
+                    {a.year}
+                  </div>
+                  {/* Medal image — large and prominent */}
+                  <div className="flex justify-center mb-8">
+                    <img
+                      src={a.medal}
+                      alt={a.medalAlt}
+                      loading="lazy"
+                      className="w-52 h-52 object-contain hover:scale-105 transition-transform duration-300"
+                      style={{ filter: `drop-shadow(0 0 24px ${a.glowColor})` }}
+                    />
+                  </div>
+                  <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mb-3">{a.badge}</div>
+                  <h3 className="font-display text-2xl md:text-3xl leading-tight mb-4">{a.title}</h3>
+                  <p className="text-zinc-400 leading-relaxed">{a.body}</p>
+                </GlassCard>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
