@@ -147,7 +147,7 @@ export default function Navigation() {
                 data-testid={testid}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wide border border-gray-200 text-zinc-600 hover:border-[#C0392B] hover:text-[#C0392B] hover:bg-red-50 transition-all duration-200 group"
               >
-                <Icon size={20} />
+                <Icon size={26} />
                 {label}
                 <ExternalLink size={9} className="opacity-0 group-hover:opacity-60 transition-opacity" />
               </a>
@@ -252,7 +252,7 @@ export default function Navigation() {
                     data-testid={`mobile-${testid}`}
                     className="flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium text-zinc-600 hover:text-[#C0392B] hover:bg-red-50 transition-colors"
                   >
-                    <Icon size={22} />
+                    <Icon size={26} />
                     {label}
                     <ExternalLink size={11} className="ml-auto text-zinc-300" />
                   </a>
