@@ -155,12 +155,13 @@ export default function About() {
             <h1 className="font-display text-[clamp(3rem,8.5vw,8rem)] leading-[0.9] tracking-tighter" data-testid="about-headline">
               {t("about.title").split("RolPlay").map((part, i, arr) =>
                 i < arr.length - 1 ? (
-                  <span key={i}>{part}<span className="text-[#C0392B] text-glow-red">RolPlay</span></span>
+                  <span key={i}>{part}<span className="text-[#C0392B] text-glow-red" translate="no">RolPlay</span></span>
                 ) : <span key={i}>{part}</span>
               )}
             </h1>
             <p className="mt-8 text-zinc-300 text-lg md:text-xl max-w-3xl leading-relaxed">
-              {t("about.body")}
+              {t("about.body").split("RolPlay").reduce((nodes, part, i) =>
+                i === 0 ? [part] : [...nodes, <span key={i} translate="no">RolPlay</span>, part], [])}
             </p>
           </motion.div>
         </div>
