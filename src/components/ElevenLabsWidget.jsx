@@ -72,11 +72,11 @@ function VoicePanel({ onClose }) {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 40, scale: 0.95 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed bottom-6 right-6 z-50 w-[300px] glass-strong rounded-2xl border border-white/10 overflow-hidden"
+        className="fixed bottom-6 right-6 z-50 w-[300px] bg-white rounded-2xl border border-gray-200 shadow-xl overflow-hidden"
         data-testid="elevenlabs-panel"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-white/5">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
           <div>
             <img src="/logo.png" alt="RolPlay" className="h-7 w-auto" />
             <div className="font-mono text-[9px] tracking-[0.2em] text-zinc-500 uppercase mt-1">
@@ -86,7 +86,7 @@ function VoicePanel({ onClose }) {
           <button
             onClick={handleClose}
             aria-label="Close"
-            className="w-8 h-8 rounded-full grid place-items-center text-zinc-400 hover:text-white hover:bg-white/10 transition"
+            className="w-8 h-8 rounded-full grid place-items-center text-zinc-400 hover:text-zinc-900 hover:bg-gray-100 transition"
           >
             <X size={16} />
           </button>
@@ -124,7 +124,7 @@ function VoicePanel({ onClose }) {
               className={`relative w-20 h-20 rounded-full grid place-items-center transition-colors duration-500 ${
                 isConnected
                   ? "bg-[#C0392B]"
-                  : "bg-white/5 border border-white/10"
+                  : "bg-gray-100 border border-gray-200"
               }`}
               style={isConnected ? { boxShadow: "0 0 30px rgba(192,57,43,0.5)" } : {}}
             >
@@ -152,7 +152,7 @@ function VoicePanel({ onClose }) {
             <button
               onClick={handleStop}
               disabled={isConnecting}
-              className="flex items-center gap-2 px-7 py-3 rounded-full bg-white/10 border border-white/10 text-white text-sm font-semibold hover:bg-red-900/30 hover:border-[#C0392B]/40 transition-all disabled:opacity-50"
+              className="flex items-center gap-2 px-7 py-3 rounded-full bg-gray-100 border border-gray-200 text-zinc-700 text-sm font-semibold hover:bg-red-50 hover:border-[#C0392B]/40 hover:text-[#C0392B] transition-all disabled:opacity-50"
             >
               <PhoneOff size={15} />
               {t("voice.endCall")}
