@@ -173,7 +173,17 @@
     "phone": "+52 55 1800 6006",
     "locations": "Toronto · Monterrey · CDMX",
     "send": "Send",
-    "sending": "Sending…"
+    "sending": "Sending…",
+    "scheduleCta": "Contact",
+    "directLines": "// DIRECT LINES",
+    "social": "// SOCIAL",
+    "sendMessage": "// SEND US A MESSAGE",
+    "tellUsTitle": "Tell us about your team.",
+    "offices": "OFFICES",
+    "threeCities": "Three cities.",
+    "oneTeam": "One team.",
+    "bookCall": "Book a Call",
+    "chatWhatsApp": "Chat on WhatsApp"
   },
   "voice": {
     "title": "Voice Assistant",
@@ -215,38 +225,144 @@
     "flashcard1Body": "In 2020, we positioned ourselves as winners in a program of the world's largest AI cluster, which led to our expansion to Toronto, Canada.",
     "flashcard2Body": "More than 100,000 active users and more than 1,000 world-class corporate clients.",
     "timelineOverline": "// OUR HISTORY",
-    "timelineTitle": "Our Story"
+    "timelineTitle": "Our Story",
+    "expansionOverline": "// EXPANSION",
+    "expansionTitle": "From Mexico to Toronto.",
+    "expansionTitleRed": "Toronto",
+    "expansionBody": "What began in 2002 as a Mexican innovation has grown into a world-class international operation, with presence in North America and expansion into emerging markets, serving teams across multiple continents.",
+    "clientsOverline": "// CLIENTS",
+    "clientsTitle": "Trusted by world-class corporates.",
+    "clientsTitleRed": "world-class",
+    "clientsBody": "The world's leading companies trust our solutions to transform their team's performance and accelerate their growth."
   },
   "benefits": {
     "overline": "BENEFITS",
     "title": "Built for performance",
     "body": "Every feature of Rolplay is engineered to close the gap between training and real results.",
     "items": [
+      { "title": "Instant AI Feedback", "body": "Reps get objective, detailed feedback immediately after every practice — no waiting, no bias." },
+      { "title": "Unlimited Practice", "body": "Sales scenarios on demand. Reps practice as many times as needed until mastery is achieved." },
+      { "title": "Personalized Coaching", "body": "Every rep's coaching plan is tailored to their individual strengths, gaps and learning pace." },
+      { "title": "Fair Evaluation", "body": "Standardized AI rubrics ensure every rep is measured by the same objective criteria." },
+      { "title": "Multilingual", "body": "Deploy scenarios in English, Spanish or any language your markets demand." },
+      { "title": "Analytics Dashboard", "body": "Track individual and team performance with real-time dashboards and trend reporting." }
+    ]
+  },
+  "benefitsPage": {
+    "heroHeadline": "Built for the moments that close deals.",
+    "heroHeadlineRed": "close deals.",
+    "heroBody": "Training a sales force with artificial intelligence simulators provides immediate and objective feedback, personalizes training scenarios, and allows unlimited practice.",
+    "heroDemoCta": "Request Demo",
+    "corePrinciple": "// CORE PRINCIPLE",
+    "failPrivate": "Fail a thousand times",
+    "failPrivateRed": "in private.",
+    "noJudgement": "NO JUDGEMENT",
+    "objective100": "100% OBJECTIVE",
+    "unlimitedReps": "UNLIMITED REPS",
+    "keyMessage1": "We eliminate the awkwardness and judgment of traditional roleplays between colleagues. We offer a ",
+    "keyMessageRed1": "safe and 100% objective",
+    "keyMessage2": " environment where your team can fail a thousand times with our AI, ensuring they are ",
+    "keyMessageRed2": "flawless",
+    "keyMessage3": " when the moment of truth arrives in front of the client.",
+    "pillarsOverline": "// SIX PILLARS",
+    "pillarsTitle": "What you actually get.",
+    "pillarsTitleRed": "actually get.",
+    "pillarLabel": "PILLAR",
+    "practicePrivate": "Practice the hard parts in private",
+    "practicePrivateRed": "don't fail in public.",
+    "bookCall": "Book a Discovery Call",
+    "seeResults": "See Results",
+    "pillars": [
       {
-        "title": "Instant AI Feedback",
-        "body": "Reps get objective, detailed feedback immediately after every practice — no waiting, no bias."
+        "title": "Unlimited AI Practice",
+        "summary": "Train without limits, whenever you need.",
+        "body": "Train your commercial force as many times as necessary, without depending on schedules, supervisors or in-person sessions. Rolplay allows practice of real conversations in an always-available, scalable environment designed to improve with every interaction."
       },
       {
-        "title": "Unlimited Practice",
-        "body": "Sales scenarios on demand. Reps practice as many times as needed until mastery is achieved."
+        "title": "Immediate and Objective Feedback",
+        "summary": "Clear, unbiased feedback in every session.",
+        "body": "Each practice session generates clear, structured and bias-free feedback. The AI analyzes user performance and delivers actionable insights to improve messaging, objection handling, clarity, confidence and alignment with key messages."
       },
       {
-        "title": "Personalized Coaching",
-        "body": "Every rep's coaching plan is tailored to their individual strengths, gaps and learning pace."
+        "title": "Customized Scenarios for Every Challenge",
+        "summary": "Training tailored to your real world.",
+        "body": "Not all teams sell the same way or face the same challenges. Rolplay adapts training scenarios to your products, industries, client profiles, experience levels and real business situations — making training far more relevant."
       },
       {
-        "title": "Fair Evaluation",
-        "body": "Standardized AI rubrics ensure every rep is measured by the same objective criteria."
+        "title": "A Safe Environment to Learn and Improve",
+        "summary": "Fail in private, win in public.",
+        "body": "We eliminate the awkwardness of traditional roleplay between colleagues. With Rolplay, team members can fail, repeat, correct and perfect their performance without social pressure or judgment, before facing real clients."
       },
       {
-        "title": "Multilingual",
-        "body": "Deploy scenarios in English, Spanish or any language your markets demand."
+        "title": "Preparation for the Moment of Truth",
+        "summary": "Ready for every critical conversation.",
+        "body": "Practice only matters if it improves performance in the field. Rolplay helps each team member arrive better prepared for critical commercial conversations, with greater command of their pitch, better response capability and more confidence in front of clients."
       },
       {
-        "title": "Analytics Dashboard",
-        "body": "Track individual and team performance with real-time dashboards and trend reporting."
+        "title": "Measurable and Scalable Commercial Development",
+        "summary": "Turn training into results.",
+        "body": "Rolplay transforms training into an observable process. Companies can identify progress, knowledge gaps and improvement opportunities — turning commercial training into a continuous, measurable and scalable strategy."
       }
     ]
+  },
+  "achievementsPage": {
+    "overline": "RECOGNITION · GLOBAL",
+    "heroTitle": "Achieve",
+    "heroTitleRed": "ments",
+    "heroBody": "This recognition places us among the world's leading companies in AI-powered training solutions, reaffirming our commitment to transforming how sales teams learn, practice, and achieve real results.",
+    "awards": [
+      {
+        "badge": "TRAINING INDUSTRY · TOP 20",
+        "title": "Top 20 AI-Based Coaching & Learning Support Tools",
+        "body": "Rolplay has been recognized in Training Industry's Top 20 AI-Based Coaching and Learning Support Tools for 2025 — a global benchmark for AI-driven training innovation."
+      },
+      {
+        "badge": "WATCH LIST · 2024",
+        "title": "AI in Training Companies Watch List",
+        "body": "Rolplay was named on Training Industry's 2024 AI in Training Companies Watch List, marking a year of accelerating innovation and customer impact."
+      }
+    ],
+    "quoteText": "Among the world's leading companies in AI-powered training solutions — transforming how sales teams learn, practice and achieve real results.",
+    "caseFilmOverline": "// CASE FILM",
+    "caseFilmTitle": "Watch the story.",
+    "caseFilmTitleRed": "story.",
+    "videoTitle": "Recognition Highlights",
+    "videoDuration": "VIDEO · 3:21",
+    "ctaText": "Be the next success"
+  },
+  "storiesPage": {
+    "overline": "SELECTED CASE STUDIES · CONFIDENTIAL",
+    "heroTitle1": "Success",
+    "heroTitle2": " Stories.",
+    "heroBody": "For confidentiality, our clients are identified only by their global ranking. The results, however, speak for themselves.",
+    "largestGlobally": "LARGEST GLOBALLY",
+    "caseLabel": "CASE",
+    "stories": [
+      {
+        "industry": "ENERGY",
+        "headline": "The 4th largest oil company in the world.",
+        "body": "A global energy leader engaged Rolplay to standardize commercial dialogue across regions and equip thousands of representatives with simulator-driven practice. The result: consistent messaging, higher customer confidence, and a measurable lift in sales close-rates.",
+        "metrics": [
+          { "k": "REGIONS COVERED", "v": "26" },
+          { "k": "REPS TRAINED", "v": "12k+" },
+          { "k": "TIME TO COMPETENCY", "v": "-38%" }
+        ]
+      },
+      {
+        "industry": "PHARMACEUTICAL",
+        "headline": "The 2nd largest pharmaceutical company in the world.",
+        "body": "We sought to standardize sales processes and the messaging created by the training department through a virtual platform that allowed representatives to practice methodology, dialogues, and selling skills…",
+        "metrics": [
+          { "k": "MARKETS", "v": "41" },
+          { "k": "PLAYBOOKS", "v": "180+" },
+          { "k": "REP CONFIDENCE", "v": "+44%" }
+        ]
+      }
+    ],
+    "readyToBegin": "// READY TO BEGIN",
+    "ctaTitle": "Make your team the next success story.",
+    "ctaTitleRed": "success story.",
+    "scheduleDemo": "Schedule a Demo"
   },
   "achievements": {
     "overline": "ACHIEVEMENTS",
@@ -269,6 +385,10 @@
     "overline": "FAQS",
     "title": "Frequently asked questions",
     "body": "Everything you need to know about Rolplay and how it works.",
+    "stillCurious": "STILL CURIOUS?",
+    "askAnything": "Ask us anything.",
+    "askAnythingRed": "anything.",
+    "answerNote": "We answer every question, usually the same business day.",
     "items": [
       {
         "q": "How does Rolplay work?",

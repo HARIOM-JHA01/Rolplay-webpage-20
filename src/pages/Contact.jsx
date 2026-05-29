@@ -73,10 +73,10 @@ export default function Contact() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <PrimaryCTA href="https://calendly.com/viridiana-flores-audioweb/30min" external testid="contact-calendly-cta">
-                <Calendar size={14} /> Book a Call
+                <Calendar size={14} /> {t("contact.bookCall")}
               </PrimaryCTA>
               <GhostCTA href="https://wa.me/15797986707?text=Como%20funciona%20Rolplay?" external testid="contact-whatsapp-cta">
-                Chat on WhatsApp
+                {t("contact.chatWhatsApp")}
               </GhostCTA>
             </div>
           </motion.div>
@@ -87,11 +87,11 @@ export default function Contact() {
       <section className="relative py-24 border-t border-white/5" data-testid="contact-main-section">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5 space-y-4">
-            <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mb-2">// DIRECT LINES</div>
+            <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mb-2">{t("contact.directLines")}</div>
             <CopyField label="Email" value="info@rolplay.ai" testid="contact-email-copy" />
             <CopyField label="Phone" value="+52 55 1800 6006" testid="contact-phone-copy" />
 
-            <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mt-8 mb-3">// SOCIAL</div>
+            <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mt-8 mb-3">{t("contact.social")}</div>
             <div className="flex items-center gap-3">
               <a href="https://www.facebook.com/profile.php?id=61582917112897" target="_blank" rel="noopener noreferrer"
                 className="w-12 h-12 rounded-xl glass grid place-items-center hover:border-[#C0392B]/40 hover:text-[#C0392B] transition-all" data-testid="contact-facebook">
@@ -106,8 +106,8 @@ export default function Contact() {
 
           <div className="lg:col-span-7">
             <GlassCard tilt={false} className="p-8 md:p-10">
-              <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mb-2">// SEND US A MESSAGE</div>
-              <h3 className="font-display text-3xl md:text-4xl mb-6">Tell us about your team.</h3>
+              <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mb-2">{t("contact.sendMessage")}</div>
+              <h3 className="font-display text-3xl md:text-4xl mb-6">{t("contact.tellUsTitle")}</h3>
               <ContactForm variant="full" />
             </GlassCard>
           </div>
@@ -120,10 +120,10 @@ export default function Contact() {
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="font-mono text-[11px] tracking-[0.3em] text-[#C0392B] uppercase mb-5 flex items-center gap-3">
             <span className="w-10 h-px bg-[#C0392B]" />
-            OFFICES
+            {t("contact.offices")}
           </div>
           <h2 className="font-display text-3xl md:text-5xl leading-[1.05] max-w-3xl">
-            Three cities. <span className="text-[#C0392B]">One team.</span>
+            {t("contact.threeCities")} <span className="text-[#C0392B]">{t("contact.oneTeam")}</span>
           </h2>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
             {offices.map((o, i) => (

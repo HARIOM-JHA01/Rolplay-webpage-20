@@ -8,7 +8,6 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import GlassCard from "@/components/GlassCard";
 import { PrimaryCTA, GhostCTA } from "@/components/CTAButton";
 import SectionHeader from "@/components/SectionHeader";
-import ContactForm from "@/components/ContactForm";
 import VideoPlayer from "@/components/VideoPlayer";
 import ProductShowcase from "@/components/ProductShowcase";
 import KPIGrid from "@/components/KPIGrid";
@@ -408,7 +407,9 @@ export default function Home() {
             align="center"
           />
           <div className="mt-12 flex justify-center">
-            <ContactForm variant="compact" />
+            <PrimaryCTA href="https://calendly.com/viridiana-flores-audioweb/30min" external testid="home-contact-cta">
+              {t("contact.scheduleCta")}
+            </PrimaryCTA>
           </div>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm">
             <a

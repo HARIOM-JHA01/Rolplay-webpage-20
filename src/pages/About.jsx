@@ -173,25 +173,45 @@ export default function About() {
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <GlassCard className="p-10 h-full">
               <Globe size={28} className="text-[#C0392B] mb-6" />
-              <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase mb-3">// EXPANSION</div>
+              <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase mb-3">{t("about.expansionOverline")}</div>
               <h3 className="font-display text-3xl md:text-4xl leading-tight mb-4">
-                From Mexico to <span className="text-[#C0392B]">Toronto</span>.
+                {(() => {
+                  const full = t("about.expansionTitle");
+                  const red = t("about.expansionTitleRed");
+                  const idx = full.indexOf(red);
+                  if (idx === -1) return <span>{full}</span>;
+                  return (
+                    <>
+                      {full.substring(0, idx)}
+                      <span className="text-[#C0392B]">{red}</span>
+                      {full.substring(idx + red.length)}
+                    </>
+                  );
+                })()}
               </h3>
-              <p className="text-zinc-400 leading-relaxed">
-                What began in 2002 as a Mexican innovation has grown into a North-American operation, with expansion into Toronto, Canada, serving teams across the continent.
-              </p>
+              <p className="text-zinc-400 leading-relaxed">{t("about.expansionBody")}</p>
             </GlassCard>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}>
             <GlassCard className="p-10 h-full">
               <Building2 size={28} className="text-[#C0392B] mb-6" />
-              <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase mb-3">// CLIENTS</div>
+              <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase mb-3">{t("about.clientsOverline")}</div>
               <h3 className="font-display text-3xl md:text-4xl leading-tight mb-4">
-                Trusted by <span className="text-[#C0392B]">world-class</span> corporates.
+                {(() => {
+                  const full = t("about.clientsTitle");
+                  const red = t("about.clientsTitleRed");
+                  const idx = full.indexOf(red);
+                  if (idx === -1) return <span>{full}</span>;
+                  return (
+                    <>
+                      {full.substring(0, idx)}
+                      <span className="text-[#C0392B]">{red}</span>
+                      {full.substring(idx + red.length)}
+                    </>
+                  );
+                })()}
               </h3>
-              <p className="text-zinc-400 leading-relaxed">
-                Our solutions support some of the largest companies on the planet — across pharmaceuticals, energy, retail and finance — with measurable training outcomes.
-              </p>
+              <p className="text-zinc-400 leading-relaxed">{t("about.clientsBody")}</p>
             </GlassCard>
           </motion.div>
         </div>

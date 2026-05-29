@@ -173,7 +173,17 @@
     "phone": "+52 55 1800 6006",
     "locations": "Toronto · Monterrey · CDMX",
     "send": "Enviar",
-    "sending": "Enviando…"
+    "sending": "Enviando…",
+    "scheduleCta": "Contacto",
+    "directLines": "// LÍNEAS DIRECTAS",
+    "social": "// REDES SOCIALES",
+    "sendMessage": "// ENVÍANOS UN MENSAJE",
+    "tellUsTitle": "Cuéntanos sobre tu equipo.",
+    "offices": "OFICINAS",
+    "threeCities": "Tres ciudades.",
+    "oneTeam": "Un solo equipo.",
+    "bookCall": "Reservar Llamada",
+    "chatWhatsApp": "Chatear en WhatsApp"
   },
   "voice": {
     "title": "Asistente de voz",
@@ -215,7 +225,15 @@
     "flashcard1Body": "En 2020, nos posicionamos como ganadores en un programa del mayor clúster de IA del mundo, lo que llevó a nuestra migración a Toronto, Canadá.",
     "flashcard2Body": "Más de 100,000 usuarios activos y más de 1,000 clientes corporativos de clase mundial.",
     "timelineOverline": "// NUESTRA HISTORIA",
-    "timelineTitle": "Nuestra Historia"
+    "timelineTitle": "Nuestra Historia",
+    "expansionOverline": "// EXPANSIÓN",
+    "expansionTitle": "De México a Toronto.",
+    "expansionTitleRed": "Toronto",
+    "expansionBody": "Lo que comenzó en 2002 como una innovación mexicana se ha convertido en una operación internacional de clase mundial, con presencia en Norteamérica y expansión hacia mercados emergentes, sirviendo a equipos en múltiples continentes.",
+    "clientsOverline": "// CLIENTES",
+    "clientsTitle": "La confianza de corporativos de clase mundial.",
+    "clientsTitleRed": "clase mundial",
+    "clientsBody": "Las empresas líderes del mundo confían en nuestras soluciones para transformar el rendimiento de sus equipos y acelerar su crecimiento."
   },
   "benefits": {
     "overline": "BENEFICIOS",
@@ -248,6 +266,122 @@
       }
     ]
   },
+  "benefitsPage": {
+    "heroHeadline": "Construido para los momentos que cierran ventas.",
+    "heroHeadlineRed": "cierran ventas.",
+    "heroBody": "Entrenar a la fuerza de ventas con simuladores de inteligencia artificial proporciona retroalimentación inmediata y objetiva, personaliza los escenarios de entrenamiento y permite la práctica ilimitada.",
+    "heroDemoCta": "Solicitar Demo",
+    "corePrinciple": "// PRINCIPIO FUNDAMENTAL",
+    "failPrivate": "Falla miles de veces",
+    "failPrivateRed": "en privado.",
+    "noJudgement": "SIN JUICIOS",
+    "objective100": "100% OBJETIVO",
+    "unlimitedReps": "REPETICIONES ILIMITADAS",
+    "keyMessage1": "Eliminamos la incomodidad y el juicio de los roleplays tradicionales entre colegas. Ofrecemos un entorno ",
+    "keyMessageRed1": "seguro y 100% objetivo",
+    "keyMessage2": " donde tu equipo puede fallar miles de veces con nuestra IA, asegurando que sean ",
+    "keyMessageRed2": "impecables",
+    "keyMessage3": " cuando llegue el momento de la verdad frente al cliente.",
+    "pillarsOverline": "// SEIS PILARES",
+    "pillarsTitle": "Cómo transformamos equipos.",
+    "pillarsTitleRed": "transformamos equipos.",
+    "pillarLabel": "PILAR",
+    "practicePrivate": "Practica lo difícil en privado",
+    "practicePrivateRed": "no falles en público.",
+    "bookCall": "Reservar una Llamada",
+    "seeResults": "Ver Resultados",
+    "pillars": [
+      {
+        "title": "Práctica con IA Ilimitada",
+        "summary": "Entrena sin límites, cuando lo necesites.",
+        "body": "Entrena a tu fuerza comercial tantas veces como sea necesario, sin depender de horarios, supervisores o sesiones presenciales. Rolplay permite practicar conversaciones reales en un entorno siempre disponible, escalable y diseñado para mejorar en cada interacción."
+      },
+      {
+        "title": "Retroalimentación Inmediata y Objetiva",
+        "summary": "Feedback claro e imparcial en cada sesión.",
+        "body": "Cada sesión de práctica genera retroalimentación clara, estructurada y libre de sesgos. La IA analiza el desempeño del usuario y entrega información accionable para mejorar la comunicación, el manejo de objeciones, la claridad, la confianza y el apego a los mensajes clave."
+      },
+      {
+        "title": "Escenarios Personalizados para Cada Desafío",
+        "summary": "Entrenamiento adaptado a tu realidad.",
+        "body": "No todos los equipos venden igual ni enfrentan los mismos desafíos. Rolplay adapta los escenarios de entrenamiento a tus productos, industrias, perfiles de clientes, niveles de experiencia y situaciones comerciales reales, haciendo el entrenamiento mucho más relevante."
+      },
+      {
+        "title": "Un Entorno Seguro para Aprender y Mejorar",
+        "summary": "Falla en privado, gana en público.",
+        "body": "Eliminamos la incomodidad de los roleplays tradicionales entre compañeros. Con Rolplay, los miembros del equipo pueden fallar, repetir, corregir y perfeccionar su desempeño sin presión social ni juicios, antes de enfrentar clientes reales."
+      },
+      {
+        "title": "Preparación para el Momento de la Verdad",
+        "summary": "Listo para cada conversación crítica.",
+        "body": "La práctica solo importa si mejora el desempeño en el campo. Rolplay ayuda a cada miembro del equipo a llegar mejor preparado a conversaciones comerciales críticas, con mayor dominio de su discurso, mejor capacidad de respuesta y más confianza frente al cliente."
+      },
+      {
+        "title": "Desarrollo Comercial Medible y Escalable",
+        "summary": "Convierte el entrenamiento en resultados.",
+        "body": "Rolplay convierte el entrenamiento en un proceso observable. Las empresas pueden identificar avances, brechas de conocimiento y oportunidades de mejora, convirtiendo la capacitación comercial en una estrategia continua, medible y escalable."
+      }
+    ]
+  },
+  "achievementsPage": {
+    "overline": "RECONOCIMIENTO · GLOBAL",
+    "heroTitle": "",
+    "heroTitleRed": "Logros",
+    "heroBody": "Este reconocimiento nos posiciona entre las empresas líderes del mundo en soluciones de entrenamiento potenciadas por IA, reafirmando nuestro compromiso de transformar cómo los equipos de ventas aprenden, practican y logran resultados reales.",
+    "awards": [
+      {
+        "badge": "TRAINING INDUSTRY · TOP 20",
+        "title": "Top 20 Herramientas de Coaching y Apoyo al Aprendizaje Basadas en IA",
+        "body": "Rolplay ha sido reconocido en el Top 20 de Herramientas de Coaching y Apoyo al Aprendizaje Basadas en IA de Training Industry para 2025 — un referente global en innovación de entrenamiento impulsado por IA."
+      },
+      {
+        "badge": "WATCH LIST · 2024",
+        "title": "Lista de Seguimiento de Empresas de IA en Entrenamiento",
+        "body": "Rolplay fue nombrado en la Lista de Seguimiento 2024 de Empresas de IA en Entrenamiento de Training Industry, marcando un año de innovación acelerada e impacto en clientes."
+      }
+    ],
+    "quoteText": "Entre las empresas líderes del mundo en soluciones de entrenamiento potenciadas por IA — transformando cómo los equipos de ventas aprenden, practican y logran resultados reales.",
+    "caseFilmOverline": "// CASO FILMADO",
+    "caseFilmTitle": "Mira la historia.",
+    "caseFilmTitleRed": "historia.",
+    "videoTitle": "Momentos de Reconocimiento",
+    "videoDuration": "VIDEO · 3:21",
+    "ctaText": "Sé el próximo caso de éxito"
+  },
+  "storiesPage": {
+    "overline": "CASOS SELECCIONADOS · CONFIDENCIAL",
+    "heroTitle1": "Casos de",
+    "heroTitle2": " Éxito.",
+    "heroBody": "Por confidencialidad, nuestros clientes son identificados únicamente por su ranking global. Los resultados, sin embargo, hablan por sí solos.",
+    "largestGlobally": "MÁS GRANDE DEL MUNDO",
+    "caseLabel": "CASO",
+    "stories": [
+      {
+        "industry": "ENERGÍA",
+        "headline": "La 4ª petrolera más grande del mundo.",
+        "body": "Un líder global en energía contrató a Rolplay para estandarizar el diálogo comercial entre regiones y equipar a miles de representantes con práctica basada en simuladores. El resultado: mensajes consistentes, mayor confianza del cliente y un aumento medible en las tasas de cierre.",
+        "metrics": [
+          { "k": "REGIONES CUBIERTAS", "v": "26" },
+          { "k": "REPRESENTANTES ENTRENADOS", "v": "12k+" },
+          { "k": "TIEMPO DE COMPETENCIA", "v": "-38%" }
+        ]
+      },
+      {
+        "industry": "FARMACÉUTICA",
+        "headline": "La 2ª farmacéutica más grande del mundo.",
+        "body": "Buscamos estandarizar los procesos de ventas y los mensajes creados por el departamento de entrenamiento a través de una plataforma virtual que permitiera a los representantes practicar metodología, diálogos y habilidades de venta…",
+        "metrics": [
+          { "k": "MERCADOS", "v": "41" },
+          { "k": "PLAYBOOKS", "v": "180+" },
+          { "k": "CONFIANZA DE REPS", "v": "+44%" }
+        ]
+      }
+    ],
+    "readyToBegin": "// LISTOS PARA COMENZAR",
+    "ctaTitle": "Haz que tu equipo sea el próximo caso de éxito.",
+    "ctaTitleRed": "caso de éxito.",
+    "scheduleDemo": "Agendar una Demo"
+  },
   "achievements": {
     "overline": "LOGROS",
     "title": "Reconocidos globalmente",
@@ -269,6 +403,10 @@
     "overline": "PREGUNTAS FRECUENTES",
     "title": "Preguntas frecuentes",
     "body": "Todo lo que necesitas saber sobre Rolplay y cómo funciona.",
+    "stillCurious": "¿AÚN TIENES PREGUNTAS?",
+    "askAnything": "Pregúntanos lo que quieras.",
+    "askAnythingRed": "lo que quieras.",
+    "answerNote": "Respondemos todas las preguntas, generalmente el mismo día hábil.",
     "items": [
       {
         "q": "¿Cómo funciona Rolplay?",
