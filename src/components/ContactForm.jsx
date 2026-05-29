@@ -14,15 +14,13 @@ export default function ContactForm({ variant = "compact" }) {
   const submit = async (e) => {
     e.preventDefault();
     if (!name.trim()) {
-      toast.error("Please enter your name");
+      toast.error(t("contact.errorName"));
       return;
     }
     setLoading(true);
     await new Promise((r) => setTimeout(r, 700));
     setLoading(false);
-    toast.success("Message sent · We'll be in touch shortly", {
-      description: "info@rolplay.ai",
-    });
+    toast.success(t("contact.successMsg"), { description: "info@rolplay.ai" });
     setName("");
     setEmail("");
     setMessage("");
@@ -39,8 +37,8 @@ export default function ContactForm({ variant = "compact" }) {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Your name"
-          aria-label="Your name"
+          placeholder={t("contact.nameCompactPlaceholder")}
+          aria-label={t("contact.nameLabel")}
           className="flex-1 bg-transparent px-5 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none"
           data-testid="contact-name-input"
         />
@@ -62,35 +60,41 @@ export default function ContactForm({ variant = "compact" }) {
     <form onSubmit={submit} className="space-y-4 w-full" data-testid="contact-form-full">
       <div className="grid md:grid-cols-2 gap-4">
         <div>
-          <label className="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase">Name</label>
+          <label className="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase">
+            {t("contact.nameLabel")}
+          </label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Your full name"
+            placeholder={t("contact.namePlaceholder")}
             className="mt-2 w-full bg-transparent border-b border-white/10 focus:border-[#C0392B] py-3 text-base text-white placeholder:text-zinc-600 focus:outline-none transition-colors"
             data-testid="contact-full-name-input"
           />
         </div>
         <div>
-          <label className="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase">Email</label>
+          <label className="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase">
+            {t("contact.emailLabel")}
+          </label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@company.com"
+            placeholder={t("contact.emailPlaceholder")}
             className="mt-2 w-full bg-transparent border-b border-white/10 focus:border-[#C0392B] py-3 text-base text-white placeholder:text-zinc-600 focus:outline-none transition-colors"
             data-testid="contact-full-email-input"
           />
         </div>
       </div>
       <div>
-        <label className="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase">Question</label>
+        <label className="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase">
+          {t("contact.questionLabel")}
+        </label>
         <textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={4}
-          placeholder="Tell us about your team's training goals…"
+          placeholder={t("contact.messagePlaceholder")}
           className="mt-2 w-full bg-transparent border-b border-white/10 focus:border-[#C0392B] py-3 text-base text-white placeholder:text-zinc-600 focus:outline-none resize-none transition-colors"
           data-testid="contact-full-message-input"
         />
@@ -103,7 +107,7 @@ export default function ContactForm({ variant = "compact" }) {
         className="rounded-full bg-[#C0392B] hover:bg-[#A93226] text-white text-sm font-semibold px-8 py-4 flex items-center gap-2 shadow-[0_0_30px_rgba(192,57,43,0.5)]"
         data-testid="contact-full-submit-btn"
       >
-        {loading ? "Sending…" : "Send"} <ArrowRight size={14} />
+        {loading ? t("contact.sending") : t("contact.send")} <ArrowRight size={14} />
       </motion.button>
     </form>
   );
