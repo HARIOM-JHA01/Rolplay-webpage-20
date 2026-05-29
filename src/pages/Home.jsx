@@ -361,7 +361,7 @@ export default function Home() {
                 className="font-display text-7xl md:text-9xl text-[#C0392B] text-glow-red leading-none"
                 data-testid="callout-stat"
               >
-                <AnimatedCounter value={5} suffix="%" />
+                <AnimatedCounter value={5} prefix="+" suffix="%" />
               </div>
             </div>
             <div className="flex-1 max-w-xl">

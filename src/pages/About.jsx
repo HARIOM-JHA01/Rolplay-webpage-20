@@ -9,22 +9,8 @@ import SectionHeader from "@/components/SectionHeader";
 import { PrimaryCTA } from "@/components/CTAButton";
 import VideoPlayer from "@/components/VideoPlayer";
 
-const TIMELINE = [
-  { year: "2007", event: "Fundación de Audioweb, empresa precursora de Rolplay." },
-  { year: "2013", event: "Incidente desarrollo de soluciones de e-learning y simuladores comerciales." },
-  { year: "2018", event: "Inicio de los primeros workshops, conferencias y e-learning." },
-  { year: "2019", event: "IA y Ventas — primeros reconocimientos." },
-  { year: "2020", event: "Renovación de centros virtuales y e-learning." },
-  { year: "2020", event: "Inicio de desarrollo de IA conversacional." },
-  { year: "2020", event: "Las innovaciones llevan a Rolplay a ser finalista en Hallivas." },
-  { year: "2021", event: "Rolplay llega a Canadá. Launcha Startup y Comercial." },
-  { year: "2022", event: "Desarrollo de startups. Inicio de la expansión hacia Tres Pinos." },
-  { year: "2023", event: "Cuenta con ley para expandir la empresa en distintas ciudades." },
-  { year: "2023", event: "Integración de IA a los entrenamientos en distintas plataformas." },
-  { year: "2024", event: "Otros hitos importantes en casos de éxito de IA, training 2024." },
-];
 
-function TimelineSlider() {
+function TimelineSlider({ items = [] }) {
   const trackRef = useRef(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -103,11 +89,11 @@ function TimelineSlider() {
         onPointerUp={handlePointerUp}
         onPointerLeave={handlePointerUp}
       >
-        <div className="flex gap-0 relative" style={{ width: `${TIMELINE.length * 220}px` }}>
+        <div className="flex gap-0 relative" style={{ width: `${items.length * 220}px` }}>
           {/* Connecting line */}
           <div className="absolute top-[28px] left-10 right-10 h-px bg-[#C0392B]/25 pointer-events-none" />
 
-          {TIMELINE.map((item, i) => (
+          {items.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
@@ -135,6 +121,7 @@ function TimelineSlider() {
 
 export default function About() {
   const { t } = useTranslation();
+  const timelineItems = t("about.timelineItems", { returnObjects: true });
 
   return (
     <PageShell testid="about-page">
@@ -247,7 +234,7 @@ export default function About() {
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <GlassCard className="p-10 h-full">
               <div className="font-display text-2xl md:text-3xl leading-tight mb-4">
-                Reconocimiento <span className="text-[#C0392B]">Global</span>
+                {t("about.flashcard1Title")} <span className="text-[#C0392B]">{t("about.flashcard1TitleMain")}</span>
               </div>
               <p className="text-zinc-400 leading-relaxed">
                 {t("about.flashcard1Body")}
@@ -257,7 +244,7 @@ export default function About() {
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}>
             <GlassCard className="p-10 h-full">
               <div className="font-display text-2xl md:text-3xl leading-tight mb-4">
-                Presencia <span className="text-[#C0392B]">Internacional</span>
+                {t("about.flashcard2Title")} <span className="text-[#C0392B]">{t("about.flashcard2TitleMain")}</span>
               </div>
               <p className="text-zinc-400 leading-relaxed">
                 {t("about.flashcard2Body")}
@@ -278,7 +265,7 @@ export default function About() {
               {t("about.timelineTitle")}
             </h2>
           </div>
-          <TimelineSlider />
+          <TimelineSlider items={Array.isArray(timelineItems) ? timelineItems : []} />
         </div>
       </section>
     </PageShell>
