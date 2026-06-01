@@ -369,21 +369,7 @@ export default function Home() {
                 {t("edge.overline")}
               </div>
               <h3 className="font-display text-3xl md:text-4xl leading-tight">
-                {(() => {
-                  const full = t("edge.title", { highlight: t("edge.highlight") });
-                  const highlight = t("edge.highlight");
-                  const parts = full.split(highlight);
-                  return parts.map((part, i) =>
-                    i < parts.length - 1 ? (
-                      <span key={i}>
-                        {part}
-                        <span className="text-[#C0392B]">{highlight}</span>
-                      </span>
-                    ) : (
-                      <span key={i}>{part}</span>
-                    )
-                  );
-                })()}
+                {t("edge.titleMain")}<span className="text-[#C0392B]">{t("edge.titleRed")}</span>
               </h3>
               <p className="text-zinc-400 mt-4 text-sm md:text-base">{t("edge.body")}</p>
             </div>

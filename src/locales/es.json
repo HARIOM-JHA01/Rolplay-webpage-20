@@ -119,6 +119,8 @@
     "overline": "// LA VENTAJA",
     "title": "Retroalimentación y entrenamiento con {{highlight}}",
     "highlight": "impacto",
+    "titleMain": "Retroalimentación y entrenamiento con ",
+    "titleRed": "impacto",
     "body": "Cuando cada representante comunica mejor, responde mejor y ejecuta con mayor consistencia, el impacto se refleja directamente."
   },
   "testimonials": {

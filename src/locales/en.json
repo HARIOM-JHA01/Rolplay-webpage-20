@@ -119,6 +119,8 @@
     "overline": "// THE EDGE",
     "title": "Feedback and training with {{highlight}}",
     "highlight": "impact",
+    "titleMain": "Feedback and training with ",
+    "titleRed": "impact",
     "body": "When each representative communicates better, responds better and executes with greater consistency, the impact is reflected directly."
   },
   "testimonials": {
