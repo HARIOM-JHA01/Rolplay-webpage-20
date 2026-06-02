@@ -370,7 +370,7 @@
       {
         "industry": "ENERGY",
         "headline": "The 4th largest oil company in the world.",
-        "body": "A global energy leader engaged Rolplay to standardize commercial dialogue across regions and equip thousands of representatives with simulator-driven practice. The result: consistent messaging, higher customer confidence, and a measurable lift in sales close-rates.",
+        "body": "We addressed the challenge of practical training for station attendants by creating a platform that allowed them to practice selling premium gasoline using differentiated messaging. As a result of this training, we effectively trained attendants, shortened the learning curve, and reduced staff turnover.",
         "metrics": [
           { "k": "REGIONS COVERED", "v": "26" },
           { "k": "REPS TRAINED", "v": "12k+" },
@@ -380,7 +380,7 @@
       {
         "industry": "PHARMACEUTICAL",
         "headline": "The 2nd largest pharmaceutical company in the world.",
-        "body": "We sought to standardize sales processes and the messaging created by the training department through a virtual platform that allowed representatives to practice methodology, dialogues, and selling skills…",
+        "body": "We sought to standardize sales processes and the messaging created by the training department through a virtual platform that allowed representatives to practice methodology, dialogues, and selling skills. In addition, a dedicated profile was created for direct managers, enabling them to provide feedback to their medical representatives — standardizing the sales process and creating a collaborative coaching environment based on objective metrics.",
         "metrics": [
           { "k": "MARKETS", "v": "41" },
           { "k": "PLAYBOOKS", "v": "180+" },
@@ -389,33 +389,27 @@
       },
       {
         "industry": "FINANCIAL SERVICES",
-        "headline": "The 1st retail bank in Latin America by total clients.",
-        "body": "A tier-1 Latin American bank engaged Rolplay to elevate the commercial dialogues of its frontline banking advisors. Through customized AI simulations covering product cross-sell, objection handling, and compliance narratives, thousands of advisors developed measurable confidence and consistency across 12 markets.",
-        "metrics": [
-          { "k": "ADVISORS TRAINED", "v": "9k+" },
-          { "k": "MARKETS", "v": "12" },
-          { "k": "CROSS-SELL RATE", "v": "+31%" }
-        ]
+        "headline": "The #1 financial and transactional solutions company in France, and the #2 largest in the world.",
+        "body": "A theoretical–practical training program focused on virtual sales was designed and implemented, equipping 130 sales representatives with the skills needed to sell remotely. The program strengthened the team's commercial capabilities, increasing the generation of business opportunities. Due to its success, the training was permanently integrated into the company's onboarding processes.",
+        "metrics": []
       },
       {
-        "industry": "TELECOMMUNICATIONS",
-        "headline": "The 3rd largest telecom by subscribers in the Americas.",
-        "body": "A major telecom operator deployed Rolplay to standardize in-store and outbound sales conversations. AI-powered simulations transformed how agents handled retention scenarios, upgrade pitches, and competitor comparisons — resulting in stronger close rates and significantly lower churn.",
-        "metrics": [
-          { "k": "AGENTS TRAINED", "v": "18k+" },
-          { "k": "CHURN REDUCED", "v": "-22%" },
-          { "k": "UPSELL REVENUE", "v": "+29%" }
-        ]
+        "industry": "LABORATORY",
+        "headline": "For one of the largest laboratories in Spain.",
+        "body": "It was necessary to transform sales training processes into something measurable, effective, and continuous. A virtual AI-powered platform was developed where medical representatives could practice their key messages. The platform automatically evaluated each exercise and delivered a clear verdict to users, while also generating reports for managers, allowing them to audit performance and training. This development standardized promotional messages, professionalized training processes, and even enabled certification of the sales force.",
+        "metrics": []
       },
       {
-        "industry": "INSURANCE",
-        "headline": "The 5th largest insurance group operating globally.",
-        "body": "A global insurance leader turned to Rolplay to sharpen the consultative selling skills of its broker and agent networks. Role-play simulations focused on needs-based discovery, policy positioning, and relationship deepening across life, health, and commercial lines in 18 regions.",
-        "metrics": [
-          { "k": "AGENTS TRAINED", "v": "11k+" },
-          { "k": "REGIONS", "v": "18" },
-          { "k": "POLICY RETENTION", "v": "+26%" }
-        ]
+        "industry": "HEALTHCARE",
+        "headline": "For a laboratory specialized in the treatment of overweight.",
+        "body": "Traditional sales training approaches generated internal friction, as salespeople often questioned the objectivity of the feedback provided by their managers. As a solution, an AI-integrated video-calling platform was developed to deliver more objective and structured coaching sessions. The platform allowed full sessions or specific segments to be recorded and compared against different evaluation criteria, standardizing feedback and significantly streamlining managers' work.",
+        "metrics": []
+      },
+      {
+        "industry": "PHARMACEUTICAL",
+        "headline": "The 3rd largest pharmaceutical company in the world, headquartered in Switzerland.",
+        "body": "The goal was to standardize the sales process from medical segmentation to post-visit follow-up. A platform was created where medical representatives could practice each phase of the process. Thanks to AI-guided training, representatives were able to refine segmentation, opening, probing, objection handling, key messages, and closing techniques. The laboratory achieved full adoption of the methodology, improving the quality of visits and ensuring consistency in the commercial model across the entire sales force.",
+        "metrics": []
       }
     ],
     "readyToBegin": "// READY TO BEGIN",

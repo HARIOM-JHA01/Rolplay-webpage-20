@@ -388,7 +388,7 @@
       {
         "industry": "ENERGÍA",
         "headline": "La 4ª petrolera más grande del mundo.",
-        "body": "Un líder global en energía contrató a Rolplay para estandarizar el diálogo comercial entre regiones y equipar a miles de representantes con práctica basada en simuladores. El resultado: mensajes consistentes, mayor confianza del cliente y un aumento medible en las tasas de cierre.",
+        "body": "Abordamos el desafío de la capacitación práctica para los despachadores de gasolineras creando una plataforma que les permitía practicar la venta de gasolina premium mediante mensajes diferenciados. Como resultado de esta capacitación, entrenamos efectivamente a los despachadores, acortamos la curva de aprendizaje y redujimos la rotación de personal.",
         "metrics": [
           { "k": "REGIONES CUBIERTAS", "v": "26" },
           { "k": "REPRESENTANTES ENTRENADOS", "v": "12k+" },
@@ -398,7 +398,7 @@
       {
         "industry": "FARMACÉUTICA",
         "headline": "La 2ª farmacéutica más grande del mundo.",
-        "body": "Buscamos estandarizar los procesos de ventas y los mensajes creados por el departamento de entrenamiento a través de una plataforma virtual que permitiera a los representantes practicar metodología, diálogos y habilidades de venta…",
+        "body": "Buscamos estandarizar los procesos de ventas y los mensajes creados por el departamento de entrenamiento a través de una plataforma virtual que permitiera a los representantes practicar metodología, diálogos y habilidades de venta. Además, se creó un perfil dedicado para los gerentes directos, permitiéndoles proporcionar retroalimentación a sus representantes médicos, estandarizando el proceso de ventas y creando un entorno de coaching colaborativo basado en métricas objetivas.",
         "metrics": [
           { "k": "MERCADOS", "v": "41" },
           { "k": "PLAYBOOKS", "v": "180+" },
@@ -407,33 +407,27 @@
       },
       {
         "industry": "SERVICIOS FINANCIEROS",
-        "headline": "El 1er banco minorista de América Latina por clientes totales.",
-        "body": "Un banco latinoamericano de primer nivel contrató a Rolplay para elevar los diálogos comerciales de sus asesores bancarios de primera línea. A través de simulaciones de IA personalizadas que cubren venta cruzada, manejo de objeciones y narrativas de cumplimiento, miles de asesores desarrollaron confianza y consistencia medibles en 12 mercados.",
-        "metrics": [
-          { "k": "ASESORES ENTRENADOS", "v": "9k+" },
-          { "k": "MERCADOS", "v": "12" },
-          { "k": "VENTA CRUZADA", "v": "+31%" }
-        ]
+        "headline": "La empresa #1 de soluciones financieras y transaccionales en Francia, y la #2 más grande del mundo.",
+        "body": "Se diseñó e implementó un programa de capacitación teórico-práctico enfocado en ventas virtuales, equipando a 130 representantes de ventas con las habilidades necesarias para vender de forma remota. El programa fortaleció las capacidades comerciales del equipo, incrementando la generación de oportunidades de negocio. Debido a su éxito, la capacitación se integró permanentemente en los procesos de incorporación de la empresa.",
+        "metrics": []
       },
       {
-        "industry": "TELECOMUNICACIONES",
-        "headline": "La 3ª operadora de telecomunicaciones por suscriptores en las Américas.",
-        "body": "Un importante operador de telecomunicaciones implementó Rolplay para estandarizar las conversaciones de venta en tienda y salientes. Las simulaciones impulsadas por IA transformaron la forma en que los agentes gestionaban escenarios de retención, propuestas de actualización y comparaciones con la competencia.",
-        "metrics": [
-          { "k": "AGENTES ENTRENADOS", "v": "18k+" },
-          { "k": "CHURN REDUCIDO", "v": "-22%" },
-          { "k": "INGRESOS UPSELL", "v": "+29%" }
-        ]
+        "industry": "LABORATORIO",
+        "headline": "Para uno de los laboratorios más grandes de España.",
+        "body": "Era necesario transformar los procesos de capacitación en ventas en algo medible, efectivo y continuo. Se desarrolló una plataforma virtual impulsada por IA donde los representantes médicos podían practicar sus mensajes clave. La plataforma evaluó automáticamente cada ejercicio y entregó un veredicto claro a los usuarios, al tiempo que generó reportes para los gerentes, permitiéndoles auditar el rendimiento y la capacitación. Este desarrollo estandarizó los mensajes promocionales, profesionalizó los procesos de formación e incluso permitió la certificación de la fuerza de ventas.",
+        "metrics": []
       },
       {
-        "industry": "SEGUROS",
-        "headline": "El 5º grupo asegurador más grande con operación global.",
-        "body": "Un líder global en seguros recurrió a Rolplay para potenciar las habilidades de venta consultiva de sus redes de brokers y agentes. Las simulaciones de role-play se enfocaron en la detección de necesidades, el posicionamiento de pólizas y la profundización de relaciones en vida, salud y líneas comerciales en 18 regiones.",
-        "metrics": [
-          { "k": "AGENTES ENTRENADOS", "v": "11k+" },
-          { "k": "REGIONES", "v": "18" },
-          { "k": "RETENCIÓN DE PÓLIZAS", "v": "+26%" }
-        ]
+        "industry": "SALUD",
+        "headline": "Para un laboratorio especializado en el tratamiento del sobrepeso.",
+        "body": "Los enfoques tradicionales de capacitación en ventas generaban fricción interna, ya que los vendedores cuestionaban la objetividad de la retroalimentación proporcionada por sus gerentes. Como solución, se desarrolló una plataforma de videollamada integrada con IA para ofrecer sesiones de coaching más objetivas y estructuradas. La plataforma permitió grabar sesiones completas o segmentos específicos y compararlos con diferentes criterios de evaluación, estandarizando la retroalimentación y simplificando significativamente el trabajo de los gerentes.",
+        "metrics": []
+      },
+      {
+        "industry": "FARMACÉUTICA",
+        "headline": "La 3ª farmacéutica más grande del mundo, con sede en Suiza.",
+        "body": "El objetivo era estandarizar el proceso de ventas desde la segmentación médica hasta el seguimiento post-visita. Se creó una plataforma donde los representantes médicos podían practicar cada fase del proceso. Gracias a la capacitación guiada por IA, los representantes pudieron perfeccionar la segmentación, apertura, sondeo, manejo de objeciones, mensajes clave y técnicas de cierre. El laboratorio logró la adopción total de la metodología, mejorando la calidad de las visitas y asegurando la consistencia en el modelo comercial de toda la fuerza de ventas.",
+        "metrics": []
       }
     ],
     "readyToBegin": "// LISTOS PARA COMENZAR",

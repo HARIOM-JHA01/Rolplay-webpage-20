@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Pill, Landmark, Wifi, ShieldCheck, ArrowRight } from "lucide-react";
+import { Building2, Pill, Landmark, FlaskConical, Activity, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import PageShell from "@/components/PageShell";
 import NeuralNetwork from "@/components/NeuralNetwork";
@@ -7,11 +7,12 @@ import GlassCard from "@/components/GlassCard";
 import { PrimaryCTA } from "@/components/CTAButton";
 
 const STORY_META = [
-  { rank: "4th", icon: Building2, accent: "rgba(192, 57, 43, 0.5)" },
-  { rank: "2nd", icon: Pill, accent: "rgba(192, 57, 43, 0.5)" },
-  { rank: "1st", icon: Landmark, accent: "rgba(192, 57, 43, 0.5)" },
-  { rank: "3rd", icon: Wifi, accent: "rgba(192, 57, 43, 0.5)" },
-  { rank: "5th", icon: ShieldCheck, accent: "rgba(192, 57, 43, 0.5)" },
+  { rank: "4th",  icon: Building2,    accent: "rgba(192, 57, 43, 0.5)" },
+  { rank: "2nd",  icon: Pill,         accent: "rgba(192, 57, 43, 0.5)" },
+  { rank: "#1",   icon: Landmark,     accent: "rgba(192, 57, 43, 0.5)" },
+  { rank: null,   icon: FlaskConical, accent: "rgba(192, 57, 43, 0.5)" },
+  { rank: null,   icon: Activity,     accent: "rgba(192, 57, 43, 0.5)" },
+  { rank: "3rd",  icon: Pill,         accent: "rgba(192, 57, 43, 0.5)" },
 ];
 
 export default function SuccessStories() {
@@ -64,7 +65,7 @@ export default function SuccessStories() {
             <NeuralNetwork className="opacity-25" density={0.00007} />
 
             <div className={`relative max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
-              {/* MASSIVE RANK */}
+              {/* MASSIVE RANK or ICON */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -75,23 +76,43 @@ export default function SuccessStories() {
                 <div className="relative">
                   <div className="absolute inset-0 blur-3xl"
                     style={{ background: "radial-gradient(circle, rgba(192,57,43,0.4), transparent 70%)" }} />
-                  <div
-                    className="relative font-display select-none leading-none"
-                    style={{
-                      fontSize: "clamp(11rem, 22vw, 22rem)",
-                      background: "linear-gradient(180deg, #ffffff 0%, #C0392B 50%, #5e1a14 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                      filter: "drop-shadow(0 0 35px rgba(192,57,43,0.4))",
-                    }}
-                    data-testid={`story-rank-${idx}`}
-                  >
-                    {meta.rank}
-                  </div>
-                  <div className="absolute -bottom-2 left-0 right-0 text-center font-mono text-[10px] tracking-[0.4em] text-zinc-500 uppercase">
-                    {t("storiesPage.largestGlobally")}
-                  </div>
+                  {meta.rank ? (
+                    <>
+                      <div
+                        className="relative font-display select-none leading-none"
+                        style={{
+                          fontSize: "clamp(11rem, 22vw, 22rem)",
+                          background: "linear-gradient(180deg, #ffffff 0%, #C0392B 50%, #5e1a14 100%)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                          backgroundClip: "text",
+                          filter: "drop-shadow(0 0 35px rgba(192,57,43,0.4))",
+                        }}
+                        data-testid={`story-rank-${idx}`}
+                      >
+                        {meta.rank}
+                      </div>
+                      <div className="absolute -bottom-2 left-0 right-0 text-center font-mono text-[10px] tracking-[0.4em] text-zinc-500 uppercase">
+                        {t("storiesPage.largestGlobally")}
+                      </div>
+                    </>
+                  ) : (
+                    <div
+                      className="relative flex items-center justify-center"
+                      style={{ width: "clamp(11rem, 22vw, 22rem)", height: "clamp(11rem, 22vw, 22rem)" }}
+                      data-testid={`story-rank-${idx}`}
+                    >
+                      <Icon
+                        style={{
+                          width: "55%",
+                          height: "55%",
+                          color: "#C0392B",
+                          filter: "drop-shadow(0 0 35px rgba(192,57,43,0.4))",
+                          opacity: 0.85,
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
               </motion.div>
 

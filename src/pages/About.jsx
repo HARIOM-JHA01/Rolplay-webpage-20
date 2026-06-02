@@ -107,9 +107,9 @@ function TimelineSlider({ items = [] }) {
               <div className="relative z-10 w-4 h-4 rounded-full bg-[#C0392B] border-2 border-[#C0392B]/50 shadow-[0_0_10px_rgba(192,57,43,0.6)] mb-4" />
 
               {/* Card */}
-              <div className="glass rounded-xl p-4 w-full border border-white/5 hover:border-[#C0392B]/30 transition-all duration-300">
+              <div className="bg-white rounded-xl p-4 w-full border border-gray-200 hover:border-[#C0392B]/40 transition-all duration-300">
                 <div className="font-display text-2xl text-[#C0392B] mb-2">{item.year}</div>
-                <p className="text-xs text-zinc-400 leading-relaxed">{item.event}</p>
+                <p className="text-xs text-gray-700 leading-relaxed">{item.event}</p>
               </div>
             </motion.div>
           ))}

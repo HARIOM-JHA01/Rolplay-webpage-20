@@ -36,7 +36,7 @@ export default function SectionHeader({ overline, title, redWord, body, align = 
       <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[0.95] mb-5">
         {titleNode}
       </h2>
-      {body && <p className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-2xl">{protectBrand(body)}</p>}
+      {body && <p className={`text-zinc-400 text-base md:text-lg leading-relaxed max-w-2xl ${align === "center" ? "mx-auto" : ""}`}>{protectBrand(body)}</p>}
     </motion.div>
   );
 }
