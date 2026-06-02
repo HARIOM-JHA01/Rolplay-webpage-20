@@ -438,24 +438,44 @@
     "answerNote": "Respondemos todas las preguntas, generalmente el mismo día hábil.",
     "items": [
       {
-        "q": "¿Cómo funciona Rolplay?",
-        "a": "Rolplay proporciona simulaciones de roleplay potenciadas por IA donde los representantes de ventas practican pitches, manejo de objeciones y escenarios de negociación. La IA proporciona retroalimentación inmediata y objetiva en cada sesión."
+        "q": "¿Qué servicios ofrece Rolplay?",
+        "a": "Rolplay ofrece programas de entrenamiento impulsados por inteligencia artificial para mejorar el rendimiento de los equipos de ventas y maximizar los resultados comerciales mediante tecnología innovadora."
       },
       {
-        "q": "¿Qué idiomas soporta Rolplay?",
-        "a": "Rolplay actualmente soporta inglés y español, con soporte adicional de idiomas disponible en planes enterprise."
+        "q": "¿Dónde se encuentra Rolplay?",
+        "a": "Rolplay está ubicada en México y Canadá, ofreciendo servicios a clientes locales e internacionales."
       },
       {
-        "q": "¿Cuánto tiempo tarda el onboarding?",
-        "a": "La mayoría de los equipos están completamente integrados y ejecutando sus primeras simulaciones en 2 semanas."
+        "q": "¿Cómo puede la inteligencia artificial mejorar el desempeño de mi equipo de ventas?",
+        "a": "La IA ofrece entrenamiento personalizado, análisis e información estratégica para mejorar las estrategias, habilidades y toma de decisiones, logrando mejores resultados en ventas."
       },
       {
-        "q": "¿Hay una aplicación móvil?",
-        "a": "Sí. Rolplay es completamente responsivo y funciona en todos los dispositivos. Una aplicación móvil dedicada está en el roadmap."
+        "q": "¿El entrenamiento es personalizable para diferentes industrias?",
+        "a": "Sí, los programas de entrenamiento con IA de Rolplay son personalizables para adaptarse a las necesidades y desafíos específicos de diversas industrias."
       },
       {
-        "q": "¿Cómo se mide el rendimiento?",
-        "a": "La plataforma rastrea más de 50 métricas verbales y no verbales por sesión y las muestra en tu dashboard de analítica."
+        "q": "¿Cómo puedo comenzar con Rolplay?",
+        "a": "Contáctanos a través de nuestro sitio web o llama a nuestra oficina en Ciudad de México para hablar sobre las necesidades de entrenamiento de tu equipo de ventas."
+      },
+      {
+        "q": "¿Qué tipo de resultados puedo esperar usando Rolplay?",
+        "a": "Rolplay ayuda a los equipos comerciales a mejorar su claridad de comunicación, aumentar su tasa de conversión, reducir errores en el proceso de venta y fortalecer la confianza al enfrentar clientes reales. Los equipos suelen ver mejoras medibles en pocas semanas."
+      },
+      {
+        "q": "¿Rolplay requiere capacitación previa para usarlo?",
+        "a": "No. La plataforma está diseñada para que cualquier persona, independientemente de su nivel tecnológico, pueda usarla de forma intuitiva. Además, incluye guías, escenarios preconfigurados y retroalimentación instantánea mediante IA para acelerar el aprendizaje."
+      },
+      {
+        "q": "¿Puedo integrar Rolplay con otras herramientas de mi empresa?",
+        "a": "Sí. Rolplay puede integrarse con sistemas CRM, plataformas LMS y otras herramientas internas para centralizar la información, automatizar reportes y mantener alineadas las métricas de entrenamiento con los objetivos del negocio."
+      },
+      {
+        "q": "¿Cómo evalúa Rolplay el desempeño de los usuarios durante una simulación?",
+        "a": "Rolplay analiza las interacciones del usuario mediante inteligencia artificial, evaluando aspectos como claridad del mensaje, manejo de objeciones, estructura comercial, conocimiento del producto y calidad de la respuesta. La plataforma puede entregar retroalimentación inmediata y métricas accionables para que cada persona identifique áreas de mejora y fortalezca su desempeño."
+      },
+      {
+        "q": "¿Rolplay solo sirve para equipos de ventas?",
+        "a": "No. Aunque Rolplay es especialmente útil para equipos comerciales, también puede aplicarse en capacitación, liderazgo, servicio al cliente, cultura organizacional, comunicación interna, certificación de conocimiento y preparación para conversaciones críticas. Su flexibilidad permite adaptar escenarios, criterios de evaluación y contenidos a distintos roles dentro de una organización."
       }
     ]
   },

@@ -420,24 +420,44 @@
     "answerNote": "We answer every question, usually the same business day.",
     "items": [
       {
-        "q": "How does Rolplay work?",
-        "a": "Rolplay provides AI-powered roleplay simulations where sales reps practice pitches, objection handling and negotiation scenarios. The AI provides immediate, objective feedback on every session."
+        "q": "What services does Rolplay offer?",
+        "a": "Rolplay offers AI-powered training programs designed to improve sales team performance and maximize commercial results through innovative technology."
       },
       {
-        "q": "What languages does Rolplay support?",
-        "a": "Rolplay currently supports English and Spanish, with additional language support available on enterprise plans."
+        "q": "Where is Rolplay located?",
+        "a": "Rolplay is located in Mexico and Canada, serving both local and international clients."
       },
       {
-        "q": "How long does onboarding take?",
-        "a": "Most teams are fully onboarded and running their first simulations within 2 weeks."
+        "q": "How can artificial intelligence improve my sales team's performance?",
+        "a": "AI provides personalized training, analysis, and strategic insights to enhance techniques, skills, and decision-making, leading to stronger sales performance and better results."
       },
       {
-        "q": "Is there a mobile app?",
-        "a": "Yes. Rolplay is fully responsive and works on all devices. A dedicated mobile app is on the roadmap."
+        "q": "Is the training customizable for different industries?",
+        "a": "Yes, Rolplay's AI training programs are fully customizable to match the specific needs and challenges of different industries."
       },
       {
-        "q": "How is performance measured?",
-        "a": "The platform tracks over 50 verbal and non-verbal metrics per session and surfaces them in your analytics dashboard."
+        "q": "How can I get started with Rolplay?",
+        "a": "Contact us through our website or call our Mexico City office to discuss your sales team's training needs."
+      },
+      {
+        "q": "What kind of results can I expect from using Rolplay?",
+        "a": "Rolplay helps sales teams improve communication clarity, increase conversion rates, reduce errors in the sales process, and build confidence when interacting with real customers. Teams typically see measurable improvements within a few weeks."
+      },
+      {
+        "q": "Does Rolplay require prior training to use it?",
+        "a": "No. The platform is designed so that anyone — regardless of their technical level — can use it intuitively. It also includes guides, preconfigured scenarios, and instant AI-powered feedback to accelerate learning."
+      },
+      {
+        "q": "Can I integrate Rolplay with other tools in my company?",
+        "a": "Yes. Rolplay can integrate with CRM systems, LMS platforms, and other internal tools to centralize information, automate reporting, and keep training metrics aligned with business objectives."
+      },
+      {
+        "q": "How does Rolplay evaluate user performance during a simulation?",
+        "a": "Rolplay analyzes user interactions through artificial intelligence, evaluating aspects such as message clarity, objection handling, sales structure, product knowledge, and response quality. The platform provides immediate feedback and actionable metrics so each person can identify improvement areas and strengthen performance."
+      },
+      {
+        "q": "Is Rolplay only useful for sales teams?",
+        "a": "No. Although Rolplay is especially useful for sales teams, it can also be applied to training, leadership, customer service, organizational culture, internal communication, knowledge certification, and preparation for critical conversations. Its flexibility makes it possible to adapt scenarios, evaluation criteria, and content to different roles within an organization."
       }
     ]
   },
