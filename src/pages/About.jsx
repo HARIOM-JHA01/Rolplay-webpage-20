@@ -232,24 +232,24 @@ export default function About() {
       <section className="relative py-24 border-t border-white/5" data-testid="about-flashcards">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <GlassCard className="p-10 h-full">
-              <div className="font-display text-2xl md:text-3xl leading-tight mb-4">
+            <div className="bg-white rounded-2xl p-10 h-full border border-gray-200 hover:border-[#C0392B]/40 hover:shadow-[0_0_40px_-12px_rgba(192,57,43,0.3)] transition-all duration-300">
+              <div className="font-display text-2xl md:text-3xl leading-tight mb-4 font-bold text-gray-900">
                 {t("about.flashcard1Title")} <span className="text-[#C0392B]">{t("about.flashcard1TitleMain")}</span>
               </div>
-              <p className="text-zinc-400 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed">
                 {t("about.flashcard1Body")}
               </p>
-            </GlassCard>
+            </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}>
-            <GlassCard className="p-10 h-full">
-              <div className="font-display text-2xl md:text-3xl leading-tight mb-4">
+            <div className="bg-white rounded-2xl p-10 h-full border border-gray-200 hover:border-[#C0392B]/40 hover:shadow-[0_0_40px_-12px_rgba(192,57,43,0.3)] transition-all duration-300">
+              <div className="font-display text-2xl md:text-3xl leading-tight mb-4 font-bold text-gray-900">
                 {t("about.flashcard2Title")} <span className="text-[#C0392B]">{t("about.flashcard2TitleMain")}</span>
               </div>
-              <p className="text-zinc-400 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed">
                 {t("about.flashcard2Body")}
               </p>
-            </GlassCard>
+            </div>
           </motion.div>
         </div>
       </section>
