@@ -386,6 +386,36 @@
           { "k": "PLAYBOOKS", "v": "180+" },
           { "k": "REP CONFIDENCE", "v": "+44%" }
         ]
+      },
+      {
+        "industry": "FINANCIAL SERVICES",
+        "headline": "The 1st retail bank in Latin America by total clients.",
+        "body": "A tier-1 Latin American bank engaged Rolplay to elevate the commercial dialogues of its frontline banking advisors. Through customized AI simulations covering product cross-sell, objection handling, and compliance narratives, thousands of advisors developed measurable confidence and consistency across 12 markets.",
+        "metrics": [
+          { "k": "ADVISORS TRAINED", "v": "9k+" },
+          { "k": "MARKETS", "v": "12" },
+          { "k": "CROSS-SELL RATE", "v": "+31%" }
+        ]
+      },
+      {
+        "industry": "TELECOMMUNICATIONS",
+        "headline": "The 3rd largest telecom by subscribers in the Americas.",
+        "body": "A major telecom operator deployed Rolplay to standardize in-store and outbound sales conversations. AI-powered simulations transformed how agents handled retention scenarios, upgrade pitches, and competitor comparisons — resulting in stronger close rates and significantly lower churn.",
+        "metrics": [
+          { "k": "AGENTS TRAINED", "v": "18k+" },
+          { "k": "CHURN REDUCED", "v": "-22%" },
+          { "k": "UPSELL REVENUE", "v": "+29%" }
+        ]
+      },
+      {
+        "industry": "INSURANCE",
+        "headline": "The 5th largest insurance group operating globally.",
+        "body": "A global insurance leader turned to Rolplay to sharpen the consultative selling skills of its broker and agent networks. Role-play simulations focused on needs-based discovery, policy positioning, and relationship deepening across life, health, and commercial lines in 18 regions.",
+        "metrics": [
+          { "k": "AGENTS TRAINED", "v": "11k+" },
+          { "k": "REGIONS", "v": "18" },
+          { "k": "POLICY RETENTION", "v": "+26%" }
+        ]
       }
     ],
     "readyToBegin": "// READY TO BEGIN",

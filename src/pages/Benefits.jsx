@@ -116,8 +116,8 @@ export default function Benefits() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.06 }}
-                  className={`glass rounded-2xl overflow-hidden transition-all duration-500 ${
-                    isOpen ? "border-[#C0392B]/40 shadow-[0_0_40px_-10px_rgba(192,57,43,0.4)]" : ""
+                  className={`bg-white border rounded-2xl overflow-hidden transition-all duration-500 ${
+                    isOpen ? "border-[#C0392B]/50 shadow-[0_0_30px_-10px_rgba(192,57,43,0.3)]" : "border-gray-200"
                   }`}
                   data-testid={`benefit-${i}`}
                 >
@@ -126,17 +126,17 @@ export default function Benefits() {
                     className="w-full flex items-center gap-6 p-7 text-left"
                     data-testid={`benefit-toggle-${i}`}
                   >
-                    <div className={`w-12 h-12 rounded-xl grid place-items-center transition-all duration-500 ${isOpen ? "bg-[#C0392B] text-white" : "bg-white/5 text-[#C0392B]"}`}>
+                    <div className={`w-12 h-12 rounded-xl grid place-items-center transition-all duration-500 ${isOpen ? "bg-[#C0392B] text-white" : "bg-[#C0392B]/10 text-[#C0392B]"}`}>
                       <Icon size={20} />
                     </div>
                     <div className="flex-1">
-                      <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase">
+                      <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase">
                         {t("benefitsPage.pillarLabel")} 0{i + 1}
                       </div>
-                      <h3 className="font-display text-2xl md:text-3xl mt-1 leading-tight">{b.title}</h3>
-                      <p className="text-zinc-400 text-sm mt-1">{b.summary}</p>
+                      <h3 className="font-display text-2xl md:text-3xl mt-1 leading-tight text-gray-900">{b.title}</h3>
+                      <p className="text-gray-600 text-sm mt-1">{b.summary}</p>
                     </div>
-                    <div className={`w-10 h-10 rounded-full grid place-items-center border ${isOpen ? "border-[#C0392B] text-[#C0392B]" : "border-white/10 text-white"}`}>
+                    <div className={`w-10 h-10 rounded-full grid place-items-center border ${isOpen ? "border-[#C0392B] text-[#C0392B]" : "border-gray-300 text-gray-600"}`}>
                       {isOpen ? <Minus size={16} /> : <Plus size={16} />}
                     </div>
                   </button>
@@ -151,12 +151,9 @@ export default function Benefits() {
                       >
                         <div className="px-7 pb-8 pl-[5.5rem]">
                           <div
-                            className="relative rounded-xl p-6 border border-[#C0392B]/15"
-                            style={{
-                              background: "linear-gradient(135deg, rgba(192,57,43,0.06), rgba(192,57,43,0.02) 60%, transparent), rgba(10,10,14,0.5)",
-                            }}
+                            className="relative rounded-xl p-6 border border-[#C0392B]/20 bg-gray-50"
                           >
-                            <p className="text-zinc-300 leading-relaxed">{b.body}</p>
+                            <p className="text-gray-700 leading-relaxed">{b.body}</p>
                           </div>
                         </div>
                       </motion.div>

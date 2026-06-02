@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Pill, ArrowRight } from "lucide-react";
+import { Building2, Pill, Landmark, Wifi, ShieldCheck, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import PageShell from "@/components/PageShell";
 import NeuralNetwork from "@/components/NeuralNetwork";
@@ -9,6 +9,9 @@ import { PrimaryCTA } from "@/components/CTAButton";
 const STORY_META = [
   { rank: "4th", icon: Building2, accent: "rgba(192, 57, 43, 0.5)" },
   { rank: "2nd", icon: Pill, accent: "rgba(192, 57, 43, 0.5)" },
+  { rank: "1st", icon: Landmark, accent: "rgba(192, 57, 43, 0.5)" },
+  { rank: "3rd", icon: Wifi, accent: "rgba(192, 57, 43, 0.5)" },
+  { rank: "5th", icon: ShieldCheck, accent: "rgba(192, 57, 43, 0.5)" },
 ];
 
 export default function SuccessStories() {
