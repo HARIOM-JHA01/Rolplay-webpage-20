@@ -9,7 +9,7 @@ import { PrimaryCTA } from "@/components/CTAButton";
 const STORY_META = [
   { rank: "4th",  icon: Building2,    accent: "rgba(192, 57, 43, 0.5)" },
   { rank: "2nd",  icon: Pill,         accent: "rgba(192, 57, 43, 0.5)" },
-  { rank: "#1",   icon: Landmark,     accent: "rgba(192, 57, 43, 0.5)" },
+  { rank: "1st",  icon: Landmark,     accent: "rgba(192, 57, 43, 0.5)" },
   { rank: null,   icon: FlaskConical, accent: "rgba(192, 57, 43, 0.5)" },
   { rank: null,   icon: Activity,     accent: "rgba(192, 57, 43, 0.5)" },
   { rank: "3rd",  icon: Pill,         accent: "rgba(192, 57, 43, 0.5)" },
