@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Calendar, Facebook, Linkedin, Copy, Check } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import PageShell from "@/components/PageShell";
 import NeuralNetwork from "@/components/NeuralNetwork";
@@ -8,6 +8,24 @@ import GlassCard from "@/components/GlassCard";
 import ContactForm from "@/components/ContactForm";
 import { PrimaryCTA, GhostCTA } from "@/components/CTAButton";
 import { toast } from "sonner";
+
+function HubSpotForm() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://js.hsforms.net/forms/embed/23702020.js";
+    script.defer = true;
+    document.head.appendChild(script);
+    return () => { if (document.head.contains(script)) document.head.removeChild(script); };
+  }, []);
+  return (
+    <div
+      className="hs-form-frame w-full"
+      data-region="na1"
+      data-form-id="b4846450-db95-479c-91bd-72e1123d4d9f"
+      data-portal-id="23702020"
+    />
+  );
+}
 
 const offices = [
   { city: "Toronto", country: "Canadá", coords: "43.65°N / 79.38°W" },
@@ -102,11 +120,7 @@ export default function Contact() {
           </div>
 
           <div className="lg:col-span-7">
-            <GlassCard tilt={false} className="p-8 md:p-10">
-              <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mb-2">{t("contact.sendMessage")}</div>
-              <h3 className="font-display text-3xl md:text-4xl mb-6">{t("contact.tellUsTitle")}</h3>
-              <ContactForm variant="full" />
-            </GlassCard>
+            <HubSpotForm />
           </div>
         </div>
       </section>
