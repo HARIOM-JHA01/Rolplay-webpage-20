@@ -75,9 +75,6 @@ export default function Contact() {
               <PrimaryCTA href="https://calendly.com/viridiana-flores-audioweb/30min" external testid="contact-calendly-cta">
                 <Calendar size={14} /> {t("contact.bookCall")}
               </PrimaryCTA>
-              <GhostCTA href="https://wa.me/15797986707?text=Como%20funciona%20Rolplay?" external testid="contact-whatsapp-cta">
-                {t("contact.chatWhatsApp")}
-              </GhostCTA>
             </div>
           </motion.div>
         </div>
