@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Award, Sparkles, Zap, ShieldCheck, Globe, BarChart3, Mail, Linkedin } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -19,13 +18,6 @@ import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 const FEATURE_ICONS = [Zap, ShieldCheck, Globe, BarChart3];
 
 function HubSpotForm() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://js.hsforms.net/forms/embed/23702020.js";
-    script.defer = true;
-    document.head.appendChild(script);
-    return () => { if (document.head.contains(script)) document.head.removeChild(script); };
-  }, []);
   return (
     <div
       className="hs-form-frame w-full"

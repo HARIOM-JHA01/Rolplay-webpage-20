@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Calendar, Facebook, Linkedin, Copy, Check } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import PageShell from "@/components/PageShell";
 import NeuralNetwork from "@/components/NeuralNetwork";
@@ -10,13 +10,6 @@ import { PrimaryCTA, GhostCTA } from "@/components/CTAButton";
 import { toast } from "sonner";
 
 function HubSpotForm() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://js.hsforms.net/forms/embed/23702020.js";
-    script.defer = true;
-    document.head.appendChild(script);
-    return () => { if (document.head.contains(script)) document.head.removeChild(script); };
-  }, []);
   return (
     <div
       className="hs-form-frame w-full"
