@@ -8,7 +8,143 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon-192.png" />
         <title>RolPlay | AI-Powered Sales Training</title>
+
+        <!-- Hotjar -->
+        <script>
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:6674847,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+
+        <!-- Preloader styles -->
+        <style>
+          #preloader {
+            position: fixed;
+            inset: 0;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity .5s ease;
+            perspective: 1000px;
+          }
+          .rp-neural-sphere {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            transform-style: preserve-3d;
+            animation: sphere-rotate 10s linear infinite;
+          }
+          .rp-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: #d41e2c;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 15px #d41e2c, 0 0 30px rgba(212, 30, 44, 0.5);
+            animation: core-pulse 2s ease-in-out infinite;
+          }
+          .rp-orbit {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid rgba(212, 30, 44, 0.3);
+            transform-style: preserve-3d;
+          }
+          .rp-orbit::before,
+          .rp-orbit::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #d41e2c;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #d41e2c;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+          .rp-orbit::after  { top: -4px; }
+          .rp-orbit::before { bottom: -4px; }
+          .rp-orbit-1 { transform: rotateY(0deg)   rotateX(45deg); animation: spin-orbit 3s linear infinite; }
+          .rp-orbit-2 { transform: rotateY(60deg)  rotateX(45deg); animation: spin-orbit 3s linear infinite reverse; }
+          .rp-orbit-3 { transform: rotateY(120deg) rotateX(45deg); animation: spin-orbit 4s linear infinite; }
+          @keyframes sphere-rotate {
+            from { transform: rotateY(0deg)   rotateX(0deg); }
+            to   { transform: rotateY(360deg) rotateX(360deg); }
+          }
+          @keyframes spin-orbit {
+            from { transform: rotateZ(0deg); }
+            to   { transform: rotateZ(360deg); }
+          }
+          @keyframes core-pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1);   opacity: 1; }
+            50%       { transform: translate(-50%, -50%) scale(1.2); opacity: 0.7; }
+          }
+        </style>
+
+        <!-- Preloader mount -->
+        <script>
+        (function(){
+          var loaderHTML =
+            '<div class="rp-neural-sphere">' +
+              '<div class="rp-core"></div>' +
+              '<div class="rp-orbit rp-orbit-1"></div>' +
+              '<div class="rp-orbit rp-orbit-2"></div>' +
+              '<div class="rp-orbit rp-orbit-3"></div>' +
+            '</div>';
+
+          function mount(){
+            var pre = document.createElement('div');
+            pre.id = 'preloader';
+            pre.innerHTML = loaderHTML;
+            document.body.appendChild(pre);
+
+            var minShow = 1000, start = Date.now();
+            window.addEventListener('load', function(){
+              var remain = Math.max(0, minShow - (Date.now() - start));
+              setTimeout(function(){
+                pre.style.opacity = '0';
+                setTimeout(function(){ pre.style.display = 'none'; }, 500);
+              }, remain);
+            });
+          }
+
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', mount);
+          } else {
+            mount();
+          }
+        })();
+        </script>
+
+        <!-- Apollo -->
+        <script>function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n;o.async=true;o.defer=true;o.onload=function(){if(window.trackingFunctions?.onLoad){window.trackingFunctions.onLoad({appId:"67be3ef9640bdd0011209d85"});}};document.head.appendChild(o);}initApollo();</script>
+
+        <!-- Metricool -->
+        <script>function loadMetricool(cb){var h=document.getElementsByTagName("head")[0],s=document.createElement("script");s.type="text/javascript";s.src="https://tracker.metricool.com/resources/be.js";s.onload=cb;h.appendChild(s);}loadMetricool(function(){if(window.beTracker){beTracker.t({hash:"9b576b85db94c6d058f9c961b411b177"});}});</script>
+
+        <!-- Leadfeeder -->
+        <script>(function(ss,ex){window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments));};(function(d,s){var fs=d.getElementsByTagName(s)[0];function ce(src){var cs=d.createElement(s);cs.src=src;cs.async=1;cs.fs=fs;fs.parentNode.insertBefore(cs,fs);}ce('https://sc.lfeeder.com/lftracker_v1_'+ss+(ex?'_'+ex:'')+'.js');})(document,'script');})('ywVkO4XNP5d8Z6Bj');</script>
+
+        <!-- HubSpot Forms -->
+        <script src="https://js.hsforms.net/forms/embed/23702020.js" defer></script>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>

@@ -7,29 +7,15 @@ import GlassCard from "@/components/GlassCard";
 import SectionHeader from "@/components/SectionHeader";
 import { PrimaryCTA } from "@/components/CTAButton";
 
-const awards = [
-  {
-    year: "2025",
-    medal: "/medal1.jpg",
-    medalAlt: "Training Industry 2025 Top 20 Company",
-    title: "Top 20 AI-Based Coaching & Learning Support Tools",
-    body: "Rolplay has been recognized in Training Industry's Top 20 AI-Based Coaching and Learning Support Tools for 2025 — a global benchmark for AI-driven training innovation.",
-    badge: "TRAINING INDUSTRY · TOP 20",
-    glowColor: "rgba(192,57,43,0.35)",
-  },
-  {
-    year: "2024",
-    medal: "/medal2.jpg",
-    medalAlt: "Training Industry 2024 Watch List Company",
-    title: "AI in Training Companies Watch List",
-    body: "Rolplay was named on Training Industry's 2024 AI in Training Companies Watch List, marking a year of accelerating innovation and customer impact.",
-    badge: "WATCH LIST · 2024",
-    glowColor: "rgba(0,180,220,0.25)",
-  },
+const MEDAL_IMAGES = [
+  { src: "/medal1.jpg", glowColor: "rgba(192,57,43,0.35)", year: "2025" },
+  { src: "/medal2.jpg", glowColor: "rgba(0,180,220,0.25)", year: "2024" },
 ];
 
 export default function Achievements() {
   const { t } = useTranslation();
+  const awards = t("achievementsPage.awards", { returnObjects: true });
+
   return (
     <PageShell testid="achievements-page">
       {/* HERO */}
@@ -45,13 +31,14 @@ export default function Achievements() {
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <div className="font-mono text-[11px] tracking-[0.3em] text-[#C0392B] uppercase mb-5 flex items-center gap-3">
               <span className="w-10 h-px bg-[#C0392B]" />
-              RECOGNITION · GLOBAL
+              {t("achievementsPage.overline")}
             </div>
             <h1 className="font-display text-[clamp(3rem,9vw,9rem)] leading-[0.88] tracking-tighter" data-testid="achievements-headline">
-              Achieve<span className="text-[#C0392B] text-glow-red">ments</span>
+              {t("achievementsPage.heroTitle")}
+              <span className="text-[#C0392B] text-glow-red">{t("achievementsPage.heroTitleRed")}</span>
             </h1>
             <p className="mt-8 text-zinc-300 text-lg md:text-xl max-w-3xl leading-relaxed">
-              This recognition places us among the world's leading companies in AI-powered training solutions, reaffirming our commitment to transforming how sales teams learn, practice, and achieve real results.
+              {t("achievementsPage.heroBody")}
             </p>
           </motion.div>
         </div>
@@ -61,9 +48,9 @@ export default function Achievements() {
       <section className="relative py-24 border-t border-white/5" data-testid="achievements-awards">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {awards.map((a, i) => (
+            {Array.isArray(awards) && awards.map((a, i) => (
               <motion.div
-                key={a.year}
+                key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -72,16 +59,15 @@ export default function Achievements() {
               >
                 <GlassCard className="p-10 h-full relative">
                   <div className="absolute top-6 right-6 font-display text-7xl text-white/5">
-                    {a.year}
+                    {MEDAL_IMAGES[i]?.year}
                   </div>
-                  {/* Medal image — large and prominent */}
                   <div className="flex justify-center mb-8">
                     <img
-                      src={a.medal}
-                      alt={a.medalAlt}
+                      src={MEDAL_IMAGES[i]?.src}
+                      alt={a.badge}
                       loading="lazy"
                       className="w-52 h-52 object-contain hover:scale-105 transition-transform duration-300"
-                      style={{ filter: `drop-shadow(0 0 24px ${a.glowColor})` }}
+                      style={{ filter: `drop-shadow(0 0 24px ${MEDAL_IMAGES[i]?.glowColor})` }}
                     />
                   </div>
                   <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mb-3">{a.badge}</div>
@@ -100,7 +86,7 @@ export default function Achievements() {
         <div className="relative max-w-[1100px] mx-auto px-6 lg:px-10 text-center">
           <Sparkles size={28} className="text-[#C0392B] mx-auto mb-6" />
           <p className="font-display text-2xl md:text-4xl leading-tight">
-            Among the <span className="text-[#C0392B]">world's leading companies</span> in AI-powered training solutions — transforming how sales teams learn, practice and achieve real results.
+            {t("achievementsPage.quoteText")}
           </p>
         </div>
       </section>
@@ -108,7 +94,12 @@ export default function Achievements() {
       {/* VIDEO EMBED */}
       <section className="relative py-32" data-testid="achievements-video-section">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <SectionHeader overline="// CASE FILM" title="Watch the story." redWord="story." align="center" />
+          <SectionHeader
+            overline={t("achievementsPage.caseFilmOverline")}
+            title={t("achievementsPage.caseFilmTitle")}
+            redWord={t("achievementsPage.caseFilmTitleRed")}
+            align="center"
+          />
           <div className="mt-14">
             <GlassCard className="aspect-video group cursor-pointer" data-testid="achievements-video">
               <NeuralNetwork className="opacity-30" />
@@ -118,14 +109,14 @@ export default function Achievements() {
                   <motion.div whileHover={{ scale: 1.12 }} className="w-24 h-24 rounded-full bg-[#C0392B] grid place-items-center shadow-[0_0_60px_rgba(192,57,43,0.7)] mx-auto">
                     <Play size={32} fill="white" className="ml-1" />
                   </motion.div>
-                  <div className="font-display text-3xl md:text-4xl mt-6">Recognition Highlights</div>
-                  <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase mt-2">VIDEO · 3:21</div>
+                  <div className="font-display text-3xl md:text-4xl mt-6">{t("achievementsPage.videoTitle")}</div>
+                  <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase mt-2">{t("achievementsPage.videoDuration")}</div>
                 </div>
               </div>
             </GlassCard>
           </div>
           <div className="mt-12 text-center">
-            <PrimaryCTA href="/contact" testid="achievements-cta">Be the next success</PrimaryCTA>
+            <PrimaryCTA href="/contact" testid="achievements-cta">{t("achievementsPage.ctaText")}</PrimaryCTA>
           </div>
         </div>
       </section>

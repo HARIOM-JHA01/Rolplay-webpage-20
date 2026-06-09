@@ -134,12 +134,13 @@ export default function FAQs() {
             <div className="lg:col-span-5">
               <div className="font-mono text-[11px] tracking-[0.3em] text-[#C0392B] uppercase mb-5 flex items-center gap-3">
                 <span className="w-10 h-px bg-[#C0392B]" />
-                STILL CURIOUS?
+                {t("faqs.stillCurious")}
               </div>
               <h2 className="font-display text-3xl md:text-5xl leading-[1.05]">
-                Ask us <span className="text-[#C0392B]">anything.</span>
+                {t("faqs.askAnything").replace(t("faqs.askAnythingRed"), "")}
+                <span className="text-[#C0392B]">{t("faqs.askAnythingRed")}</span>
               </h2>
-              <p className="text-zinc-400 mt-5 max-w-md">We answer every question, usually the same business day.</p>
+              <p className="text-zinc-400 mt-5 max-w-md">{t("faqs.answerNote")}</p>
             </div>
             <div className="lg:col-span-7">
               <div className="glass rounded-3xl p-8">

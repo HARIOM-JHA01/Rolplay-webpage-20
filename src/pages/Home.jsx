@@ -8,7 +8,6 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import GlassCard from "@/components/GlassCard";
 import { PrimaryCTA, GhostCTA } from "@/components/CTAButton";
 import SectionHeader from "@/components/SectionHeader";
-import ContactForm from "@/components/ContactForm";
 import VideoPlayer from "@/components/VideoPlayer";
 import ProductShowcase from "@/components/ProductShowcase";
 import KPIGrid from "@/components/KPIGrid";
@@ -17,6 +16,17 @@ import SubscribeForm from "@/components/SubscribeForm";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 const FEATURE_ICONS = [Zap, ShieldCheck, Globe, BarChart3];
+
+function HubSpotForm() {
+  return (
+    <div
+      className="hs-form-frame w-full"
+      data-region="na1"
+      data-form-id="b4846450-db95-479c-91bd-72e1123d4d9f"
+      data-portal-id="23702020"
+    />
+  );
+}
 
 export default function Home() {
   const { t } = useTranslation();
@@ -362,7 +372,7 @@ export default function Home() {
                 className="font-display text-7xl md:text-9xl text-[#C0392B] text-glow-red leading-none"
                 data-testid="callout-stat"
               >
-                <AnimatedCounter value={5} suffix="%" />
+                <AnimatedCounter value={5} prefix="+" suffix="%" />
               </div>
             </div>
             <div className="flex-1 max-w-xl">
@@ -370,21 +380,7 @@ export default function Home() {
                 {t("edge.overline")}
               </div>
               <h3 className="font-display text-3xl md:text-4xl leading-tight">
-                {(() => {
-                  const full = t("edge.title", { highlight: t("edge.highlight") });
-                  const highlight = t("edge.highlight");
-                  const parts = full.split(highlight);
-                  return parts.map((part, i) =>
-                    i < parts.length - 1 ? (
-                      <span key={i}>
-                        {part}
-                        <span className="text-[#C0392B]">{highlight}</span>
-                      </span>
-                    ) : (
-                      <span key={i}>{part}</span>
-                    )
-                  );
-                })()}
+                {t("edge.titleMain")}<span className="text-[#C0392B]">{t("edge.titleRed")}</span>
               </h3>
               <p className="text-zinc-400 mt-4 text-sm md:text-base">{t("edge.body")}</p>
             </div>
@@ -407,8 +403,8 @@ export default function Home() {
             body={t("contact.body")}
             align="center"
           />
-          <div className="mt-12 flex justify-center">
-            <ContactForm variant="compact" />
+          <div className="mt-12">
+            <HubSpotForm />
           </div>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm">
             <a
@@ -420,7 +416,7 @@ export default function Home() {
             </a>
             <span className="text-zinc-700">·</span>
             <a
-              href="tel:+525550937376"
+              href="tel:+525518006006"
               className="text-zinc-300 hover:text-[#C0392B] transition"
               data-testid="home-contact-phone"
             >

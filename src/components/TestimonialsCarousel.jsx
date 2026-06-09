@@ -118,7 +118,7 @@ export default function TestimonialsCarousel() {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
               aria-live="polite"
               aria-atomic="true"
             >

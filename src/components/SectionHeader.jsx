@@ -1,14 +1,20 @@
 import { motion } from "framer-motion";
 
+const protectBrand = (text) => {
+  if (typeof text !== "string" || !text.includes("RolPlay")) return text;
+  return text.split("RolPlay").reduce((nodes, part, i) =>
+    i === 0 ? [part] : [...nodes, <span key={i} translate="no">RolPlay</span>, part], []);
+};
+
 export default function SectionHeader({ overline, title, redWord, body, align = "left" }) {
   const alignCls = align === "center" ? "text-center mx-auto" : "";
-  let titleNode = title;
+  let titleNode = protectBrand(title);
   if (redWord && typeof title === "string") {
     const parts = title.split(redWord);
     titleNode = (
       <>
         {parts[0]}
-        <span className="text-[#C0392B] text-glow-red">{redWord}</span>
+        <span className="text-[#C0392B] text-glow-red" translate="no">{redWord}</span>
         {parts[1]}
       </>
     );
@@ -30,7 +36,7 @@ export default function SectionHeader({ overline, title, redWord, body, align = 
       <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[0.95] mb-5">
         {titleNode}
       </h2>
-      {body && <p className="text-zinc-400 text-base md:text-lg leading-relaxed max-w-2xl">{body}</p>}
+      {body && <p className={`text-zinc-400 text-base md:text-lg leading-relaxed max-w-2xl ${align === "center" ? "mx-auto" : ""}`}>{protectBrand(body)}</p>}
     </motion.div>
   );
 }

@@ -117,9 +117,11 @@
   },
   "edge": {
     "overline": "// LA VENTAJA",
-    "title": "Retroalimentación objetiva e {{highlight}} — en cada interacción.",
-    "highlight": "imparcial",
-    "body": "Incluso un aumento del 5% en la precisión del mensaje se traduce en millones en el pipeline. Eso es lo que desbloquea el entrenamiento con IA."
+    "title": "Retroalimentación y entrenamiento con {{highlight}}",
+    "highlight": "impacto",
+    "titleMain": "Retroalimentación y entrenamiento con ",
+    "titleRed": "impacto",
+    "body": "Cuando cada representante comunica mejor, responde mejor y ejecuta con mayor consistencia, el impacto se refleja directamente."
   },
   "testimonials": {
     "overline": "// VOCES DE CLIENTES",
@@ -128,7 +130,7 @@
       { "quote": "Gracias a Rolplay, nuestro equipo comercial mejoró notablemente sus resultados en pocas semanas. La experiencia del cliente mejoró notablemente.", "author": "CEO", "company": "Empresa de Retail", "region": "Mexico" },
       { "quote": "Rolplay mejoró la seguridad y desempeño de nuestros ejecutivos. En pocas semanas aumentamos un 35% los cierres de venta.", "author": "Gerente Comercial", "company": "Sector Financiero", "region": "LATAM" },
       { "quote": "Entrenamos a 200 asesores en dos semanas y reducimos 48% los errores de atención.", "author": "Directora de Operaciones", "company": "Cadena Nacional de Retail", "region": "Estados Unidos" },
-      { "quote": "Los simuladores lograron entrenamientos realistas. Nuestro equipo comunica con mucha más claridad.", "author": "Director de Entrenamiento", "company": "Farmacéutica Multinacional", "region": "Japan" },
+      { "quote": "Los simuladores lograron entrenamientos realistas. Nuestro equipo comunica con mucha más claridad.", "author": "Director de Entrenamiento", "company": "Farmacéutica Multinacional", "region": "Japón" },
       { "quote": "Con Rolplay nuestros ingenieros practican escenarios reales y duplicaron la conversión en cotizaciones.", "author": "Gerente Regional de Ventas", "company": "Empresa Industrial B2B", "region": "LATAM" }
     ]
   },
@@ -170,10 +172,29 @@
     "title": "Contáctanos",
     "body": "¡Estamos aquí para apoyarte!",
     "email": "info@rolplay.ai",
-    "phone": "+52 (55) 5093 7376",
+    "phone": "+52 55 1800 6006",
     "locations": "Toronto · Monterrey · CDMX",
     "send": "Enviar",
-    "sending": "Enviando…"
+    "sending": "Enviando…",
+    "nameLabel": "Nombre",
+    "namePlaceholder": "Tu nombre completo",
+    "nameCompactPlaceholder": "Tu nombre",
+    "emailLabel": "Correo",
+    "emailPlaceholder": "tu@empresa.com",
+    "questionLabel": "Pregunta",
+    "messagePlaceholder": "Cuéntanos sobre los objetivos de entrenamiento de tu equipo…",
+    "errorName": "Por favor ingresa tu nombre",
+    "successMsg": "Mensaje enviado · Estaremos en contacto pronto",
+    "scheduleCta": "Contacto",
+    "directLines": "// LÍNEAS DIRECTAS",
+    "social": "// REDES SOCIALES",
+    "sendMessage": "// ENVÍANOS UN MENSAJE",
+    "tellUsTitle": "Cuéntanos sobre tu equipo.",
+    "offices": "OFICINAS",
+    "threeCities": "Tres ciudades.",
+    "oneTeam": "Un solo equipo.",
+    "bookCall": "Agendar Demo",
+    "chatWhatsApp": "Chatear en WhatsApp"
   },
   "voice": {
     "title": "Asistente de voz",
@@ -215,7 +236,33 @@
     "flashcard1Body": "En 2020, nos posicionamos como ganadores en un programa del mayor clúster de IA del mundo, lo que llevó a nuestra migración a Toronto, Canadá.",
     "flashcard2Body": "Más de 100,000 usuarios activos y más de 1,000 clientes corporativos de clase mundial.",
     "timelineOverline": "// NUESTRA HISTORIA",
-    "timelineTitle": "Nuestra Historia"
+    "timelineTitle": "Nuestra Historia",
+    "flashcard1Title": "Reconocimiento",
+    "flashcard1TitleMain": "Global",
+    "flashcard2Title": "Presencia",
+    "flashcard2TitleMain": "Internacional",
+    "timelineItems": [
+      { "year": "2007", "event": "Fundación de Audioweb, empresa precursora de Rolplay." },
+      { "year": "2013", "event": "Incidente desarrollo de soluciones de e-learning y simuladores comerciales." },
+      { "year": "2018", "event": "Inicio de los primeros workshops, conferencias y e-learning." },
+      { "year": "2019", "event": "IA y Ventas — primeros reconocimientos." },
+      { "year": "2020", "event": "Renovación de centros virtuales y e-learning." },
+      { "year": "2020", "event": "Inicio de desarrollo de IA conversacional." },
+      { "year": "2020", "event": "Las innovaciones llevan a Rolplay a ser finalista en Hallivas." },
+      { "year": "2021", "event": "Rolplay llega a Canadá. Launcha Startup y Comercial." },
+      { "year": "2022", "event": "Desarrollo de startups. Inicio de la expansión hacia Tres Pinos." },
+      { "year": "2023", "event": "Cuenta con ley para expandir la empresa en distintas ciudades." },
+      { "year": "2023", "event": "Integración de IA a los entrenamientos en distintas plataformas." },
+      { "year": "2024", "event": "Otros hitos importantes en casos de éxito de IA, training 2024." }
+    ],
+    "expansionOverline": "// EXPANSIÓN",
+    "expansionTitle": "De México a Toronto.",
+    "expansionTitleRed": "Toronto",
+    "expansionBody": "Lo que comenzó en 2002 como una innovación mexicana se ha convertido en una operación internacional de clase mundial, con presencia en Norteamérica y expansión hacia mercados emergentes, sirviendo a equipos en múltiples continentes.",
+    "clientsOverline": "// CLIENTES",
+    "clientsTitle": "La confianza de corporativos de clase mundial.",
+    "clientsTitleRed": "clase mundial",
+    "clientsBody": "Las empresas líderes del mundo confían en nuestras soluciones para transformar el rendimiento de sus equipos y acelerar su crecimiento."
   },
   "benefits": {
     "overline": "BENEFICIOS",
@@ -248,6 +295,146 @@
       }
     ]
   },
+  "benefitsPage": {
+    "heroHeadline": "Construido para los momentos que cierran ventas.",
+    "heroHeadlineRed": "cierran ventas.",
+    "heroBody": "Entrenar a la fuerza de ventas con simuladores de inteligencia artificial proporciona retroalimentación inmediata y objetiva, personaliza los escenarios de entrenamiento y permite la práctica ilimitada.",
+    "heroDemoCta": "Solicitar Demo",
+    "corePrinciple": "// PRINCIPIO FUNDAMENTAL",
+    "failPrivate": "Falla miles de veces",
+    "failPrivateRed": "en privado.",
+    "noJudgement": "SIN JUICIOS",
+    "objective100": "100% OBJETIVO",
+    "unlimitedReps": "REPETICIONES ILIMITADAS",
+    "keyMessage1": "Eliminamos la incomodidad y el juicio de los roleplays tradicionales entre colegas. Ofrecemos un entorno ",
+    "keyMessageRed1": "seguro y 100% objetivo",
+    "keyMessage2": " donde tu equipo puede fallar miles de veces con nuestra IA, asegurando que sean ",
+    "keyMessageRed2": "impecables",
+    "keyMessage3": " cuando llegue el momento de la verdad frente al cliente.",
+    "pillarsOverline": "// SEIS PILARES",
+    "pillarsTitle": "Cómo transformamos equipos.",
+    "pillarsTitleRed": "transformamos equipos.",
+    "pillarLabel": "PILAR",
+    "practicePrivate": "Practica lo difícil en privado",
+    "practicePrivateRed": "no falles en público.",
+    "bookCall": "Reservar una Llamada",
+    "seeResults": "Ver Resultados",
+    "pillars": [
+      {
+        "title": "Práctica con IA Ilimitada",
+        "summary": "Entrena sin límites, cuando lo necesites.",
+        "body": "Entrena a tu fuerza comercial tantas veces como sea necesario, sin depender de horarios, supervisores o sesiones presenciales. Rolplay permite practicar conversaciones reales en un entorno siempre disponible, escalable y diseñado para mejorar en cada interacción."
+      },
+      {
+        "title": "Retroalimentación Inmediata y Objetiva",
+        "summary": "Feedback claro e imparcial en cada sesión.",
+        "body": "Cada sesión de práctica genera retroalimentación clara, estructurada y libre de sesgos. La IA analiza el desempeño del usuario y entrega información accionable para mejorar la comunicación, el manejo de objeciones, la claridad, la confianza y el apego a los mensajes clave."
+      },
+      {
+        "title": "Escenarios Personalizados para Cada Desafío",
+        "summary": "Entrenamiento adaptado a tu realidad.",
+        "body": "No todos los equipos venden igual ni enfrentan los mismos desafíos. Rolplay adapta los escenarios de entrenamiento a tus productos, industrias, perfiles de clientes, niveles de experiencia y situaciones comerciales reales, haciendo el entrenamiento mucho más relevante."
+      },
+      {
+        "title": "Un Entorno Seguro para Aprender y Mejorar",
+        "summary": "Falla en privado, gana en público.",
+        "body": "Eliminamos la incomodidad de los roleplays tradicionales entre compañeros. Con Rolplay, los miembros del equipo pueden fallar, repetir, corregir y perfeccionar su desempeño sin presión social ni juicios, antes de enfrentar clientes reales."
+      },
+      {
+        "title": "Preparación para el Momento de la Verdad",
+        "summary": "Listo para cada conversación crítica.",
+        "body": "La práctica solo importa si mejora el desempeño en el campo. Rolplay ayuda a cada miembro del equipo a llegar mejor preparado a conversaciones comerciales críticas, con mayor dominio de su discurso, mejor capacidad de respuesta y más confianza frente al cliente."
+      },
+      {
+        "title": "Desarrollo Comercial Medible y Escalable",
+        "summary": "Convierte el entrenamiento en resultados.",
+        "body": "Rolplay convierte el entrenamiento en un proceso observable. Las empresas pueden identificar avances, brechas de conocimiento y oportunidades de mejora, convirtiendo la capacitación comercial en una estrategia continua, medible y escalable."
+      }
+    ]
+  },
+  "achievementsPage": {
+    "overline": "RECONOCIMIENTO · GLOBAL",
+    "heroTitle": "",
+    "heroTitleRed": "Logros",
+    "heroBody": "Este reconocimiento nos posiciona entre las empresas líderes del mundo en soluciones de entrenamiento potenciadas por IA, reafirmando nuestro compromiso de transformar cómo los equipos de ventas aprenden, practican y logran resultados reales.",
+    "awards": [
+      {
+        "badge": "TRAINING INDUSTRY · TOP 20",
+        "title": "Top 20 Herramientas de Coaching y Apoyo al Aprendizaje Basadas en IA",
+        "body": "Rolplay ha sido reconocido en el Top 20 de Herramientas de Coaching y Apoyo al Aprendizaje Basadas en IA de Training Industry para 2025 — un referente global en innovación de entrenamiento impulsado por IA."
+      },
+      {
+        "badge": "WATCH LIST · 2024",
+        "title": "Lista de Seguimiento de Empresas de IA en Entrenamiento",
+        "body": "Rolplay fue nombrado en la Lista de Seguimiento 2024 de Empresas de IA en Entrenamiento de Training Industry, marcando un año de innovación acelerada e impacto en clientes."
+      }
+    ],
+    "quoteText": "Entre las empresas líderes del mundo en soluciones de entrenamiento potenciadas por IA — transformando cómo los equipos de ventas aprenden, practican y logran resultados reales.",
+    "caseFilmOverline": "// CASO FILMADO",
+    "caseFilmTitle": "Mira la historia.",
+    "caseFilmTitleRed": "historia.",
+    "videoTitle": "Momentos de Reconocimiento",
+    "videoDuration": "VIDEO · 3:21",
+    "ctaText": "Sé el próximo caso de éxito"
+  },
+  "storiesPage": {
+    "overline": "CASOS SELECCIONADOS · CONFIDENCIAL",
+    "heroTitle1": "Casos de",
+    "heroTitle2": " Éxito.",
+    "heroBody": "Por confidencialidad, nuestros clientes son identificados únicamente por su ranking global. Los resultados, sin embargo, hablan por sí solos.",
+    "largestGlobally": "MÁS GRANDE DEL MUNDO",
+    "caseLabel": "CASO",
+    "stories": [
+      {
+        "industry": "ENERGÍA",
+        "headline": "La 4ª petrolera más grande del mundo.",
+        "body": "Abordamos el desafío de la capacitación práctica para los despachadores de gasolineras creando una plataforma que les permitía practicar la venta de gasolina premium mediante mensajes diferenciados. Como resultado de esta capacitación, entrenamos efectivamente a los despachadores, acortamos la curva de aprendizaje y redujimos la rotación de personal.",
+        "metrics": [
+          { "k": "REGIONES CUBIERTAS", "v": "26" },
+          { "k": "REPRESENTANTES ENTRENADOS", "v": "12k+" },
+          { "k": "TIEMPO DE COMPETENCIA", "v": "-38%" }
+        ]
+      },
+      {
+        "industry": "FARMACÉUTICA",
+        "headline": "La 2ª farmacéutica más grande del mundo.",
+        "body": "Buscamos estandarizar los procesos de ventas y los mensajes creados por el departamento de entrenamiento a través de una plataforma virtual que permitiera a los representantes practicar metodología, diálogos y habilidades de venta. Además, se creó un perfil dedicado para los gerentes directos, permitiéndoles proporcionar retroalimentación a sus representantes médicos, estandarizando el proceso de ventas y creando un entorno de coaching colaborativo basado en métricas objetivas.",
+        "metrics": [
+          { "k": "MERCADOS", "v": "41" },
+          { "k": "PLAYBOOKS", "v": "180+" },
+          { "k": "CONFIANZA DE REPS", "v": "+44%" }
+        ]
+      },
+      {
+        "industry": "SERVICIOS FINANCIEROS",
+        "headline": "La empresa #1 de soluciones financieras y transaccionales en Francia, y la #2 más grande del mundo.",
+        "body": "Se diseñó e implementó un programa de capacitación teórico-práctico enfocado en ventas virtuales, equipando a 130 representantes de ventas con las habilidades necesarias para vender de forma remota. El programa fortaleció las capacidades comerciales del equipo, incrementando la generación de oportunidades de negocio. Debido a su éxito, la capacitación se integró permanentemente en los procesos de incorporación de la empresa.",
+        "metrics": []
+      },
+      {
+        "industry": "LABORATORIO",
+        "headline": "Para uno de los laboratorios más grandes de España.",
+        "body": "Era necesario transformar los procesos de capacitación en ventas en algo medible, efectivo y continuo. Se desarrolló una plataforma virtual impulsada por IA donde los representantes médicos podían practicar sus mensajes clave. La plataforma evaluó automáticamente cada ejercicio y entregó un veredicto claro a los usuarios, al tiempo que generó reportes para los gerentes, permitiéndoles auditar el rendimiento y la capacitación. Este desarrollo estandarizó los mensajes promocionales, profesionalizó los procesos de formación e incluso permitió la certificación de la fuerza de ventas.",
+        "metrics": []
+      },
+      {
+        "industry": "SALUD",
+        "headline": "Para un laboratorio especializado en el tratamiento del sobrepeso.",
+        "body": "Los enfoques tradicionales de capacitación en ventas generaban fricción interna, ya que los vendedores cuestionaban la objetividad de la retroalimentación proporcionada por sus gerentes. Como solución, se desarrolló una plataforma de videollamada integrada con IA para ofrecer sesiones de coaching más objetivas y estructuradas. La plataforma permitió grabar sesiones completas o segmentos específicos y compararlos con diferentes criterios de evaluación, estandarizando la retroalimentación y simplificando significativamente el trabajo de los gerentes.",
+        "metrics": []
+      },
+      {
+        "industry": "FARMACÉUTICA",
+        "headline": "La 3ª farmacéutica más grande del mundo, con sede en Suiza.",
+        "body": "El objetivo era estandarizar el proceso de ventas desde la segmentación médica hasta el seguimiento post-visita. Se creó una plataforma donde los representantes médicos podían practicar cada fase del proceso. Gracias a la capacitación guiada por IA, los representantes pudieron perfeccionar la segmentación, apertura, sondeo, manejo de objeciones, mensajes clave y técnicas de cierre. El laboratorio logró la adopción total de la metodología, mejorando la calidad de las visitas y asegurando la consistencia en el modelo comercial de toda la fuerza de ventas.",
+        "metrics": []
+      }
+    ],
+    "readyToBegin": "// LISTOS PARA COMENZAR",
+    "ctaTitle": "Haz que tu equipo sea el próximo caso de éxito.",
+    "ctaTitleRed": "caso de éxito.",
+    "scheduleDemo": "Agendar una Demo"
+  },
   "achievements": {
     "overline": "LOGROS",
     "title": "Reconocidos globalmente",
@@ -269,26 +456,50 @@
     "overline": "PREGUNTAS FRECUENTES",
     "title": "Preguntas frecuentes",
     "body": "Todo lo que necesitas saber sobre Rolplay y cómo funciona.",
+    "stillCurious": "¿AÚN TIENES PREGUNTAS?",
+    "askAnything": "Pregúntanos lo que quieras.",
+    "askAnythingRed": "lo que quieras.",
+    "answerNote": "Respondemos todas las preguntas, generalmente el mismo día hábil.",
     "items": [
       {
-        "q": "¿Cómo funciona Rolplay?",
-        "a": "Rolplay proporciona simulaciones de roleplay potenciadas por IA donde los representantes de ventas practican pitches, manejo de objeciones y escenarios de negociación. La IA proporciona retroalimentación inmediata y objetiva en cada sesión."
+        "q": "¿Qué servicios ofrece Rolplay?",
+        "a": "Rolplay ofrece programas de entrenamiento impulsados por inteligencia artificial para mejorar el rendimiento de los equipos de ventas y maximizar los resultados comerciales mediante tecnología innovadora."
       },
       {
-        "q": "¿Qué idiomas soporta Rolplay?",
-        "a": "Rolplay actualmente soporta inglés y español, con soporte adicional de idiomas disponible en planes enterprise."
+        "q": "¿Dónde se encuentra Rolplay?",
+        "a": "Rolplay está ubicada en México y Canadá, ofreciendo servicios a clientes locales e internacionales."
       },
       {
-        "q": "¿Cuánto tiempo tarda el onboarding?",
-        "a": "La mayoría de los equipos están completamente integrados y ejecutando sus primeras simulaciones en 2 semanas."
+        "q": "¿Cómo puede la inteligencia artificial mejorar el desempeño de mi equipo de ventas?",
+        "a": "La IA ofrece entrenamiento personalizado, análisis e información estratégica para mejorar las estrategias, habilidades y toma de decisiones, logrando mejores resultados en ventas."
       },
       {
-        "q": "¿Hay una aplicación móvil?",
-        "a": "Sí. Rolplay es completamente responsivo y funciona en todos los dispositivos. Una aplicación móvil dedicada está en el roadmap."
+        "q": "¿El entrenamiento es personalizable para diferentes industrias?",
+        "a": "Sí, los programas de entrenamiento con IA de Rolplay son personalizables para adaptarse a las necesidades y desafíos específicos de diversas industrias."
       },
       {
-        "q": "¿Cómo se mide el rendimiento?",
-        "a": "La plataforma rastrea más de 50 métricas verbales y no verbales por sesión y las muestra en tu dashboard de analítica."
+        "q": "¿Cómo puedo comenzar con Rolplay?",
+        "a": "Contáctanos a través de nuestro sitio web o llama a nuestra oficina en Ciudad de México para hablar sobre las necesidades de entrenamiento de tu equipo de ventas."
+      },
+      {
+        "q": "¿Qué tipo de resultados puedo esperar usando Rolplay?",
+        "a": "Rolplay ayuda a los equipos comerciales a mejorar su claridad de comunicación, aumentar su tasa de conversión, reducir errores en el proceso de venta y fortalecer la confianza al enfrentar clientes reales. Los equipos suelen ver mejoras medibles en pocas semanas."
+      },
+      {
+        "q": "¿Rolplay requiere capacitación previa para usarlo?",
+        "a": "No. La plataforma está diseñada para que cualquier persona, independientemente de su nivel tecnológico, pueda usarla de forma intuitiva. Además, incluye guías, escenarios preconfigurados y retroalimentación instantánea mediante IA para acelerar el aprendizaje."
+      },
+      {
+        "q": "¿Puedo integrar Rolplay con otras herramientas de mi empresa?",
+        "a": "Sí. Rolplay puede integrarse con sistemas CRM, plataformas LMS y otras herramientas internas para centralizar la información, automatizar reportes y mantener alineadas las métricas de entrenamiento con los objetivos del negocio."
+      },
+      {
+        "q": "¿Cómo evalúa Rolplay el desempeño de los usuarios durante una simulación?",
+        "a": "Rolplay analiza las interacciones del usuario mediante inteligencia artificial, evaluando aspectos como claridad del mensaje, manejo de objeciones, estructura comercial, conocimiento del producto y calidad de la respuesta. La plataforma puede entregar retroalimentación inmediata y métricas accionables para que cada persona identifique áreas de mejora y fortalezca su desempeño."
+      },
+      {
+        "q": "¿Rolplay solo sirve para equipos de ventas?",
+        "a": "No. Aunque Rolplay es especialmente útil para equipos comerciales, también puede aplicarse en capacitación, liderazgo, servicio al cliente, cultura organizacional, comunicación interna, certificación de conocimiento y preparación para conversaciones críticas. Su flexibilidad permite adaptar escenarios, criterios de evaluación y contenidos a distintos roles dentro de una organización."
       }
     ]
   },

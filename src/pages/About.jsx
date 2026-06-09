@@ -9,22 +9,8 @@ import SectionHeader from "@/components/SectionHeader";
 import { PrimaryCTA } from "@/components/CTAButton";
 import VideoPlayer from "@/components/VideoPlayer";
 
-const TIMELINE = [
-  { year: "2007", event: "Fundación de Audioweb, empresa precursora de Rolplay." },
-  { year: "2013", event: "Incidente desarrollo de soluciones de e-learning y simuladores comerciales." },
-  { year: "2018", event: "Inicio de los primeros workshops, conferencias y e-learning." },
-  { year: "2019", event: "IA y Ventas — primeros reconocimientos." },
-  { year: "2020", event: "Renovación de centros virtuales y e-learning." },
-  { year: "2020", event: "Inicio de desarrollo de IA conversacional." },
-  { year: "2020", event: "Las innovaciones llevan a Rolplay a ser finalista en Hallivas." },
-  { year: "2021", event: "Rolplay llega a Canadá. Launcha Startup y Comercial." },
-  { year: "2022", event: "Desarrollo de startups. Inicio de la expansión hacia Tres Pinos." },
-  { year: "2023", event: "Cuenta con ley para expandir la empresa en distintas ciudades." },
-  { year: "2023", event: "Integración de IA a los entrenamientos en distintas plataformas." },
-  { year: "2024", event: "Otros hitos importantes en casos de éxito de IA, training 2024." },
-];
 
-function TimelineSlider() {
+function TimelineSlider({ items = [] }) {
   const trackRef = useRef(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -103,11 +89,11 @@ function TimelineSlider() {
         onPointerUp={handlePointerUp}
         onPointerLeave={handlePointerUp}
       >
-        <div className="flex gap-0 relative" style={{ width: `${TIMELINE.length * 220}px` }}>
+        <div className="flex gap-0 relative" style={{ width: `${items.length * 220}px` }}>
           {/* Connecting line */}
           <div className="absolute top-[28px] left-10 right-10 h-px bg-[#C0392B]/25 pointer-events-none" />
 
-          {TIMELINE.map((item, i) => (
+          {items.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
@@ -121,9 +107,9 @@ function TimelineSlider() {
               <div className="relative z-10 w-4 h-4 rounded-full bg-[#C0392B] border-2 border-[#C0392B]/50 shadow-[0_0_10px_rgba(192,57,43,0.6)] mb-4" />
 
               {/* Card */}
-              <div className="glass rounded-xl p-4 w-full border border-white/5 hover:border-[#C0392B]/30 transition-all duration-300">
+              <div className="bg-white rounded-xl p-4 w-full flex-1 min-h-[130px] border border-gray-200 hover:border-[#C0392B]/40 transition-all duration-300">
                 <div className="font-display text-2xl text-[#C0392B] mb-2">{item.year}</div>
-                <p className="text-xs text-zinc-400 leading-relaxed">{item.event}</p>
+                <p className="text-xs text-gray-700 leading-relaxed">{item.event}</p>
               </div>
             </motion.div>
           ))}
@@ -135,6 +121,7 @@ function TimelineSlider() {
 
 export default function About() {
   const { t } = useTranslation();
+  const timelineItems = t("about.timelineItems", { returnObjects: true });
 
   return (
     <PageShell testid="about-page">
@@ -155,12 +142,13 @@ export default function About() {
             <h1 className="font-display text-[clamp(3rem,8.5vw,8rem)] leading-[0.9] tracking-tighter" data-testid="about-headline">
               {t("about.title").split("RolPlay").map((part, i, arr) =>
                 i < arr.length - 1 ? (
-                  <span key={i}>{part}<span className="text-[#C0392B] text-glow-red">RolPlay</span></span>
+                  <span key={i}>{part}<span className="text-[#C0392B] text-glow-red" translate="no">RolPlay</span></span>
                 ) : <span key={i}>{part}</span>
               )}
             </h1>
             <p className="mt-8 text-zinc-300 text-lg md:text-xl max-w-3xl leading-relaxed">
-              {t("about.body")}
+              {t("about.body").split("RolPlay").reduce((nodes, part, i) =>
+                i === 0 ? [part] : [...nodes, <span key={i} translate="no">RolPlay</span>, part], [])}
             </p>
           </motion.div>
         </div>
@@ -172,25 +160,45 @@ export default function About() {
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <GlassCard className="p-10 h-full">
               <Globe size={28} className="text-[#C0392B] mb-6" />
-              <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase mb-3">// EXPANSION</div>
+              <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase mb-3">{t("about.expansionOverline")}</div>
               <h3 className="font-display text-3xl md:text-4xl leading-tight mb-4">
-                From Mexico to <span className="text-[#C0392B]">Toronto</span>.
+                {(() => {
+                  const full = t("about.expansionTitle");
+                  const red = t("about.expansionTitleRed");
+                  const idx = full.indexOf(red);
+                  if (idx === -1) return <span>{full}</span>;
+                  return (
+                    <>
+                      {full.substring(0, idx)}
+                      <span className="text-[#C0392B]">{red}</span>
+                      {full.substring(idx + red.length)}
+                    </>
+                  );
+                })()}
               </h3>
-              <p className="text-zinc-400 leading-relaxed">
-                What began in 2002 as a Mexican innovation has grown into a North-American operation, with expansion into Toronto, Canada, serving teams across the continent.
-              </p>
+              <p className="text-zinc-400 leading-relaxed">{t("about.expansionBody")}</p>
             </GlassCard>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}>
             <GlassCard className="p-10 h-full">
               <Building2 size={28} className="text-[#C0392B] mb-6" />
-              <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase mb-3">// CLIENTS</div>
+              <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase mb-3">{t("about.clientsOverline")}</div>
               <h3 className="font-display text-3xl md:text-4xl leading-tight mb-4">
-                Trusted by <span className="text-[#C0392B]">world-class</span> corporates.
+                {(() => {
+                  const full = t("about.clientsTitle");
+                  const red = t("about.clientsTitleRed");
+                  const idx = full.indexOf(red);
+                  if (idx === -1) return <span>{full}</span>;
+                  return (
+                    <>
+                      {full.substring(0, idx)}
+                      <span className="text-[#C0392B]">{red}</span>
+                      {full.substring(idx + red.length)}
+                    </>
+                  );
+                })()}
               </h3>
-              <p className="text-zinc-400 leading-relaxed">
-                Our solutions support some of the largest companies on the planet — across pharmaceuticals, energy, retail and finance — with measurable training outcomes.
-              </p>
+              <p className="text-zinc-400 leading-relaxed">{t("about.clientsBody")}</p>
             </GlassCard>
           </motion.div>
         </div>
@@ -224,24 +232,24 @@ export default function About() {
       <section className="relative py-24 border-t border-white/5" data-testid="about-flashcards">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <GlassCard className="p-10 h-full">
-              <div className="font-display text-2xl md:text-3xl leading-tight mb-4">
-                Reconocimiento <span className="text-[#C0392B]">Global</span>
+            <div className="bg-white rounded-2xl p-10 h-full border border-gray-200 hover:border-[#C0392B]/40 hover:shadow-[0_0_40px_-12px_rgba(192,57,43,0.3)] transition-all duration-300">
+              <div className="font-display text-2xl md:text-3xl leading-tight mb-4 font-bold text-gray-900">
+                {t("about.flashcard1Title")} <span className="text-[#C0392B]">{t("about.flashcard1TitleMain")}</span>
               </div>
-              <p className="text-zinc-400 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed">
                 {t("about.flashcard1Body")}
               </p>
-            </GlassCard>
+            </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}>
-            <GlassCard className="p-10 h-full">
-              <div className="font-display text-2xl md:text-3xl leading-tight mb-4">
-                Presencia <span className="text-[#C0392B]">Internacional</span>
+            <div className="bg-white rounded-2xl p-10 h-full border border-gray-200 hover:border-[#C0392B]/40 hover:shadow-[0_0_40px_-12px_rgba(192,57,43,0.3)] transition-all duration-300">
+              <div className="font-display text-2xl md:text-3xl leading-tight mb-4 font-bold text-gray-900">
+                {t("about.flashcard2Title")} <span className="text-[#C0392B]">{t("about.flashcard2TitleMain")}</span>
               </div>
-              <p className="text-zinc-400 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed">
                 {t("about.flashcard2Body")}
               </p>
-            </GlassCard>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -257,7 +265,7 @@ export default function About() {
               {t("about.timelineTitle")}
             </h2>
           </div>
-          <TimelineSlider />
+          <TimelineSlider items={Array.isArray(timelineItems) ? timelineItems : []} />
         </div>
       </section>
     </PageShell>
