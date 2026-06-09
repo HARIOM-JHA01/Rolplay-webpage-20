@@ -41,15 +41,19 @@ function VoicePanel({ onClose }) {
   const handleStart = useCallback(async () => {
     try {
       await navigator.mediaDevices.getUserMedia({ audio: true });
-      await conversation.startSession({
-        agentId: AGENT_ID,
-        // Tell the agent which language to use based on the site's current toggle
-        overrides: {
-          agent: {
-            language: voiceLang,
+      // Attempt to pass the language override (requires the ElevenLabs agent to have
+      // multilingual mode enabled in the ElevenLabs dashboard).
+      // If the override causes a rejection, fall back to the agent's default language.
+      try {
+        await conversation.startSession({
+          agentId: AGENT_ID,
+          overrides: {
+            agent: { language: voiceLang },
           },
-        },
-      });
+        });
+      } catch {
+        await conversation.startSession({ agentId: AGENT_ID });
+      }
     } catch (err) {
       console.error("Mic / session error:", err);
     }
