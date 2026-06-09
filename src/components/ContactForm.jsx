@@ -68,6 +68,9 @@ export default function ContactForm({ variant = "compact" }) {
     setErrors((prev) => ({ ...prev, [k]: errs[k] }));
   };
 
+  const PORTAL_ID = "23702020";
+  const FORM_ID   = "b4846450-db95-479c-91bd-72e1123d4d9f";
+
   const submit = async (e) => {
     e.preventDefault();
     setTouched({ name: true, email: true, message: true });
@@ -75,7 +78,26 @@ export default function ContactForm({ variant = "compact" }) {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setStatus("loading");
     try {
-      await new Promise((r) => setTimeout(r, 900));
+      const res = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_ID}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            fields: [
+              { name: "firstname", value: fields.name },
+              { name: "email",     value: fields.email },
+              { name: "company",   value: fields.company },
+              { name: "message",   value: fields.message },
+            ],
+            context: {
+              pageUri:  window.location.href,
+              pageName: document.title,
+            },
+          }),
+        }
+      );
+      if (!res.ok) throw new Error(`HubSpot submission failed: ${res.status}`);
       setStatus("success");
       setFields({ name: "", email: "", company: "", message: "" });
       setTouched({});
