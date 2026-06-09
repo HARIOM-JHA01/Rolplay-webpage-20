@@ -25,10 +25,19 @@ const WaveformIcon = ({ size = 26, className = "" }) => (
 
 const AGENT_ID = process.env.REACT_APP_ELEVENLABS_AGENT_ID || "";
 
+// ── Debug logger (prefix makes it easy to filter in DevTools) ──
+const log  = (...a) => console.log( "[ElevenLabs]", ...a);
+const warn = (...a) => console.warn("[ElevenLabs]", ...a);
+const err  = (...a) => console.error("[ElevenLabs]", ...a);
+
 function VoicePanel({ onClose }) {
   const { t, i18n } = useTranslation();
   const conversation = useConversation({
-    onError: (err) => console.error("ElevenLabs:", err),
+    onConnect:    (info) => log("✅ connected — conversationId:", info?.conversationId),
+    onDisconnect: (details) => log("🔌 disconnected —", details),
+    onError:      (msg, ctx) => err("❌ SDK error:", msg, ctx),
+    onMessage:    (msg) => log("💬 message:", msg),
+    onDebug:      (info) => log("🔍 debug:", info),
   });
 
   const { status, isSpeaking } = conversation;
@@ -39,25 +48,41 @@ function VoicePanel({ onClose }) {
   const voiceLang = i18n.language?.startsWith("es") ? "es" : "en";
 
   const handleStart = useCallback(async () => {
+    log("▶ handleStart called");
+    log("  AGENT_ID :", AGENT_ID ? AGENT_ID.slice(0, 8) + "…" : "⚠️ EMPTY — check REACT_APP_ELEVENLABS_AGENT_ID env var");
+    log("  voiceLang:", voiceLang);
+    log("  i18n.language:", i18n.language);
+
+    // Step 1 — microphone permission
+    let stream;
     try {
-      await navigator.mediaDevices.getUserMedia({ audio: true });
-      // Attempt to pass the language override (requires the ElevenLabs agent to have
-      // multilingual mode enabled in the ElevenLabs dashboard).
-      // If the override causes a rejection, fall back to the agent's default language.
-      try {
-        await conversation.startSession({
-          agentId: AGENT_ID,
-          overrides: {
-            agent: { language: voiceLang },
-          },
-        });
-      } catch {
-        await conversation.startSession({ agentId: AGENT_ID });
-      }
-    } catch (err) {
-      console.error("Mic / session error:", err);
+      log("🎤 Requesting microphone permission…");
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      log("🎤 Microphone granted —", stream.getAudioTracks()?.[0]?.label);
+    } catch (micErr) {
+      err("🎤 Microphone denied / unavailable:", micErr);
+      return;
     }
-  }, [conversation, voiceLang]);
+
+    // Step 2 — start ElevenLabs session (with language override, fallback without)
+    try {
+      log("🔗 Starting session WITH language override { language:", voiceLang, "}…");
+      await conversation.startSession({
+        agentId: AGENT_ID,
+        overrides: { agent: { language: voiceLang } },
+      });
+      log("🔗 startSession (with override) resolved");
+    } catch (overrideErr) {
+      warn("⚠️ startSession WITH override failed:", overrideErr);
+      warn("⚠️ Retrying WITHOUT override…");
+      try {
+        await conversation.startSession({ agentId: AGENT_ID });
+        log("🔗 startSession (no override) resolved");
+      } catch (fallbackErr) {
+        err("❌ startSession fallback also failed:", fallbackErr);
+      }
+    }
+  }, [conversation, voiceLang, i18n.language]);
 
   const handleStop = useCallback(async () => {
     await conversation.endSession();
