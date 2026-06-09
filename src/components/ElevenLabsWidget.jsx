@@ -26,7 +26,7 @@ const WaveformIcon = ({ size = 26, className = "" }) => (
 const AGENT_ID = process.env.REACT_APP_ELEVENLABS_AGENT_ID || "";
 
 function VoicePanel({ onClose }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const conversation = useConversation({
     onError: (err) => console.error("ElevenLabs:", err),
   });
@@ -35,14 +35,25 @@ function VoicePanel({ onClose }) {
   const isConnected  = status === "connected";
   const isConnecting = status === "connecting";
 
+  // Detect active language: "es" → Spanish, anything else → English
+  const voiceLang = i18n.language?.startsWith("es") ? "es" : "en";
+
   const handleStart = useCallback(async () => {
     try {
       await navigator.mediaDevices.getUserMedia({ audio: true });
-      await conversation.startSession({ agentId: AGENT_ID });
+      await conversation.startSession({
+        agentId: AGENT_ID,
+        // Tell the agent which language to use based on the site's current toggle
+        overrides: {
+          agent: {
+            language: voiceLang,
+          },
+        },
+      });
     } catch (err) {
       console.error("Mic / session error:", err);
     }
-  }, [conversation]);
+  }, [conversation, voiceLang]);
 
   const handleStop = useCallback(async () => {
     await conversation.endSession();
