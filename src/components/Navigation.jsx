@@ -28,6 +28,8 @@ const CallMentorLogo = ({ size = 20 }) => (
   />
 );
 
+const BLOG_URL = "https://blog.rolplay.ai/";
+
 const PRODUCT_LINKS = [
   {
     label: "Second Brain",
@@ -132,6 +134,19 @@ export default function Navigation() {
               )}
             </NavLink>
           ))}
+
+          {/* ── Blog external link ─────────────────────── */}
+          <a
+            href={BLOG_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="nav-link-blog"
+            className="relative px-2.5 py-2 text-sm font-medium tracking-wide whitespace-nowrap transition-colors text-zinc-600 hover:text-zinc-900 group flex items-center gap-1"
+          >
+            Blog
+            <ExternalLink size={10} className="opacity-0 group-hover:opacity-50 transition-opacity" />
+            <span className="absolute left-2.5 right-2.5 -bottom-0.5 h-px bg-[#C0392B] origin-left transition-transform duration-500 scale-x-0 group-hover:scale-x-100" />
+          </a>
         </div>
 
         <div className="flex items-center gap-2">
@@ -238,6 +253,18 @@ export default function Navigation() {
                   {l.label}
                 </NavLink>
               ))}
+              {/* Blog link in mobile menu */}
+              <a
+                href={BLOG_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="mobile-nav-link-blog"
+                className="flex items-center justify-between px-3 py-3 text-base rounded-md font-medium text-zinc-600 hover:text-zinc-900 hover:bg-gray-50"
+              >
+                Blog
+                <ExternalLink size={14} className="text-zinc-300" />
+              </a>
+
               {/* Product links in mobile menu */}
               <div className="mt-3 pt-3 border-t border-gray-100">
                 <div className="px-3 mb-2 text-[10px] font-mono tracking-[0.2em] text-zinc-400 uppercase">
