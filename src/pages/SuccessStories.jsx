@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Building2, Pill, Landmark, FlaskConical, Activity, ArrowRight } from "lucide-react";
+import { Building2, Pill, Landmark, FlaskConical, Activity } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import PageShell from "@/components/PageShell";
 import NeuralNetwork from "@/components/NeuralNetwork";
@@ -169,7 +169,7 @@ export default function SuccessStories() {
               </h3>
             </div>
             <PrimaryCTA href="https://calendly.com/viridiana-flores-audioweb/30min" external testid="stories-cta">
-              {t("storiesPage.scheduleDemo")} <ArrowRight size={14} />
+              {t("storiesPage.scheduleDemo")}
             </PrimaryCTA>
           </GlassCard>
         </div>
