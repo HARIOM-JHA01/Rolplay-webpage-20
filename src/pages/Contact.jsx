@@ -4,25 +4,13 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import PageShell from "@/components/PageShell";
 import NeuralNetwork from "@/components/NeuralNetwork";
-import GlassCard from "@/components/GlassCard";
 import ContactForm from "@/components/ContactForm";
-import { PrimaryCTA, GhostCTA } from "@/components/CTAButton";
+import { PrimaryCTA } from "@/components/CTAButton";
 import { toast } from "sonner";
 
-function HubSpotForm() {
-  return (
-    <div
-      className="hs-form-frame w-full"
-      data-region="na1"
-      data-form-id="b4846450-db95-479c-91bd-72e1123d4d9f"
-      data-portal-id="23702020"
-    />
-  );
-}
-
 const offices = [
-  { city: "Toronto", country: "Canadá", coords: "43.65°N / 79.38°W" },
-  { city: "Monterrey", country: "México", coords: "25.67°N / 100.31°W" },
+  { city: "Toronto",        country: "Canada",  coords: "43.65°N / 79.38°W" },
+  { city: "Monterrey",      country: "México",  coords: "25.67°N / 100.31°W" },
   { city: "Ciudad de México", country: "México", coords: "19.43°N / 99.13°W" },
 ];
 
@@ -41,45 +29,62 @@ function CopyField({ value, label, testid }) {
   return (
     <button
       onClick={onCopy}
-      className="group glass rounded-2xl p-6 w-full text-left flex items-center gap-4 hover:border-[#C0392B]/40 transition-all duration-500"
+      className="group w-full text-left flex items-center gap-4 bg-[#111115] border border-white/[0.06] hover:border-[#C0392B]/40 rounded-2xl p-5 transition-all duration-300 hover:bg-[#16161C]"
       data-testid={testid}
     >
-      <div className="w-12 h-12 rounded-xl bg-[#C0392B]/10 grid place-items-center text-[#C0392B] group-hover:bg-[#C0392B] group-hover:text-white transition-all">
-        {label === "Email" ? <Mail size={18} /> : <Phone size={18} />}
+      <div className="w-11 h-11 rounded-xl bg-[#C0392B]/10 grid place-items-center text-[#C0392B] group-hover:bg-[#C0392B] group-hover:text-white transition-all duration-300 flex-shrink-0">
+        {label === "Email" ? <Mail size={17} /> : <Phone size={17} />}
       </div>
       <div className="flex-1 min-w-0">
-        <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase">{label}</div>
-        <div className="text-white text-base md:text-lg font-medium truncate">{value}</div>
+        <div className="font-mono text-[10px] tracking-[0.25em] text-[#52525B] uppercase mb-0.5">{label}</div>
+        <div className="text-white text-sm font-medium truncate">{value}</div>
       </div>
-      <div className="text-zinc-500 group-hover:text-[#C0392B] transition-colors">
-        {copied ? <Check size={16} /> : <Copy size={16} />}
+      <div className="text-[#52525B] group-hover:text-[#C0392B] transition-colors flex-shrink-0">
+        {copied ? <Check size={15} /> : <Copy size={15} />}
       </div>
     </button>
   );
 }
 
+function SocialLink({ href, icon: Icon, label, testid }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={label}
+      data-testid={testid}
+      className="w-11 h-11 rounded-xl bg-[#111115] border border-white/[0.06] grid place-items-center text-[#71717A] hover:border-[#C0392B]/40 hover:text-[#C0392B] hover:bg-[#16161C] transition-all duration-300"
+    >
+      <Icon size={16} />
+    </a>
+  );
+}
+
 export default function Contact() {
   const { t } = useTranslation();
+
   return (
     <PageShell testid="contact-page">
-      {/* HERO */}
-      <section className="relative min-h-[55vh] flex items-center overflow-hidden" data-testid="contact-hero">
+
+      {/* ── HERO ── */}
+      <section className="relative min-h-[55vh] flex items-center overflow-hidden bg-[#050508]" data-testid="contact-hero">
         <NeuralNetwork className="opacity-40" />
-        <div className="absolute inset-0 grid-overlay opacity-25 pointer-events-none" />
+        <div className="absolute inset-0 grid-overlay opacity-20 pointer-events-none" />
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at 70% 50%, rgba(192,57,43,0.22), transparent 60%)" }}
+          style={{ background: "radial-gradient(ellipse at 70% 50%, rgba(192,57,43,0.18), transparent 60%)" }}
         />
-        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 w-full pt-24 pb-12">
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 w-full pt-24 pb-16">
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <div className="font-mono text-[11px] tracking-[0.3em] text-[#C0392B] uppercase mb-5 flex items-center gap-3">
               <span className="w-10 h-px bg-[#C0392B]" />
               {t("contact.overline")}
             </div>
-            <h1 className="font-display text-[clamp(2.8rem,8vw,8rem)] leading-[0.9]" data-testid="contact-headline">
-              <span className="text-[#C0392B] text-glow-red">{t("contact.title")}</span>
+            <h1 className="font-display text-[clamp(2.8rem,8vw,8rem)] leading-[0.9] text-[#C0392B] text-glow-red" data-testid="contact-headline">
+              {t("contact.title")}
             </h1>
-            <p className="mt-8 text-zinc-300 text-lg md:text-xl max-w-2xl leading-relaxed">
+            <p className="mt-8 text-[#A1A1AA] text-lg md:text-xl max-w-2xl leading-relaxed">
               {t("contact.body")}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -91,73 +96,116 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* CONTACT INFO + FORM */}
-      <section className="relative py-24 border-t border-white/5" data-testid="contact-main-section">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-5 space-y-4">
-            <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mb-2">{t("contact.directLines")}</div>
-            <CopyField label="Email" value="info@rolplay.ai" testid="contact-email-copy" />
-            <CopyField label="Phone" value="+52 55 1800 6006" testid="contact-phone-copy" />
+      {/* ── CONTACT INFO + FORM ── */}
+      <section className="relative bg-[#070709]" data-testid="contact-main-section">
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at 30% 60%, rgba(192,57,43,0.06), transparent 55%)" }} />
 
-            <div className="font-mono text-[10px] tracking-[0.25em] text-[#C0392B] uppercase mt-8 mb-3">{t("contact.social")}</div>
-            <div className="flex items-center gap-3">
-              <a href="https://www.facebook.com/profile.php?id=61582917112897" target="_blank" rel="noopener noreferrer"
-                className="w-12 h-12 rounded-xl glass grid place-items-center hover:border-[#C0392B]/40 hover:text-[#C0392B] transition-all" data-testid="contact-facebook">
-                <Facebook size={16} />
-              </a>
-              <a href="https://www.linkedin.com/company/rolplaymx/posts/?feedView=all" target="_blank" rel="noopener noreferrer"
-                className="w-12 h-12 rounded-xl glass grid place-items-center hover:border-[#C0392B]/40 hover:text-[#C0392B] transition-all" data-testid="contact-linkedin">
-                <Linkedin size={16} />
-              </a>
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 py-24 grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+          {/* Left — contact details */}
+          <div className="lg:col-span-5 space-y-8">
+            <div>
+              <p className="font-mono text-[10px] tracking-[0.3em] text-[#C0392B] uppercase mb-5 flex items-center gap-2">
+                <span className="w-6 h-px bg-[#C0392B]" />
+                {t("contact.directLines")}
+              </p>
+              <div className="space-y-3">
+                <CopyField label="Email" value="info@rolplay.ai" testid="contact-email-copy" />
+                <CopyField label="Phone" value="+52 55 1800 6006" testid="contact-phone-copy" />
+              </div>
+            </div>
+
+            <div>
+              <p className="font-mono text-[10px] tracking-[0.3em] text-[#C0392B] uppercase mb-4 flex items-center gap-2">
+                <span className="w-6 h-px bg-[#C0392B]" />
+                {t("contact.social")}
+              </p>
+              <div className="flex items-center gap-3">
+                <SocialLink
+                  href="https://www.facebook.com/profile.php?id=61582917112897"
+                  icon={Facebook} label="Facebook" testid="contact-facebook"
+                />
+                <SocialLink
+                  href="https://www.linkedin.com/company/rolplaymx/posts/?feedView=all"
+                  icon={Linkedin} label="LinkedIn" testid="contact-linkedin"
+                />
+              </div>
+            </div>
+
+            {/* Decorative divider stat */}
+            <div className="pt-6 border-t border-white/[0.05]">
+              <p className="font-mono text-[10px] tracking-[0.25em] text-[#52525B] uppercase mb-4">
+                {t("contact.sendMessage")}
+              </p>
+              <p className="text-[#71717A] text-sm leading-relaxed">
+                {t("contact.tellUsTitle")}
+              </p>
             </div>
           </div>
 
+          {/* Right — form */}
           <div className="lg:col-span-7">
-            <HubSpotForm />
+            <div className="bg-[#0D0D12] border border-white/[0.06] rounded-3xl p-8 md:p-10">
+              <ContactForm variant="full" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* OFFICES */}
-      <section className="relative py-24 border-t border-white/5 overflow-hidden" data-testid="contact-offices-section">
-        <NeuralNetwork className="opacity-25" density={0.00007} />
-        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+      {/* ── OFFICES ── */}
+      <section className="relative bg-[#050508] border-t border-white/[0.04] overflow-hidden" data-testid="contact-offices-section">
+        <NeuralNetwork className="opacity-20" density={0.00007} />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(192,57,43,0.08), transparent 60%)" }}
+        />
+        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-10 py-24">
           <div className="font-mono text-[11px] tracking-[0.3em] text-[#C0392B] uppercase mb-5 flex items-center gap-3">
             <span className="w-10 h-px bg-[#C0392B]" />
             {t("contact.offices")}
           </div>
-          <h2 className="font-display text-3xl md:text-5xl leading-[1.05] max-w-3xl">
-            {t("contact.threeCities")} <span className="text-[#C0392B]">{t("contact.oneTeam")}</span>
+          <h2 className="font-display text-3xl md:text-5xl leading-[1.05] max-w-3xl text-white">
+            {t("contact.threeCities")}{" "}
+            <span className="text-[#C0392B]">{t("contact.oneTeam")}</span>
           </h2>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
             {offices.map((o, i) => (
               <motion.div
                 key={o.city}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
                 data-testid={`office-card-${o.city.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <GlassCard className="p-7 h-full">
-                  <div className="flex items-center gap-2 mb-5">
-                    <div className="relative w-3 h-3">
-                      <span className="absolute inset-0 rounded-full bg-[#C0392B]" style={{ animation: "pulse-red 2s ease-in-out infinite" }} />
-                      <span className="relative block w-3 h-3 rounded-full bg-[#C0392B] shadow-[0_0_10px_rgba(192,57,43,0.8)]" />
+                <div className="group relative bg-[#0D0D12] border border-white/[0.06] rounded-2xl p-7 h-full hover:border-[#C0392B]/30 hover:bg-[#111115] transition-all duration-300">
+                  {/* subtle red glow on hover */}
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(192,57,43,0.07), transparent 70%)" }} />
+
+                  <div className="relative flex items-center gap-2 mb-6">
+                    <div className="relative w-2.5 h-2.5">
+                      <span className="absolute inset-0 rounded-full bg-[#C0392B] opacity-60" style={{ animation: "pulse-red 2s ease-in-out infinite" }} />
+                      <span className="relative block w-2.5 h-2.5 rounded-full bg-[#C0392B]" />
                     </div>
-                    <MapPin size={14} className="text-[#C0392B]" />
+                    <MapPin size={13} className="text-[#C0392B]" />
                   </div>
-                  <div className="font-display text-2xl md:text-3xl">
+                  <div className="relative font-display text-2xl md:text-3xl text-white mb-1">
                     <span className="text-[#C0392B]">{o.city}</span>
                   </div>
-                  <div className="text-zinc-400 mt-1">{o.country}</div>
-                  <div className="font-mono text-[10px] tracking-[0.2em] text-zinc-600 mt-5">{o.coords}</div>
-                </GlassCard>
+                  <div className="relative text-[#71717A] text-sm mb-6">{o.country}</div>
+                  <div className="relative font-mono text-[10px] tracking-[0.2em] text-[#3F3F46] pt-4 border-t border-white/[0.04]">
+                    {o.coords}
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+
     </PageShell>
   );
 }

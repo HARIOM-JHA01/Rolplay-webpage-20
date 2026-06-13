@@ -18,6 +18,8 @@ import Achievements from "@/pages/Achievements";
 import SuccessStories from "@/pages/SuccessStories";
 import FAQs from "@/pages/FAQs";
 import Contact from "@/pages/Contact";
+import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/faqs" element={<FAQs />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
         </AnimatePresence>
         <Footer />

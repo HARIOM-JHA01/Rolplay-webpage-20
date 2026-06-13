@@ -98,7 +98,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-xs text-zinc-500 font-mono tracking-widest">{t("footer.copyright")}</p>
+          <p className="text-xs text-zinc-500 font-mono tracking-widest">© {new Date().getFullYear()}. ALL RIGHTS RESERVED.</p>
           <p className="text-xs text-zinc-500 font-mono tracking-widest">{t("footer.award")}</p>
         </div>
       </div>

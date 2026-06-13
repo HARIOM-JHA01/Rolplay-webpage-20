@@ -6,7 +6,9 @@
     "achievements": "Logros",
     "successStories": "Casos de Éxito",
     "contact": "Contáctanos",
-    "faqs": "Preguntas Frecuentes"
+    "faqs": "Preguntas Frecuentes",
+    "blog": "Blog",
+    "products": "Productos"
   },
   "hero": {
     "overline": "ENTRENAMIENTO CON IA DESDE HACE 20 AÑOS",
@@ -155,7 +157,33 @@
       { "value": 24, "prefix": "", "suffix": "/7", "label": "Coaching Disponible para Todo el Equipo" }
     ]
   },
+  "blog": {
+    "overline": "Ideas y Artículos",
+    "heroTitle": "El Blog de RolPlay",
+    "heroBody": "Estrategia comercial, coaching con IA y rendimiento — del equipo que lo construye.",
+    "newsletterLabel": "Newsletter",
+    "newsletterTitle": "Mantente al día",
+    "newsletterBody": "Nuevos artículos directo a tu correo. Sin spam, cancela cuando quieras.",
+    "searchPlaceholder": "Buscar artículos…",
+    "tagAll": "Todos",
+    "noPostsTitle": "No se encontraron artículos",
+    "noPostsBody": "Prueba con otra búsqueda o filtro.",
+    "minRead": "min de lectura",
+    "views": "vistas",
+    "lastUpdated": "Última actualización",
+    "relatedArticles": "Artículos Relacionados",
+    "subscribedSuccess": "Estás suscrito — te enviaremos nuestros últimos artículos.",
+    "subscribePlaceholder": "tucorreo@ejemplo.com",
+    "subscribeCta": "Suscribirme",
+    "alreadySubscribed": "Ya estás suscrito.",
+    "subscribeError": "Algo salió mal. Inténtalo de nuevo.",
+    "enjoyedPost": "¿Te gustó este artículo?",
+    "getArticles": "Recibe nuevos artículos en tu correo.",
+    "prevPage": "Página anterior",
+    "nextPage": "Página siguiente"
+  },
   "subscribe": {
+    "emailInvalid": "Por favor ingresa un correo válido.",
     "overline": "// MANTENTE AL DÍA",
     "title": "Recibe insights de ventas con IA {{highlight}}.",
     "highlight": "directamente",
@@ -194,7 +222,24 @@
     "threeCities": "Tres ciudades.",
     "oneTeam": "Un solo equipo.",
     "bookCall": "Agendar Demo",
-    "chatWhatsApp": "Chatear en WhatsApp"
+    "chatWhatsApp": "Chatear en WhatsApp",
+    "fullNameLabel": "Nombre completo *",
+    "workEmailLabel": "Correo de trabajo *",
+    "companyLabel": "Empresa",
+    "helpLabel": "¿Cómo podemos ayudarte? *",
+    "namePlaceholderFull": "Juan Pérez",
+    "emailPlaceholderFull": "juan@empresa.com",
+    "companyPlaceholder": "Acme Corp (opcional)",
+    "messagePlaceholderFull": "Cuéntanos sobre los objetivos de entrenamiento de tu equipo, su tamaño y lo que quieres lograr…",
+    "requiredFields": "* Campos obligatorios",
+    "successTitle": "¡Mensaje enviado!",
+    "successBody": "Te responderemos en menos de 24 horas.",
+    "errorMsg": "Algo salió mal. Escríbenos a",
+    "nameRequired": "El nombre es obligatorio",
+    "emailRequired": "El correo es obligatorio",
+    "emailInvalid": "Ingresa un correo válido",
+    "messageRequired": "Cuéntanos sobre tu equipo",
+    "compactPlaceholder": "Tu nombre"
   },
   "voice": {
     "title": "Asistente de voz",

@@ -16,7 +16,7 @@ export default function SubscribeForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate(email)) {
-      setError("Please enter a valid email address.");
+      setError(t("subscribe.emailInvalid"));
       return;
     }
     setError("");

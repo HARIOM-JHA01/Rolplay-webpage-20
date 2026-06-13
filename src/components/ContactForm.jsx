@@ -9,7 +9,7 @@ function Field({ id, label, error, children }) {
     <div className="group/field flex flex-col gap-1.5">
       <label
         htmlFor={id}
-        className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase transition-colors group-focus-within/field:text-[#C0392B]"
+        className="font-mono text-[10px] tracking-[0.25em] text-[#52525B] uppercase transition-colors group-focus-within/field:text-[#C0392B]"
       >
         {label}
       </label>
@@ -32,22 +32,22 @@ function Field({ id, label, error, children }) {
 }
 
 const inputClass =
-  "w-full rounded-xl border border-white/10 bg-white/4 px-4 py-3 text-sm text-white " +
-  "placeholder:text-zinc-600 focus:outline-none focus:border-[#C0392B]/60 focus:bg-white/6 " +
-  "focus:shadow-[0_0_0_3px_rgba(192,57,43,0.12)] transition-all duration-200";
-
-function validate(fields) {
-  const errs = {};
-  if (!fields.name.trim())    errs.name    = "Name is required";
-  if (!fields.email.trim())   errs.email   = "Email is required";
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email))
-                              errs.email   = "Enter a valid email";
-  if (!fields.message.trim()) errs.message = "Please tell us about your team";
-  return errs;
-}
+  "w-full rounded-xl border border-white/[0.08] bg-[#0A0A0E] px-4 py-3 text-sm text-white " +
+  "placeholder:text-[#3F3F46] focus:outline-none focus:border-[#C0392B]/50 focus:bg-[#0D0D12] " +
+  "focus:shadow-[0_0_0_3px_rgba(192,57,43,0.10)] transition-all duration-200";
 
 export default function ContactForm({ variant = "compact" }) {
   const { t } = useTranslation();
+
+  const validate = (fields) => {
+    const errs = {};
+    if (!fields.name.trim())    errs.name    = t("contact.nameRequired");
+    if (!fields.email.trim())   errs.email   = t("contact.emailRequired");
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email))
+                                errs.email   = t("contact.emailInvalid");
+    if (!fields.message.trim()) errs.message = t("contact.messageRequired");
+    return errs;
+  };
 
   const [fields,  setFields]  = useState({ name: "", email: "", company: "", message: "" });
   const [errors,  setErrors]  = useState({});
@@ -120,8 +120,8 @@ export default function ContactForm({ variant = "compact" }) {
           type="text"
           value={fields.name}
           onChange={set("name")}
-          placeholder="Your name"
-          aria-label="Your name"
+          placeholder={t("contact.compactPlaceholder")}
+          aria-label={t("contact.compactPlaceholder")}
           className="flex-1 bg-transparent px-5 py-3 text-sm text-white placeholder:text-zinc-500 focus:outline-none"
           data-testid="contact-name-input"
         />
@@ -154,8 +154,8 @@ export default function ContactForm({ variant = "compact" }) {
           >
             <CheckCircle2 size={22} className="text-emerald-400 shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm font-semibold text-emerald-300">Message sent!</p>
-              <p className="text-xs text-zinc-400 mt-0.5">We'll get back to you within 24 hours.</p>
+              <p className="text-sm font-semibold text-emerald-300">{t("contact.successTitle")}</p>
+              <p className="text-xs text-zinc-400 mt-0.5">{t("contact.successBody")}</p>
             </div>
           </motion.div>
         )}
@@ -167,7 +167,7 @@ export default function ContactForm({ variant = "compact" }) {
           >
             <AlertCircle size={18} className="text-red-400 shrink-0" />
             <p className="text-sm text-red-300">
-              Something went wrong. Email us at{" "}
+              {t("contact.errorMsg")}{" "}
               <a href="mailto:info@rolplay.ai" className="underline text-white">info@rolplay.ai</a>
             </p>
           </motion.div>
@@ -175,40 +175,40 @@ export default function ContactForm({ variant = "compact" }) {
       </AnimatePresence>
 
       <div className="grid md:grid-cols-2 gap-5">
-        <Field id="full-name" label="Full name *" error={errors.name}>
+        <Field id="full-name" label={t("contact.fullNameLabel")} error={errors.name}>
           <input id="full-name" type="text" value={fields.name}
             onChange={set("name")} onBlur={blur("name")}
-            placeholder="Jane Smith" aria-required="true" aria-invalid={!!errors.name}
+            placeholder={t("contact.namePlaceholderFull")} aria-required="true" aria-invalid={!!errors.name}
             className={`${inputClass} ${errors.name ? "border-red-500/50" : ""}`}
             data-testid="contact-full-name-input" />
         </Field>
 
-        <Field id="full-email" label="Work email *" error={errors.email}>
+        <Field id="full-email" label={t("contact.workEmailLabel")} error={errors.email}>
           <input id="full-email" type="email" value={fields.email}
             onChange={set("email")} onBlur={blur("email")}
-            placeholder="jane@company.com" aria-required="true" aria-invalid={!!errors.email}
+            placeholder={t("contact.emailPlaceholderFull")} aria-required="true" aria-invalid={!!errors.email}
             className={`${inputClass} ${errors.email ? "border-red-500/50" : ""}`}
             data-testid="contact-full-email-input" />
         </Field>
       </div>
 
-      <Field id="company-name" label="Company">
+      <Field id="company-name" label={t("contact.companyLabel")}>
         <input id="company-name" type="text" value={fields.company}
-          onChange={set("company")} placeholder="Acme Corp (optional)"
+          onChange={set("company")} placeholder={t("contact.companyPlaceholder")}
           className={inputClass} data-testid="contact-full-company-input" />
       </Field>
 
-      <Field id="message" label="How can we help? *" error={errors.message}>
+      <Field id="message" label={t("contact.helpLabel")} error={errors.message}>
         <textarea id="message" value={fields.message}
           onChange={set("message")} onBlur={blur("message")}
-          rows={5} placeholder="Tell us about your team's training goals, size, and what you're looking to achieve…"
+          rows={5} placeholder={t("contact.messagePlaceholderFull")}
           aria-required="true" aria-invalid={!!errors.message}
           className={`${inputClass} resize-none leading-relaxed ${errors.message ? "border-red-500/50" : ""}`}
           data-testid="contact-full-message-input" />
       </Field>
 
       <div className="flex items-center justify-between gap-4 pt-1">
-        <p className="text-[11px] text-zinc-600 font-mono">* Required fields</p>
+        <p className="text-[11px] text-zinc-600 font-mono">{t("contact.requiredFields")}</p>
         <motion.button
           whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
           type="submit" disabled={status === "loading"}

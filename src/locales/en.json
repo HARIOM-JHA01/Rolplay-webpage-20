@@ -6,7 +6,9 @@
     "achievements": "Achievements",
     "successStories": "Success Stories",
     "contact": "Contact Us",
-    "faqs": "FAQs"
+    "faqs": "FAQs",
+    "blog": "Blog",
+    "products": "Products"
   },
   "hero": {
     "overline": "AI COACHING FOR OVER 20 YEARS",
@@ -155,7 +157,33 @@
       { "value": 24, "prefix": "", "suffix": "/7", "label": "Coaching Available for Your Team" }
     ]
   },
+  "blog": {
+    "overline": "Insights & Stories",
+    "heroTitle": "The RolPlay Blog",
+    "heroBody": "Sales strategy, AI coaching, and commercial performance — from the team building it.",
+    "newsletterLabel": "Newsletter",
+    "newsletterTitle": "Stay in the loop",
+    "newsletterBody": "New posts delivered straight to your inbox. No spam, unsubscribe anytime.",
+    "searchPlaceholder": "Search posts…",
+    "tagAll": "All",
+    "noPostsTitle": "No posts found",
+    "noPostsBody": "Try a different search or tag filter.",
+    "minRead": "min read",
+    "views": "views",
+    "lastUpdated": "Last updated",
+    "relatedArticles": "Related Articles",
+    "subscribedSuccess": "You're subscribed — we'll send you our latest posts.",
+    "subscribePlaceholder": "your@email.com",
+    "subscribeCta": "Subscribe",
+    "alreadySubscribed": "Already subscribed.",
+    "subscribeError": "Something went wrong. Try again.",
+    "enjoyedPost": "Enjoyed this post?",
+    "getArticles": "Get new articles delivered to your inbox.",
+    "prevPage": "Previous page",
+    "nextPage": "Next page"
+  },
   "subscribe": {
+    "emailInvalid": "Please enter a valid email address.",
     "overline": "// STAY AHEAD",
     "title": "Get AI sales insights {{highlight}}.",
     "highlight": "delivered",
@@ -194,7 +222,24 @@
     "threeCities": "Three cities.",
     "oneTeam": "One team.",
     "bookCall": "Schedule a Demo",
-    "chatWhatsApp": "Chat on WhatsApp"
+    "chatWhatsApp": "Chat on WhatsApp",
+    "fullNameLabel": "Full name *",
+    "workEmailLabel": "Work email *",
+    "companyLabel": "Company",
+    "helpLabel": "How can we help? *",
+    "namePlaceholderFull": "Jane Smith",
+    "emailPlaceholderFull": "jane@company.com",
+    "companyPlaceholder": "Acme Corp (optional)",
+    "messagePlaceholderFull": "Tell us about your team's training goals, size, and what you're looking to achieve…",
+    "requiredFields": "* Required fields",
+    "successTitle": "Message sent!",
+    "successBody": "We'll get back to you within 24 hours.",
+    "errorMsg": "Something went wrong. Email us at",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Enter a valid email",
+    "messageRequired": "Please tell us about your team",
+    "compactPlaceholder": "Your name"
   },
   "voice": {
     "title": "Voice Assistant",
