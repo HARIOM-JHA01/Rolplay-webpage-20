@@ -6,127 +6,223 @@
 
 ---
 
-## 🚀 Quick Start
+## Architecture
+
+Two independently deployed services:
+
+| Service | Tech | Deploy target |
+|---|---|---|
+| **Frontend** | React 19 (CRA / CRACO) | Vercel |
+| **Backend** | FastAPI (Python) + MongoDB | Render / Railway |
+
+---
+
+## Quick Start (local)
+
+### 1. Frontend
 
 ```bash
-# Install dependencies
 npm install --legacy-peer-deps
+npm start
+# → http://localhost:3000
+```
 
-# Start development server
-npm start         # http://localhost:3000
+Create a `.env.local` in the project root:
 
-# Production build
-CI=false npm run build
+```env
+REACT_APP_ELEVENLABS_AGENT_ID=your_agent_id_here
+REACT_APP_API_URL=http://localhost:8000
+```
+
+### 2. Backend
+
+```bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn server:app --reload --port 8000
+# → http://localhost:8000
+```
+
+Create `backend/.env`:
+
+```env
+MONGO_URL=mongodb+srv://<user>:<pass>@cluster.mongodb.net/
+DB_NAME=rolplay
+ADMIN_API_KEY=your_secret_key
+RESEND_API_KEY=re_...          # optional — email notifications
+SITE_URL=http://localhost:3000
+CORS_ORIGINS=http://localhost:3000
 ```
 
 ---
 
-## 🏗 Tech Stack
+## Tech Stack
+
+### Frontend
 
 | Layer | Technology |
 |---|---|
-| Framework | React 18 (Create React App / CRACO) |
+| Framework | React 19 (Create React App / CRACO) |
 | Styling | Tailwind CSS v3 |
 | Animations | Framer Motion |
-| Routing | React Router v6 |
-| i18n | i18next + react-i18next |
+| Routing | React Router v7 |
+| i18n | i18next + react-i18next (EN / ES / FR) |
+| HTTP | Axios |
 | 3D Globe | react-globe.gl |
 | AI Widget | ElevenLabs Conversational AI |
 | Icons | Lucide React |
 | Notifications | Sonner |
 
+### Backend
+
+| Layer | Technology |
+|---|---|
+| Framework | FastAPI |
+| Database | MongoDB (Motor async driver) |
+| Email | Resend |
+| Auth | `x-api-key` header (blog create endpoint) |
+
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
-src/
-├── components/
-│   ├── Navigation.jsx       # White sticky navbar, EN/ES toggle
-│   ├── Footer.jsx
-│   ├── CursorSparks.jsx     # Global red spark click effect
-│   ├── GlobeSection.jsx     # Interactive 3D globe (3 office pins)
-│   ├── KPIGrid.jsx          # Animated stats counters
-│   ├── ProductShowcase.jsx  # 7-product carousel
-│   ├── TestimonialsCarousel.jsx  # Enterprise testimonials, autoplay
-│   ├── VideoPlayer.jsx      # Lazy-load iframe/native video
-│   ├── ElevenLabsWidget.jsx # AI chat widget (env-var gated)
-│   ├── Preloader.jsx        # Loading screen with 4s fail-safe
-│   └── ...
-├── pages/
-│   ├── Home.jsx
-│   ├── About.jsx
-│   ├── Benefits.jsx
-│   ├── Achievements.jsx
-│   ├── SuccessStories.jsx
-│   ├── FAQs.jsx
-│   └── Contact.jsx
-├── locales/
-│   ├── en.json              # English translations
-│   └── es.json              # Spanish translations
-└── hooks/
-    └── useRipple.js
-public/
-├── logo.png                 # Official RolPlay logo
-├── medal1.jpg               # 2025 Top 20 Company — Training Industry
-└── medal2.jpg               # 2024 Watch List Company — Training Industry
+├── backend/
+│   ├── server.py            # FastAPI app — all API routes
+│   ├── requirements.txt
+│   └── .env                 # local only, never committed
+│
+├── src/
+│   ├── components/
+│   │   ├── blog/
+│   │   │   ├── BlogCard.jsx
+│   │   │   ├── BlogGrid.jsx
+│   │   │   ├── BlogSearchBar.jsx
+│   │   │   ├── BlogTagFilter.jsx
+│   │   │   ├── BlogPagination.jsx
+│   │   │   ├── BlogPostContent.jsx
+│   │   │   ├── RelatedArticles.jsx
+│   │   │   ├── NewsletterForm.jsx
+│   │   │   └── blog-content.css
+│   │   ├── Navigation.jsx       # Sticky navbar, EN/ES toggle, Blog link
+│   │   ├── Footer.jsx
+│   │   ├── ContactForm.jsx      # Submits to HubSpot API
+│   │   ├── CursorSparks.jsx
+│   │   ├── GlobeSection.jsx
+│   │   ├── KPIGrid.jsx
+│   │   ├── ProductShowcase.jsx
+│   │   ├── TestimonialsCarousel.jsx
+│   │   ├── VideoPlayer.jsx
+│   │   ├── ElevenLabsWidget.jsx
+│   │   └── Preloader.jsx
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   ├── Benefits.jsx
+│   │   ├── Achievements.jsx
+│   │   ├── SuccessStories.jsx
+│   │   ├── FAQs.jsx
+│   │   ├── Contact.jsx
+│   │   ├── Blog.jsx             # /blog — list, search, tag filter
+│   │   └── BlogPost.jsx         # /blog/:slug — single post
+│   ├── locales/
+│   │   ├── en.json
+│   │   └── es.json
+│   └── hooks/
+│       └── useRipple.js
+│
+├── public/
+├── vercel.json
+└── .env.example
 ```
 
 ---
 
-## 🌍 Internationalisation
+## API Reference
 
-Language is toggled via the navbar (EN / ES). Persisted in `localStorage` under key `rolplay_lang`.
+Base URL (local): `http://localhost:8000`
 
-All strings live in `src/locales/en.json` and `src/locales/es.json`.
+| Method | Route | Auth | Description |
+|---|---|---|---|
+| GET | `/api/blogs` | — | List posts. Query: `page`, `limit`, `search`, `tags` |
+| GET | `/api/blogs/tags` | — | All tags with counts |
+| GET | `/api/blogs/{slug}` | — | Single post (full content) |
+| GET | `/api/blogs/{slug}/related` | — | Related posts by tag overlap |
+| POST | `/api/blogs/{slug}/view` | — | Increment view counter |
+| POST | `/api/blogs/create` | `x-api-key` | Create a new post |
+| POST | `/api/subscribe` | — | Newsletter subscribe |
+
+**Create a blog post:**
+```bash
+curl -X POST http://localhost:8000/api/blogs/create \
+  -H "x-api-key: your_admin_key" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "My Post",
+    "summary": "Short description.",
+    "content": "<p>Full HTML content.</p>",
+    "tags": ["ai", "sales"],
+    "published": true
+  }'
+```
 
 ---
 
-## 🔐 Environment Variables
+## Internationalisation
 
-Create a `.env` file in the project root:
+Language toggled via the navbar (EN / ES). Persisted in `localStorage` under `rolplay_lang`.
+
+All strings live in `src/locales/en.json` and `src/locales/es.json`. Every user-visible string goes through `t("key")` — no hardcoded text in components.
+
+---
+
+## Deployment
+
+### Frontend → Vercel
+
+`vercel.json` is already configured. Connect the GitHub repo to Vercel — every push to `main` deploys automatically.
+
+Set these env vars in the **Vercel dashboard**:
 
 ```env
-REACT_APP_ELEVENLABS_AGENT_ID=your_agent_id_here
+REACT_APP_ELEVENLABS_AGENT_ID=...
+REACT_APP_API_URL=https://your-backend.onrender.com
 ```
 
-> The ElevenLabs widget gracefully hides if this variable is not set.
+### Backend → Render (recommended)
+
+1. New Web Service → connect repo → set **Root Directory** to `backend`
+2. **Build command:** `pip install -r requirements.txt`
+3. **Start command:** `uvicorn server:app --host 0.0.0.0 --port $PORT`
+4. Add env vars in the Render dashboard:
+
+```env
+MONGO_URL=mongodb+srv://...
+DB_NAME=rolplay
+ADMIN_API_KEY=...
+RESEND_API_KEY=...
+SITE_URL=https://rolplay.ai
+CORS_ORIGINS=https://rolplay.ai
+```
+
+> `backend/.env` is for **local development only** — never committed to git.
 
 ---
 
-## 🚢 Deployment (Vercel)
-
-The `vercel.json` at project root handles build configuration automatically:
-
-```json
-{
-  "buildCommand": "CI=false npm run build",
-  "installCommand": "npm install --legacy-peer-deps",
-  "outputDirectory": "build",
-  "framework": "create-react-app"
-}
-```
-
-Just connect the GitHub repo to Vercel — every push to `main` deploys automatically.
-
----
-
-## 📍 Office Locations
+## Office Locations
 
 | City | Country | Coordinates |
 |---|---|---|
 | Toronto | Canada | 43.65°N / 79.38°W |
-| Monterrey | Mexico | 25.69°N / 100.32°W |
+| Monterrey | Mexico | 25.67°N / 100.31°W |
 | Ciudad de México | Mexico | 19.43°N / 99.13°W |
 
 ---
 
-## 📧 Contact
+## Contact
 
-- **Email:** info@rolplay.ai  
-- **Phone:** +52 (55) 5093 7376  
+- **Email:** info@rolplay.ai
+- **Phone:** +52 55 1800 6006
 - **Web:** [rolplay.ai](https://rolplay.ai)
-
----
-
-© 2025 RolPlay. All rights reserved.
