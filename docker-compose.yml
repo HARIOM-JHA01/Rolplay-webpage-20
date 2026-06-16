@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: frontend.Dockerfile
       args:
-        - REACT_APP_API_URL=${REACT_APP_API_URL:-http://localhost:8000}
+        - REACT_APP_API_URL=${REACT_APP_API_URL:-http://localhost:8001}
     ports:
       - "3000:3000"
     depends_on:
@@ -15,7 +15,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "${BACKEND_HOST_PORT:-8001}:8000"
     environment:
       - MONGO_URL=mongodb://mongo:27017
       - DB_NAME=rolplay

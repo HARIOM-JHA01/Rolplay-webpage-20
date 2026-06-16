@@ -31,7 +31,7 @@ Create a `.env.local` in the project root:
 
 ```env
 REACT_APP_ELEVENLABS_AGENT_ID=your_agent_id_here
-REACT_APP_API_URL=http://localhost:8000
+REACT_APP_API_URL=http://localhost:8001
 ```
 
 ### 2. Backend
@@ -190,6 +190,8 @@ Set these env vars in the **Vercel dashboard**:
 REACT_APP_ELEVENLABS_AGENT_ID=...
 REACT_APP_API_URL=https://your-backend.onrender.com
 ```
+
+If you run the backend through `docker compose`, the default API URL is `http://localhost:8001` and the backend binds to host port `8001` by default. You can override it with `BACKEND_HOST_PORT` if needed.
 
 ### Backend → Render (recommended)
 
