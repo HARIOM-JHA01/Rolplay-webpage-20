@@ -63,6 +63,8 @@ async def _ensure_indexes():
     await db.blogs.create_index([("title", "text"), ("summary", "text")])
     await db.subscribers.create_index("email", unique=True)
     await db.subscribers.create_index([("createdAt", -1)])
+    await db.contacts.create_index([("createdAt", -1)])
+    await db.contacts.create_index("email")
 
 
 # ── Pydantic models ───────────────────────────────────────────────────────────
@@ -89,6 +91,12 @@ class SubscriberCreate(BaseModel):
     email: EmailStr
     locale: str = "en"
     source: str = "footer"
+
+class ContactCreate(BaseModel):
+    name: str = Field(..., min_length=1, max_length=200)
+    email: EmailStr
+    company: Optional[str] = None
+    message: str = Field(..., min_length=1, max_length=5000)
 
 
 # ── Email helpers (fire-and-forget) ──────────────────────────────────────────
@@ -206,6 +214,112 @@ def _send_new_post_emails(title: str, summary: str, slug: str, cover_image: Opti
             resend.Batch.send(messages)
     except Exception:
         logger.exception("New-post email broadcast failed for slug=%s", slug)
+
+
+# ── Mailgun helper ───────────────────────────────────────────────────────────
+
+def _mailgun_send(to: list[str], subject: str, html: str):
+    api_key = os.environ.get('MAILGUN_API_KEY', '')
+    domain  = os.environ.get('MAILGUN_DOMAIN', '')
+    from_   = os.environ.get('MAILGUN_FROM', 'RolPlay <noreply@rolplay.ai>')
+    if not api_key or not domain:
+        logger.warning("Mailgun not configured — skipping email send")
+        return
+    import requests as _req
+    for recipient in to:
+        resp = _req.post(
+            f"https://api.mailgun.net/v3/{domain}/messages",
+            auth=("api", api_key),
+            data={"from": from_, "to": recipient, "subject": subject, "html": html},
+            timeout=10,
+        )
+        if not resp.ok:
+            logger.error("Mailgun error %s for %s: %s", resp.status_code, recipient, resp.text)
+
+
+# ── Contact helpers (fire-and-forget) ────────────────────────────────────────
+
+def _notify_team_contact(name: str, email: str, company: str, message: str):
+    recipients = [
+        r.strip()
+        for r in os.environ.get('NOTIFICATION_EMAILS', '').split(',')
+        if r.strip()
+    ]
+    if not recipients:
+        return
+    company_row = f"<tr><td style='color:#71717A;padding:6px 0;'>Company</td><td style='color:#fff;padding:6px 0;'>{company}</td></tr>" if company else ""
+    html = f"""
+<div style="background:#0A0A0E;padding:40px 20px;font-family:sans-serif;">
+  <div style="max-width:560px;margin:0 auto;background:#111115;border:1px solid #222;border-radius:12px;padding:40px;">
+    <h1 style="color:#fff;margin:0 0 4px;font-size:13px;letter-spacing:.15em;text-transform:uppercase;">
+      <span style="color:#C0392B;">Rol</span>Play
+    </h1>
+    <p style="color:#C0392B;font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin:0 0 24px;">New Contact Form Submission</p>
+    <table style="width:100%;border-collapse:collapse;">
+      <tr><td style="color:#71717A;padding:6px 0;">Name</td><td style="color:#fff;padding:6px 0;">{name}</td></tr>
+      <tr><td style="color:#71717A;padding:6px 0;">Email</td><td style="color:#fff;padding:6px 0;">{email}</td></tr>
+      {company_row}
+    </table>
+    <div style="margin-top:20px;padding:16px;background:#0A0A0E;border:1px solid #222;border-radius:8px;">
+      <p style="color:#71717A;font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin:0 0 8px;">Message</p>
+      <p style="color:#A1A1AA;margin:0;line-height:1.6;">{message}</p>
+    </div>
+    <p style="color:#52525B;font-size:11px;margin:24px 0 0;">Sent via rolplay.ai contact form</p>
+  </div>
+</div>
+"""
+    try:
+        _mailgun_send(recipients, f"New contact from {name} — RolPlay", html)
+    except Exception:
+        logger.exception("Team notification email failed for contact from %s", email)
+
+
+def _push_contact_to_hubspot(name: str, email: str, company: str, message: str):
+    token = os.environ.get('HUBSPOT_ACCESS_TOKEN', '')
+    if not token:
+        logger.warning("HUBSPOT_ACCESS_TOKEN not set — skipping HubSpot sync")
+        return
+    import requests as _req
+
+    first, *rest = name.strip().split(' ', 1)
+    last = rest[0] if rest else ''
+
+    properties = {
+        "email": email,
+        "firstname": first,
+        "lastname": last,
+        "company": company or '',
+        "message": message,
+        "hs_lead_status": "NEW",
+    }
+
+    resp = _req.post(
+        "https://api.hubapi.com/crm/v3/objects/contacts",
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+        json={"properties": properties},
+        timeout=10,
+    )
+
+    if resp.status_code == 409:
+        # Contact already exists — update instead
+        contact_id = resp.json().get("message", "").split(" ")[-1]
+        if not contact_id:
+            existing = _req.get(
+                f"https://api.hubapi.com/crm/v3/objects/contacts/{email}?idProperty=email",
+                headers={"Authorization": f"Bearer {token}"},
+                timeout=10,
+            )
+            if existing.ok:
+                contact_id = existing.json().get("id")
+        if contact_id:
+            _req.patch(
+                f"https://api.hubapi.com/crm/v3/objects/contacts/{contact_id}",
+                headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+                json={"properties": {k: v for k, v in properties.items() if k != "email"}},
+                timeout=10,
+            )
+    elif not resp.ok:
+        logger.error("HubSpot contact push failed %s: %s", resp.status_code, resp.text)
 
 
 # ── Status routes (existing) ──────────────────────────────────────────────────
@@ -356,6 +470,31 @@ async def create_blog(
         )
 
     return {"success": True, "data": {"slug": slug, "url": f"{site_url}/blog/{slug}"}}
+
+
+# ── Contact route ────────────────────────────────────────────────────────────
+
+@api_router.post("/contact", status_code=201)
+async def contact(payload: ContactCreate, background_tasks: BackgroundTasks):
+    now = datetime.now(timezone.utc).isoformat()
+    doc = {
+        "name":    payload.name,
+        "email":   payload.email.lower(),
+        "company": payload.company or '',
+        "message": payload.message,
+        "createdAt": now,
+    }
+    await db.contacts.insert_one(doc)
+
+    background_tasks.add_task(
+        _notify_team_contact,
+        payload.name, payload.email, payload.company or '', payload.message,
+    )
+    background_tasks.add_task(
+        _push_contact_to_hubspot,
+        payload.name, payload.email, payload.company or '', payload.message,
+    )
+    return {"success": True}
 
 
 # ── Subscribe route ───────────────────────────────────────────────────────────
