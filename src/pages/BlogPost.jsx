@@ -7,6 +7,7 @@ import PageShell from "@/components/PageShell";
 import BlogPostContent from "@/components/blog/BlogPostContent";
 import RelatedArticles from "@/components/blog/RelatedArticles";
 import NewsletterForm from "@/components/blog/NewsletterForm";
+import CommentsSection from "@/components/blog/CommentsSection";
 
 const API_URL = process.env.REACT_APP_API_URL || '';
 
@@ -63,6 +64,7 @@ export default function BlogPost() {
     <PageShell testid="blog-post-page">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-16 md:py-24">
         <BlogPostContent blog={blog} />
+        <CommentsSection slug={slug} />
         <RelatedArticles articles={related} />
 
         {/* Newsletter CTA */}

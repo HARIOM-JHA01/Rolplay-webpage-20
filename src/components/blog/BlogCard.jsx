@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Eye, Clock, Tag } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import LikeButton from "./LikeButton";
 
 function stripHtml(html) {
   return html ? html.replace(/<[^>]+>/g, '') : '';
@@ -72,16 +73,19 @@ export default function BlogCard({ blog }) {
           </p>
 
           {/* Meta row */}
-          <div className="flex items-center gap-3 text-[11px] text-[#71717A] font-mono">
-            <span>{formatDate(blog.createdAt, i18n.language)}</span>
-            <span className="flex items-center gap-1">
-              <Clock size={11} />
-              {blog.readingTime} {t("blog.minRead")}
-            </span>
-            <span className="flex items-center gap-1">
-              <Eye size={11} />
-              {blog.views ?? 0}
-            </span>
+          <div className="flex items-center justify-between gap-3 text-[11px] text-[#71717A] font-mono">
+            <div className="flex items-center gap-3">
+              <span>{formatDate(blog.createdAt, i18n.language)}</span>
+              <span className="flex items-center gap-1">
+                <Clock size={11} />
+                {blog.readingTime} {t("blog.minRead")}
+              </span>
+              <span className="flex items-center gap-1">
+                <Eye size={11} />
+                {blog.views ?? 0}
+              </span>
+            </div>
+            <LikeButton slug={blog.slug} initialLikes={blog.likes ?? 0} />
           </div>
         </div>
       </Link>

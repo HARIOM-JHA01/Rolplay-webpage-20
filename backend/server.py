@@ -65,6 +65,8 @@ async def _ensure_indexes():
     await db.subscribers.create_index([("createdAt", -1)])
     await db.contacts.create_index([("createdAt", -1)])
     await db.contacts.create_index("email")
+    await db.comments.create_index([("slug", 1), ("createdAt", -1)])
+    await db.comments.create_index("slug")
 
 
 # ── Pydantic models ───────────────────────────────────────────────────────────
@@ -91,6 +93,11 @@ class SubscriberCreate(BaseModel):
     email: EmailStr
     locale: str = "en"
     source: str = "footer"
+
+class CommentCreate(BaseModel):
+    name: str = Field(..., min_length=1, max_length=100)
+    email: Optional[str] = None
+    body: str = Field(..., min_length=1, max_length=2000)
 
 class ContactCreate(BaseModel):
     name: str = Field(..., min_length=1, max_length=200)
@@ -414,6 +421,45 @@ async def get_related_blogs(slug: str, limit: int = Query(3, ge=1, le=10)):
 async def increment_view(slug: str):
     await db.blogs.update_one({"slug": slug}, {"$inc": {"views": 1}})
     return {"success": True}
+
+
+@api_router.post("/blogs/{slug}/like")
+async def like_blog(slug: str):
+    result = await db.blogs.find_one_and_update(
+        {"slug": slug, "published": True},
+        {"$inc": {"likes": 1}},
+        return_document=True,
+        projection={"likes": 1},
+    )
+    if not result:
+        raise HTTPException(status_code=404, detail="Not found")
+    return {"success": True, "likes": result.get("likes", 1)}
+
+
+@api_router.get("/blogs/{slug}/comments")
+async def get_comments(slug: str):
+    docs = await db.comments.find(
+        {"slug": slug}, {"_id": 0, "slug": 0}
+    ).sort("createdAt", 1).to_list(200)
+    return {"success": True, "data": docs}
+
+
+@api_router.post("/blogs/{slug}/comments", status_code=201)
+async def add_comment(slug: str, payload: CommentCreate):
+    exists = await db.blogs.find_one({"slug": slug, "published": True}, {"_id": 1})
+    if not exists:
+        raise HTTPException(status_code=404, detail="Not found")
+    doc = {
+        "slug":      slug,
+        "name":      payload.name.strip(),
+        "email":     payload.email.strip() if payload.email else None,
+        "body":      payload.body.strip(),
+        "createdAt": datetime.now(timezone.utc).isoformat(),
+    }
+    await db.comments.insert_one(doc)
+    doc.pop("_id", None)
+    doc.pop("slug", None)
+    return {"success": True, "data": doc}
 
 
 @api_router.get("/blogs/{slug}")

@@ -1,6 +1,8 @@
 import { Eye, Clock, Calendar } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import "./blog-content.css";
+import ShareBar from "./ShareBar";
+import LikeButton from "./LikeButton";
 
 function formatDate(iso, locale) {
   if (!iso) return '';
@@ -72,6 +74,12 @@ export default function BlogPostContent({ blog }) {
           {t("blog.lastUpdated")} {formatDate(blog.updatedAt, i18n.language)}
         </p>
       )}
+
+      {/* Share + Like bar */}
+      <div className="mt-10 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <ShareBar title={blog.title} slug={blog.slug} />
+        <LikeButton slug={blog.slug} initialLikes={blog.likes ?? 0} />
+      </div>
     </article>
   );
 }
