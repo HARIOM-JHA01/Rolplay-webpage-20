@@ -4,7 +4,6 @@ import { Plus, Minus } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import PageShell from "@/components/PageShell";
 import NeuralNetwork from "@/components/NeuralNetwork";
-import ContactForm from "@/components/ContactForm";
 
 function LightBeams() {
   return (
@@ -126,30 +125,6 @@ export default function FAQs() {
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section className="relative py-24 border-t border-white/5 overflow-hidden" data-testid="faqs-contact-section">
-        <NeuralNetwork className="opacity-25" density={0.00006} />
-        <div className="relative max-w-[1000px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-5">
-              <div className="font-mono text-[11px] tracking-[0.3em] text-[#C0392B] uppercase mb-5 flex items-center gap-3">
-                <span className="w-10 h-px bg-[#C0392B]" />
-                {t("faqs.stillCurious")}
-              </div>
-              <h2 className="font-display text-3xl md:text-5xl leading-[1.05]">
-                {t("faqs.askAnything").replace(t("faqs.askAnythingRed"), "")}
-                <span className="text-[#C0392B]">{t("faqs.askAnythingRed")}</span>
-              </h2>
-              <p className="text-zinc-400 mt-5 max-w-md">{t("faqs.answerNote")}</p>
-            </div>
-            <div className="lg:col-span-7">
-              <div className="glass rounded-3xl p-8">
-                <ContactForm variant="full" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </PageShell>
   );
 }
