@@ -17,17 +17,6 @@ import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 
 const FEATURE_ICONS = [Zap, ShieldCheck, Globe, BarChart3];
 
-function HubSpotForm() {
-  return (
-    <div
-      className="hs-form-frame w-full"
-      data-region="na1"
-      data-form-id="b4846450-db95-479c-91bd-72e1123d4d9f"
-      data-portal-id="23702020"
-    />
-  );
-}
-
 export default function Home() {
   const { t } = useTranslation();
 
@@ -403,9 +392,6 @@ export default function Home() {
             body={t("contact.body")}
             align="center"
           />
-          <div className="mt-12">
-            <HubSpotForm />
-          </div>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm">
             <a
               href={`mailto:${t("contact.email")}`}
