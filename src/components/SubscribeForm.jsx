@@ -5,10 +5,12 @@ import { useTranslation } from "react-i18next";
 import NeuralNetwork from "@/components/NeuralNetwork";
 import SectionHeader from "@/components/SectionHeader";
 
+const API_URL = process.env.REACT_APP_API_URL || "";
+
 export default function SubscribeForm() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [status, setStatus] = useState("idle"); // idle | loading | success | duplicate | error
   const [error, setError] = useState("");
 
   const validate = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
@@ -22,11 +24,25 @@ export default function SubscribeForm() {
     setError("");
     setStatus("loading");
     try {
-      // Fire to a backend endpoint when available; gracefully succeed for now
-      await new Promise((res) => setTimeout(res, 900));
+      const res = await fetch(`${API_URL}/api/subscribe`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.trim().toLowerCase(),
+          locale: i18n.language?.split("-")[0] || "en",
+          source: "homepage",
+        }),
+      });
+      if (res.status === 409) {
+        setStatus("duplicate");
+        setError(t("subscribe.alreadySubscribed"));
+        return;
+      }
+      if (!res.ok) throw new Error("subscribe_failed");
       setStatus("success");
     } catch {
       setStatus("error");
+      setError(t("subscribe.error"));
     }
   };
 
