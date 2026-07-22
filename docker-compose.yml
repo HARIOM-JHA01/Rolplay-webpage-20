@@ -20,7 +20,9 @@ services:
       - MONGO_URL=mongodb://mongo:27017
       - DB_NAME=rolplay
       - ADMIN_API_KEY=${ADMIN_API_KEY}
-      - RESEND_API_KEY=${RESEND_API_KEY}
+      - MAILGUN_API_KEY=${MAILGUN_API_KEY}
+      - MAILGUN_DOMAIN=${MAILGUN_DOMAIN}
+      - MAILGUN_FROM=${MAILGUN_FROM:-RolPlay <noreply@rolplay.ai>}
       - SITE_URL=${SITE_URL:-https://rolplay.ai}
       - CORS_ORIGINS=${CORS_ORIGINS:-*}
     depends_on:
