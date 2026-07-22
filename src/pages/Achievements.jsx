@@ -8,6 +8,7 @@ import SectionHeader from "@/components/SectionHeader";
 import { PrimaryCTA } from "@/components/CTAButton";
 
 const MEDAL_IMAGES = [
+  { src: "/medal3.jpg", glowColor: "rgba(240,200,40,0.35)", year: "2026" },
   { src: "/medal1.jpg", glowColor: "rgba(192,57,43,0.35)", year: "2025" },
   { src: "/medal2.jpg", glowColor: "rgba(0,180,220,0.25)", year: "2024" },
 ];

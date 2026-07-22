@@ -19,7 +19,7 @@
     "statClients": "Clientes corporativos",
     "statUsers": "Usuarios activos",
     "awardLine1": "Training Industry",
-    "awardLine2": "Top 20 · 2025"
+    "awardLine2": "Top 20 · 2026"
   },
   "meet": {
     "overline": "CONOCE LA PLATAFORMA",
@@ -274,7 +274,7 @@
     "locations": "Ubicaciones",
     "contactTitle": "Contacto",
     "copyright": "© 2025. TODOS LOS DERECHOS RESERVADOS.",
-    "award": "TRAINING INDUSTRY · TOP 20 · 2025",
+    "award": "TRAINING INDUSTRY · TOP 20 · 2026",
     "cities": [
       { "city": "Toronto", "country": "Canadá" },
       { "city": "Monterrey", "country": "México" },
@@ -422,6 +422,11 @@
     "heroTitleRed": "Logros",
     "heroBody": "Este reconocimiento nos posiciona entre las empresas líderes del mundo en soluciones de entrenamiento potenciadas por IA, reafirmando nuestro compromiso de transformar cómo los equipos de ventas aprenden, practican y logran resultados reales.",
     "awards": [
+      {
+        "badge": "TRAINING INDUSTRY · TOP 20",
+        "title": "Top 20 Herramientas de Coaching y Apoyo al Aprendiz Basadas en IA",
+        "body": "Rolplay ha sido reconocido en el Top 20 de Empresas de Herramientas de Coaching y Apoyo al Aprendiz Basadas en IA de Training Industry para 2026 — un referente global en innovación de entrenamiento impulsado por IA."
+      },
       {
         "badge": "TRAINING INDUSTRY · TOP 20",
         "title": "Top 20 Herramientas de Coaching y Apoyo al Aprendizaje Basadas en IA",
@@ -584,6 +589,7 @@
   "awards": {
     "overline": "// RECONOCIMIENTO",
     "title": "Plataforma Galardonada",
+    "badge0": "Top 20 Empresas 2026",
     "badge1": "Top 20 Empresas 2025",
     "badge2": "Empresa Watch List 2024"
   },

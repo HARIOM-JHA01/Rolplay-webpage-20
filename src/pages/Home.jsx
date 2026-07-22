@@ -212,6 +212,23 @@ export default function Home() {
               className="flex flex-col items-center gap-3"
             >
               <img
+                src="/medal3.jpg"
+                alt={t("awards.badge0")}
+                loading="lazy"
+                className="w-64 h-64 object-contain hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_30px_rgba(240,200,40,0.3)]"
+              />
+              <div className="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase">
+                {t("awards.badge0")}
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.06 }}
+              className="flex flex-col items-center gap-3"
+            >
+              <img
                 src="/medal1.jpg"
                 alt={t("awards.badge1")}
                 loading="lazy"

@@ -19,7 +19,7 @@
     "statClients": "Corporate clients",
     "statUsers": "Active users",
     "awardLine1": "Training Industry",
-    "awardLine2": "Top 20 · 2025"
+    "awardLine2": "Top 20 · 2026"
   },
   "meet": {
     "overline": "MEET THE PLATFORM",
@@ -274,7 +274,7 @@
     "locations": "Locations",
     "contactTitle": "Contact",
     "copyright": "© 2025. ALL RIGHTS RESERVED.",
-    "award": "TRAINING INDUSTRY · TOP 20 · 2025",
+    "award": "TRAINING INDUSTRY · TOP 20 · 2026",
     "cities": [
       { "city": "Toronto", "country": "Canada" },
       { "city": "Monterrey", "country": "Mexico" },
@@ -404,6 +404,11 @@
     "heroTitleRed": "ments",
     "heroBody": "This recognition places us among the world's leading companies in AI-powered training solutions, reaffirming our commitment to transforming how sales teams learn, practice, and achieve real results.",
     "awards": [
+      {
+        "badge": "TRAINING INDUSTRY · TOP 20",
+        "title": "Top 20 AI Coaching & Learner Support Tools",
+        "body": "Rolplay has been recognized in Training Industry's Top 20 AI Coaching and Learner Support Tools Companies for 2026 — a global benchmark for AI-driven training innovation."
+      },
       {
         "badge": "TRAINING INDUSTRY · TOP 20",
         "title": "Top 20 AI-Based Coaching & Learning Support Tools",
@@ -566,6 +571,7 @@
   "awards": {
     "overline": "// RECOGNITION",
     "title": "Award-Winning Platform",
+    "badge0": "2026 Top 20 Company",
     "badge1": "2025 Top 20 Company",
     "badge2": "2024 Watch List Company"
   },
