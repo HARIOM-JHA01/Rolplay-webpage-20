@@ -15,7 +15,7 @@ router = APIRouter(prefix="/subscribe")
 async def subscribe(payload: SubscriberCreate, background_tasks: BackgroundTasks):
     db = get_db()
     email = payload.email.lower()
-    locale = payload.locale if payload.locale in ("en", "es", "fr") else "en"
+    locale = payload.locale if payload.locale in ("en", "es") else "en"
     source = payload.source if payload.source in ("footer", "blog", "homepage") else "footer"
 
     existing = await db.subscribers.find_one({"email": email})

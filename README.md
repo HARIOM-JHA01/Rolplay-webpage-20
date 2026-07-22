@@ -2,7 +2,7 @@
 
 > Enterprise-grade sales enablement powered by AI coaching simulations.
 > Trusted by Fortune-ranked companies for over 20 years.
-> Recognized: **Training Industry Top 20 · 2025** & **Watch List 2024**
+> Recognized: **Training Industry Top 20 · 2026 2025** & **Watch List 2024**
 
 A bilingual (EN/ES) marketing site: a **React SPA** frontend and a
 **FastAPI + MongoDB** backend (contact form, newsletter, blog), deployed

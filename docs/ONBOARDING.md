@@ -3,9 +3,9 @@
 > **Audience:** Anyone taking over or joining the RolPlay marketing website.
 > **Owner:** RolPlay Engineering · **Last updated:** July 2026
 >
-> This is the single source of truth for the website. Read §1–§2 to get running
-> today; §3–§9 are the reference; §10–§13 cover operations and handoff.
-> Secret **values** are never stored here — see §13.
+> This is the single source of truth for the website. Read section 1–2 to get running
+> today; section 3–9 are the reference; section 10–13 cover operations and handoff.
+> Secret **values** are never stored here — see section 13.
 
 ---
 
@@ -27,15 +27,15 @@ via **Mailgun**.
 
 ## 2. Quick Start (local)
 
-**Prerequisites:** Docker + Docker Compose, or Node 20 and Python 3.11 for
+**Prerequisites:** Docker + Docker Compose, or Node 22 and Python 3.11 for
 running services directly.
 
 ### Option A — Docker Compose (closest to production)
 
 ```bash
-git clone <your-repo-url>
-cd <repo>
-cp .env.example .env          # fill in the values (see §6)
+git clone
+cd rolplay-webpage-20
+cp .env.example .env          # fill in the values (see section 6)
 docker compose up -d --build
 ```
 
@@ -53,7 +53,7 @@ npm start                      # http://localhost:3000
 # Backend (separate terminal)
 cd backend
 pip install -r requirements.txt
-cp .env.example .env           # then edit backend/.env (see §6)
+cp .env.example .env           # then edit backend/.env (see section 6)
 uvicorn server:app --reload --port 8000
 ```
 
@@ -67,7 +67,7 @@ documents were created.
 
 | Service | Tech | Build |
 |---|---|---|
-| **Frontend** | React 19 (CRA/CRACO), served via `serve` | `frontend.Dockerfile` (`node:20-alpine`) |
+| **Frontend** | React 19 (CRA/CRACO), served via `serve` | `frontend.Dockerfile` (`node:22-alpine`) |
 | **Backend** | FastAPI + MongoDB (Motor) | `backend/Dockerfile` (`python:3.11-slim`, `uvicorn`) |
 | **Database** | MongoDB | `mongo:7` image |
 
@@ -77,7 +77,6 @@ routing, the domain, and SSL termination.
 
 **Deploy flow:**
 
-```
 push to main → host/Coolify pulls → docker compose up -d --build
              → frontend, backend, mongo rebuilt/restarted
              → Coolify/Traefik routes traffic + terminates SSL
@@ -211,16 +210,6 @@ git push origin main
 docker compose up -d --build
 ```
 
-**Redeploy a single service:** `docker compose build backend && docker compose up -d backend`
-
-**Rollback:** `git revert HEAD && git push origin main` then rebuild, or check out
-a previous commit/image on the host and rebuild.
-
-**SSL / domain / security headers / SPA fallback / caching** are all the reverse
-proxy's job (Coolify/Traefik) — configure them there, not in the app. Suggested
-cache headers: long-lived immutable for `/static/*`, short + stale-while-revalidate
-for images/video, `no-cache` for `index.html`.
-
 ---
 
 ## 10. Content & i18n
@@ -246,50 +235,3 @@ for images/video, `no-cache` for `index.html`.
 - [ ] Lighthouse targets: Performance ≥ 85, Accessibility ≥ 90, Best Practices ≥ 90, SEO ≥ 90
 
 ---
-
-## 12. Known Issues / Pending Items
-
-- **No CI/CD** (`.github/workflows/`) — deploys to the Docker Compose / Coolify
-  stack are triggered manually (or via Coolify's git-watch/webhook if configured).
-- **`vercel.json` is leftover** from an earlier Vercel-based plan and is **not
-  part of the current deploy path**. Production security headers, SPA fallback,
-  and caching belong at the reverse proxy. Remove it or clearly mark it unused.
-- **GA / Hotjar / Apollo** not yet integrated.
-- **Custom domain + HSTS** should be verified/configured at the reverse-proxy level.
-
----
-
-## 13. Access & Credentials Handoff
-
-> **No secret values live in this repo.** Credential *values* and their storage
-> location are tracked in the private Plane workspace (INNOVATION-408). This
-> section covers only the git-safe process.
-
-**Accounts to transfer / grant access to:**
-
-| Service | What's needed |
-|---|---|
-| GitHub repository | Collaborator access (see below) |
-| Docker host / Coolify | Project + deploy access |
-| ElevenLabs | Agent ID + account access |
-| HubSpot | Private-app token / account seat |
-| Mailgun | API key + sending domain |
-| MongoDB | Connection string / DB access |
-| Domain registrar / DNS | For domain + SSL at the proxy |
-
-**GitHub access (owner action):** add the collaborator under
-**Settings → Collaborators**, grant **`Write`** (minimum) or **`Maintain`**
-(recommended — push + merge, without repo deletion). The invitee accepts the
-emailed invite, then verifies with clone → branch → commit → push → PR.
-
-**Recommended branch protection on `main`:** require a PR + 1 approving review,
-dismiss stale reviews on new commits, disallow force-pushes, and don't allow
-bypassing these rules.
-
-**Credential hygiene:** `.env` files are git-ignored and must never be
-committed; production secrets are injected via the Coolify environment.
-
----
-
-*Related work item: INNOVATION-408. This document supersedes the previous
-`TECH_DOCS.md` and `DIEGO_ACCESS_CHECKLIST.md`.*

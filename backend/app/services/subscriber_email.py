@@ -10,7 +10,6 @@ logger = logging.getLogger(__name__)
 
 _SUBJECTS_WELCOME = {
     "es": "¡Gracias por suscribirte al blog de RolPlay!",
-    "fr": "Merci de vous être abonné au blog RolPlay !",
     "en": "Thanks for subscribing to the RolPlay blog!",
 }
 
@@ -76,16 +75,12 @@ def _fetch_confirmed_subscribers() -> list[dict]:
 def _broadcast_subject(title: str, locale: str) -> str:
     if locale == "es":
         return f"Nuevo en el Blog de RolPlay: {title}"
-    if locale == "fr":
-        return f"Nouveau sur le Blog RolPlay : {title}"
     return f"New on the RolPlay Blog: {title}"
 
 
 def _broadcast_cta(locale: str) -> str:
     if locale == "es":
         return "Leer artículo →"
-    if locale == "fr":
-        return "Lire l'article →"
     return "Read article →"
 
 
@@ -127,25 +122,6 @@ _WELCOME_COPY = {
         "footer_sub":  "Recibes esto porque te suscribiste en rolplay.ai.",
         "unsub":       "Cancelar suscripción",
         "tagline":     "Inteligencia Comercial",
-    },
-    "fr": {
-        "eyebrow":    "// Bienvenue",
-        "headline":   "Vous êtes des nôtres.<br>Élevons le niveau.",
-        "body":       "Chaque semaine, nous distillons ce qui fait bouger le coaching commercial piloté par l&#39;IA — les techniques, les données et les résultats concrets. Vous les recevrez en avant-première.",
-        "prop1_label": "Ce que vous recevrez",
-        "prop1_title": "Analyses de Coaching IA",
-        "prop1_desc":  "Des plongées en profondeur dans la façon dont les meilleures équipes commerciales utilisent les simulations IA pour combler les lacunes de compétences plus vite que la formation traditionnelle.",
-        "prop2_label": "Ce que vous recevrez",
-        "prop2_title": "Benchmarks de Performance",
-        "prop2_desc":  "Données sélectionnées sur les taux de conversion, la gestion des objections et le temps de montée en compétence — pour savoir où se situe votre équipe.",
-        "prop3_label": "Ce que vous recevrez",
-        "prop3_title": "Stratégie Commerciale",
-        "prop3_desc":  "Frameworks et playbooks pour la pharma, les services financiers et le B2B entreprise — conçus pour des équipes qui prennent la performance au sérieux.",
-        "cta":         "Lire les derniers articles →",
-        "cta_sub":     "De nouveaux articles chaque semaine. Sans bruit — juste l&#39;essentiel.",
-        "footer_sub":  "Vous recevez ceci parce que vous vous êtes abonné sur rolplay.ai.",
-        "unsub":       "Se désabonner",
-        "tagline":     "Intelligence Commerciale",
     },
 }
 
