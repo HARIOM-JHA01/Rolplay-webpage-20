@@ -38,7 +38,7 @@ const PRODUCT_LINKS = [
   },
   {
     label: "CallMentor AI",
-    href: "https://callmentorai-rolplay.vercel.app/",
+    href: "https://callmentorai.rolplay.ai/",
     Icon: CallMentorLogo,
     testid: "nav-callmentor",
   },
