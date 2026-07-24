@@ -39,16 +39,16 @@ export default function VideoPlayer({
     return () => obs.disconnect();
   }, []);
 
-  // Autoplay native video when in view
+  // Autoplay native video when in view — only auto-play, don't force-restart if user paused
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !autoplay) return;
-    if (inView) {
+    if (inView && !playing) {
       video.play().catch(() => {});
-    } else {
+    } else if (!inView) {
       video.pause();
     }
-  }, [inView, autoplay]);
+  }, [inView, autoplay, playing]);
 
   // For iframe embeds, only render the iframe after click (save bandwidth)
   const [iframeActive, setIframeActive] = useState(false);
@@ -117,11 +117,13 @@ export default function VideoPlayer({
           preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
           onClick={() => {
-            if (playing) {
-              videoRef.current?.pause();
+            const v = videoRef.current;
+            if (!v) return;
+            if (playing || v.paused) {
+              v.pause();
             } else {
-              videoRef.current?.play();
-              if (!autoplay) videoRef.current.muted = false;
+              v.play();
+              if (!autoplay) v.muted = false;
             }
             setPlaying(!playing);
           }}
