@@ -110,13 +110,21 @@ export default function VideoPlayer({
           ref={videoRef}
           src={src}
           poster={poster}
-          muted
+          muted={autoplay}
           playsInline
           loop={autoplay}
           controls={!autoplay}
           preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
-          onClick={() => setPlaying(!playing)}
+          onClick={() => {
+            if (playing) {
+              videoRef.current?.pause();
+            } else {
+              videoRef.current?.play();
+              if (!autoplay) videoRef.current.muted = false;
+            }
+            setPlaying(!playing);
+          }}
         />
       ) : (
         poster && (
@@ -131,7 +139,11 @@ export default function VideoPlayer({
       {!autoplay && !playing && (
         <button
           onClick={() => {
-            videoRef.current?.play();
+            const v = videoRef.current;
+            if (v) {
+              v.muted = false;
+              v.play();
+            }
             setPlaying(true);
           }}
           aria-label={`Play ${title}`}
