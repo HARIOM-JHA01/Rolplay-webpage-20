@@ -14,37 +14,50 @@ const VIDEO_MAP = {
   "Rolplay Analytics": { en: "/videos/rolplay-sense-es.mp4", es: "/videos/rolplay-sense-es.mp4" },
 };
 
+const POSTER_MAP = {
+  "Master Coach": { en: "/videos/posters/master-coach-en.jpg", es: "/videos/posters/master-coach-es.jpg" },
+  "Practice Simulator": { en: "/videos/posters/simulator-en.jpg", es: "/videos/posters/simulator-es.jpg" },
+  "Second Brain": { en: "/videos/posters/second-brain-es.jpg", es: "/videos/posters/second-brain-es.jpg" },
+  "CallMentorAI": { en: "/videos/posters/master-coach-en.jpg", es: "/videos/posters/master-coach-es.jpg" },
+  "Rolplay Analytics": { en: "/videos/posters/rolplay-sense-es.jpg", es: "/videos/posters/rolplay-sense-es.jpg" },
+};
+
 function getVideoSrc(productName, lang) {
   const videos = VIDEO_MAP[productName];
   if (!videos) return null;
   return videos[lang] || videos.es;
 }
 
+function getPosterSrc(productName, lang) {
+  const posters = POSTER_MAP[productName];
+  if (!posters) return null;
+  return posters[lang] || posters.es;
+}
+
 const ICONS = [Brain, Target, ShieldCheck, Eye, BookOpen, Phone, BarChart3];
 
-function ProductCard({ product, index, total, lang }) {
+function ProductRow({ product, index, lang }) {
   const Icon = ICONS[index] || Brain;
   const videoSrc = getVideoSrc(product.name, lang);
+  const posterSrc = getPosterSrc(product.name, lang);
+  const reversed = index % 2 !== 0;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.7, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
       data-testid={`product-card-${index}`}
-      className={
-        // Center last card when total is odd
-        total % 2 !== 0 && index === total - 1
-          ? "md:col-start-2 lg:col-start-auto"
-          : ""
-      }
+      className={`flex flex-col ${reversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-8 md:gap-14 lg:gap-20`}
     >
-      <GlassCard className="p-6 group cursor-pointer h-full hover:border-[#C0392B]/30 transition-all duration-500">
-        <div className="aspect-[4/3] rounded-xl relative overflow-hidden mb-6 border border-white/5">
+      {/* Media */}
+      <div className="w-full md:w-1/2">
+        <div className="aspect-[4/3] rounded-2xl relative overflow-hidden border border-white/5 group">
           {videoSrc ? (
             <VideoPlayer
               src={videoSrc}
+              poster={posterSrc}
               title={product.name}
               aspectRatio="aspect-[4/3]"
               className="absolute inset-0"
@@ -82,18 +95,23 @@ function ProductCard({ product, index, total, lang }) {
             ))}
           </div>
         </div>
+      </div>
 
-        <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase">
-          PRODUCT 0{index + 1}
-        </div>
-        <h3 className="font-display text-2xl md:text-3xl mt-1 leading-none relative">
-          <span className="relative">
-            {product.name}
-            <span className="absolute -bottom-1 left-0 right-0 h-px bg-[#C0392B] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-          </span>
-        </h3>
-        <p className="text-sm text-zinc-400 mt-3 leading-relaxed">{product.desc}</p>
-      </GlassCard>
+      {/* Text */}
+      <div className="w-full md:w-1/2">
+        <GlassCard className="p-8 md:p-10 group cursor-pointer hover:border-[#C0392B]/30 transition-all duration-500">
+          <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase">
+            PRODUCT 0{index + 1}
+          </div>
+          <h3 className="font-display text-3xl md:text-4xl mt-2 leading-none relative inline-block">
+            <span className="relative">
+              {product.name}
+              <span className="absolute -bottom-1 left-0 right-0 h-px bg-[#C0392B] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+            </span>
+          </h3>
+          <p className="text-base text-zinc-400 mt-4 leading-relaxed">{product.desc}</p>
+        </GlassCard>
+      </div>
     </motion.div>
   );
 }
@@ -114,37 +132,11 @@ export default function ProductShowcase() {
         />
 
         {Array.isArray(items) && (
-          <>
-            {/* Desktop: 4 + 3 */}
-            <div className="hidden lg:grid grid-cols-4 gap-6 mt-16">
-              {items.slice(0, 4).map((p, i) => (
-                <ProductCard key={i} product={p} index={i} total={4} lang={lang} />
-              ))}
-            </div>
-            <div className="hidden lg:grid grid-cols-3 gap-6 mt-6 max-w-[calc(75%+1.5rem)] mx-auto">
-              {items.slice(4).map((p, i) => (
-                <ProductCard key={i + 4} product={p} index={i + 4} total={3} lang={lang} />
-              ))}
-            </div>
-
-            {/* Tablet: 2 col grid */}
-            <div className="hidden md:grid lg:hidden grid-cols-2 gap-6 mt-16">
-              {items.map((p, i) => (
-                <ProductCard key={i} product={p} index={i} total={items.length} lang={lang} />
-              ))}
-            </div>
-
-            {/* Mobile: horizontal carousel */}
-            <div className="md:hidden mt-12 -mx-6 px-6 overflow-x-auto scrollbar-thin pb-4">
-              <div className="flex gap-4" style={{ width: `${items.length * 280}px` }}>
-                {items.map((p, i) => (
-                  <div key={i} style={{ width: 260, flexShrink: 0 }}>
-                    <ProductCard product={p} index={i} total={items.length} lang={lang} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </>
+          <div className="flex flex-col gap-16 md:gap-24 mt-16">
+            {items.map((p, i) => (
+              <ProductRow key={i} product={p} index={i} lang={lang} />
+            ))}
+          </div>
         )}
       </div>
     </section>
