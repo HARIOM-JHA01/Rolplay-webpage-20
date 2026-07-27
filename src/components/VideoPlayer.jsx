@@ -119,14 +119,15 @@ export default function VideoPlayer({
           onClick={() => {
             const v = videoRef.current;
             if (!v) return;
-            if (playing || v.paused) {
-              v.pause();
-            } else {
+            if (v.paused) {
+              v.muted = false;
               v.play();
-              if (!autoplay) v.muted = false;
+            } else {
+              v.pause();
             }
-            setPlaying(!playing);
           }}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
         />
       ) : (
         poster && (
@@ -146,7 +147,6 @@ export default function VideoPlayer({
               v.muted = false;
               v.play();
             }
-            setPlaying(true);
           }}
           aria-label={`Play ${title}`}
           className="absolute inset-0 flex items-center justify-center group"
