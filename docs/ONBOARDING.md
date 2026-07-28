@@ -4,8 +4,25 @@
 > **Owner:** RolPlay Engineering · **Last updated:** July 2026
 >
 > This is the single source of truth for the website. Read section 1–2 to get running
-> today; section 3–9 are the reference; section 10–13 cover operations and handoff.
-> Secret **values** are never stored here — see section 13.
+> today; section 3–9 are the reference; section 10–12 cover operations and handoff.
+> Secret **values** are never stored here — see section 12.
+
+---
+
+## Contents
+
+1. [Overview](#1-overview)
+2. [Quick Start (local)](#2-quick-start-local)
+3. [Architecture](#3-architecture)
+4. [Tech Stack](#4-tech-stack)
+5. [Repository Structure](#5-repository-structure)
+6. [Configuration (environment variables)](#6-configuration-environment-variables)
+7. [Integrations](#7-integrations)
+8. [API Reference (backend)](#8-api-reference-backend)
+9. [Deployment & Operations](#9-deployment--operations)
+10. [Content & i18n](#10-content--i18n)
+11. [QA / Pre-deploy checklist](#11-qa--pre-deploy-checklist)
+12. [Access & Credentials Handoff](#12-access--credentials-handoff)
 
 ---
 
@@ -14,14 +31,14 @@
 The RolPlay marketing site is a **two-service application**:
 
 - a **React single-page app** (Create React App / CRACO), and
-- a **FastAPI + MongoDB backend** that powers the contact form, newsletter
-  subscriptions, and the blog.
+- a **FastAPI backend** (using **MongoDB Atlas**, external — not containerized)
+  that powers the contact form, newsletter subscriptions, and the blog.
 
-Both run as containers via **Docker Compose**, behind a reverse proxy
-(**Coolify / Traefik**) that handles the domain, routing, and SSL. The site is
-bilingual (**EN / ES**, default Spanish), includes an ElevenLabs AI voice
-assistant, and pushes contact submissions to **HubSpot** while emailing the team
-via **Mailgun**.
+The frontend and backend run as containers via **Docker Compose**, behind a
+reverse proxy (**Coolify / Traefik**) that handles the domain, routing, and
+SSL. The site is bilingual (**EN / ES**, default Spanish), includes an
+ElevenLabs AI voice assistant, and pushes contact submissions to **HubSpot**
+while emailing the team via **Mailgun**.
 
 ---
 
@@ -36,12 +53,15 @@ running services directly.
 git clone
 cd rolplay-webpage-20
 cp .env.example .env          # fill in the values (see section 6)
+# MONGO_URL must point at a real MongoDB instance (Atlas) — there is
+# no bundled Mongo container. Use a dev/staging Atlas cluster, not prod.
 docker compose up -d --build
 ```
 
 - Frontend → served on container port `3000`
 - Backend  → container port `8000` (host `8001` by default via `BACKEND_HOST_PORT`)
-- MongoDB  → `mongo:7` with a persistent `mongo_data` volume
+- MongoDB  → **external MongoDB Atlas** — no local container; set `MONGO_URL`
+  to your Atlas connection string (see section 6)
 
 ### Option B — run services directly
 
@@ -69,16 +89,18 @@ documents were created.
 |---|---|---|
 | **Frontend** | React 19 (CRA/CRACO), served via `serve` | `frontend.Dockerfile` (`node:22-alpine`) |
 | **Backend** | FastAPI + MongoDB (Motor) | `backend/Dockerfile` (`python:3.11-slim`, `uvicorn`) |
-| **Database** | MongoDB | `mongo:7` image |
+| **Database** | MongoDB Atlas | External managed service — not in `docker-compose.yml` |
 
-All three are services in `docker-compose.yml` at the repo root, using `expose`
-only (no host port bindings in production) — the reverse proxy handles external
-routing, the domain, and SSL termination.
+`frontend` and `backend` are the two services in `docker-compose.yml` at the
+repo root, using `expose` only (no host port bindings in production) — the
+reverse proxy handles external routing, the domain, and SSL termination. The
+backend connects out to MongoDB Atlas via `MONGO_URL`.
 
 **Deploy flow:**
 
+```
 push to main → host/Coolify pulls → docker compose up -d --build
-             → frontend, backend, mongo rebuilt/restarted
+             → frontend, backend rebuilt/restarted (backend connects to Atlas)
              → Coolify/Traefik routes traffic + terminates SSL
 ```
 
@@ -130,28 +152,42 @@ backend/
 
 In production, all env vars are supplied via the **Compose / Coolify environment
 on the host** — not committed `.env` files. Use `.env.example` /
-`backend/.env.example` as templates locally.
+`backend/.env.example` as templates locally. Secret **values** are never
+stored in this repo or this doc — only variable names and where to set them.
 
-**Frontend**
+**Frontend** — set at build time (build args in `docker-compose.yml` /
+`frontend.Dockerfile`), or in a root `.env.local` for `npm start`.
 
 | Variable | Required | Description |
 |---|---|---|
 | `REACT_APP_ELEVENLABS_AGENT_ID` | Yes | ElevenLabs conversational agent ID |
-| `REACT_APP_API_URL` | Optional | Backend base URL (build arg for `frontend.Dockerfile`) |
+| `REACT_APP_API_URL` | Optional | Backend base URL the frontend calls (build arg for `frontend.Dockerfile`) |
 | `BACKEND_HOST_PORT` | Optional | Host port for the backend, **local Docker only** (default `8001`) |
 
-**Backend**
+**Backend** — set in `backend/.env` locally, or as Coolify app-level
+environment variables in prod.
 
 | Variable | Required | Description |
 |---|---|---|
-| `MONGO_URL` | Yes | Mongo connection string — internal service `mongodb://mongo:27017` in prod |
-| `DB_NAME` | Yes | Database name (`rolplay`) |
-| `ADMIN_API_KEY` | For blog create | Auth for `POST /api/blogs/create` |
-| `CORS_ORIGINS` | Optional | Comma-separated origins (default `*`) |
+| `MONGO_URL` | **Yes** | **MongoDB Atlas** connection string (`mongodb+srv://<user>:<pass>@<cluster>/`). There is **no bundled Mongo container** — this must point at a real Atlas cluster (a separate dev/staging cluster locally, the prod cluster only in Coolify's env vars). App fails to start without it (`config.py` raises on missing value). |
+| `DB_NAME` | **Yes** | Database name inside the Atlas cluster (`rolplay`) |
+| `ADMIN_API_KEY` | For blog create | Auth for `POST /api/blogs/create` (sent as `x-api-key` header) |
+| `CORS_ORIGINS` | Optional | Comma-separated allowed origins (default `*`) |
 | `SITE_URL` | Optional | Base URL used in email links (default `https://rolplay.ai`) |
-| `MAILGUN_API_KEY` / `MAILGUN_DOMAIN` / `MAILGUN_FROM` | For email | Mailgun credentials |
-| `HUBSPOT_ACCESS_TOKEN` | For CRM push | HubSpot private-app token |
+| `MAILGUN_API_KEY` / `MAILGUN_DOMAIN` / `MAILGUN_FROM` | For email | Mailgun credentials — required for contact-notification and newsletter emails to send |
+| `HUBSPOT_ACCESS_TOKEN` | For CRM push | HubSpot private-app token — without it, contact form still saves to Mongo but skips the CRM push |
 | `NOTIFICATION_EMAILS` | Optional | Comma-separated recipients for contact-form notifications |
+
+**Where to actually set these:**
+
+| Environment | Frontend vars | Backend vars |
+|---|---|---|
+| Local (Docker Compose) | root `.env` (from `.env.example`) | root `.env` (compose passes them through to the `backend` service) |
+| Local (running directly) | root `.env.local` (CRA reads this) | `backend/.env` (from `backend/.env.example`) |
+| Production (Coolify) | Coolify → this app → **Environment Variables** (used as Docker build args) | Coolify → this app → **Environment Variables** |
+
+Never commit a filled-in `.env` — only `.env.example` / `backend/.env.example`
+belong in git.
 
 ---
 
@@ -164,7 +200,17 @@ on the host** — not committed `.env` files. Use `.env.example` /
 | **Mailgun** | Transactional email — contact-team notifications + subscriber welcome/broadcast | `backend/app/services/mailgun.py` → `api.mailgun.net/v3`; `MAILGUN_*` |
 | **WhatsApp** | Live chat orb (bottom-right) | `src/components/WhatsAppOrb.jsx` → `https://wa.me/15797986707` |
 | **Calendly** | Meeting booking (direct link, no embed) | `https://calendly.com/viridiana-flores-audioweb/30min` |
-| **GA / Hotjar / Apollo** | Analytics — **not yet integrated** | No scripts/IDs wired in anywhere active |
+| **Hotjar** | Session recording / heatmaps | Inline snippet in `public/index.html`, site ID `6674847` |
+| **Apollo** | Website visitor tracking (sales intelligence) | Inline snippet in `public/index.html`, loads `assets.apollo.io` tracker, app ID `67be3ef9640bdd0011209d85` |
+| **Metricool** | Analytics / social tracking | Inline snippet in `public/index.html`, loads `tracker.metricool.com`, hash `9b576b85db94c6d058f9c961b411b177` |
+| **Leadfeeder** | Visitor/company identification for sales | Inline snippet in `public/index.html`, loads `sc.lfeeder.com`, tracker ID `Xbp1oaE029X4EdVj` |
+| **GA** | Analytics — **not yet integrated** | No script/ID wired in |
+
+The four tracking scripts above (Hotjar, Apollo, Metricool, Leadfeeder) are
+**hardcoded directly in `public/index.html`**, not driven by env vars — they
+load unconditionally on every page, for every visitor, in every environment
+(local, staging, prod) with no gating. To rotate/replace an ID or disable one,
+edit `public/index.html` directly and redeploy the frontend.
 
 **Contact form flow:** `ContactForm.jsx` → `POST /api/contact` → save to Mongo
 `contacts` → background task 1: Mailgun notifies `NOTIFICATION_EMAILS` →
@@ -233,5 +279,27 @@ docker compose up -d --build
 - [ ] Navigation links resolve; mobile menu works below 1024px
 - [ ] WhatsApp orb visible; award medals + partner logos display
 - [ ] Lighthouse targets: Performance ≥ 85, Accessibility ≥ 90, Best Practices ≥ 90, SEO ≥ 90
+
+---
+
+## 12. Access & Credentials Handoff
+
+This repo never stores secret values — only variable **names** (section 6).
+Whoever is handing off or taking over ownership should transfer access to:
+
+| System | What it's for | Notes |
+|---|---|---|
+| **GitHub repo** (`HARIOM-JHA01/Rolplay-webpage-20`) | Source control, triggers Coolify deploy on push to `main` | Add new owner as collaborator |
+| **Coolify instance** (deploys to the "innovation server") | Hosting, env vars, deploy logs, domain/SSL via Traefik | App-level env vars live here — see section 6 |
+| **MongoDB Atlas** | Primary datastore (`contacts`, `subscribers`, blog collections) | Confirm who owns the Atlas org/project and the prod `MONGO_URL` |
+| **Mailgun** | Transactional email (contact notify + newsletter) | Domain `mg.rolplay.ai` (or configured `MAILGUN_DOMAIN`) |
+| **HubSpot** | CRM push from the contact form | Private-app token (`HUBSPOT_ACCESS_TOKEN`) |
+| **ElevenLabs** | Conversational AI widget | Agent ID is not secret, but the ElevenLabs account/billing owner should be identified |
+| **Hotjar / Apollo / Metricool / Leadfeeder** | Analytics & visitor tracking (see section 7) | IDs are hardcoded in `public/index.html`, not secret, but confirm who owns each account/dashboard |
+| **Domain / DNS** (`rolplay.ai`) | Points at the Coolify/Traefik host | Confirm registrar + DNS provider access |
+
+When handing off, rotate `ADMIN_API_KEY`, `HUBSPOT_ACCESS_TOKEN`, and
+`MAILGUN_API_KEY` after transferring access, and confirm the new owner can log
+into Coolify and the Atlas cluster before revoking the previous owner's access.
 
 ---
