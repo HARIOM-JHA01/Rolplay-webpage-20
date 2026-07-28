@@ -1,0 +1,21 @@
+services:
+  mongo-test:
+    image: mongo:7
+    ports:
+      - "27018:27017"
+    tmpfs:
+      - /data/db
+
+  backend-test:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    depends_on:
+      - mongo-test
+    environment:
+      - MONGO_URL=mongodb://mongo-test:27017
+      - DB_NAME=rolplay_e2e
+    ports:
+      - "8099:8000"
+    profiles:
+      - e2e

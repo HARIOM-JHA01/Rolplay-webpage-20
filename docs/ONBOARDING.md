@@ -144,6 +144,7 @@ backend/
     helpers.py, logging_config.py, middleware/request_logging.py
     routes/         status.py, blogs.py, contact.py, subscribe.py
     services/       hubspot.py, mailgun.py, subscriber_email.py
+  tests/            unit / integration / e2e — see backend/tests/README.md
 ```
 
 ---
@@ -271,6 +272,7 @@ docker compose up -d --build
 ## 11. QA / Pre-deploy checklist
 
 - [ ] `npm run build` completes with 0 errors
+- [ ] Backend unit + integration tests pass (`cd backend && pytest`, needs `mongo-test` up — see `backend/tests/README.md`)
 - [ ] EN and ES routes load correctly
 - [ ] Contact form submits (success state, Mongo `contacts` doc, HubSpot contact, team email)
 - [ ] Newsletter subscribe works (Mongo `subscribers` doc, welcome email received)
