@@ -17,23 +17,11 @@ services:
     expose:
       - "8000"
     environment:
-      - MONGO_URL=mongodb://mongo:27017
-      - DB_NAME=rolplay
+      - MONGO_URL=${MONGO_URL}
+      - DB_NAME=${DB_NAME:-rolplay}
       - ADMIN_API_KEY=${ADMIN_API_KEY}
       - MAILGUN_API_KEY=${MAILGUN_API_KEY}
       - MAILGUN_DOMAIN=${MAILGUN_DOMAIN}
       - MAILGUN_FROM=${MAILGUN_FROM:-RolPlay <noreply@rolplay.ai>}
       - SITE_URL=${SITE_URL:-https://rolplay.ai}
       - CORS_ORIGINS=${CORS_ORIGINS:-*}
-    depends_on:
-      - mongo
-
-  mongo:
-    image: mongo:7
-    volumes:
-      - mongo_data:/data/db
-    expose:
-      - "27017"
-
-volumes:
-  mongo_data:
