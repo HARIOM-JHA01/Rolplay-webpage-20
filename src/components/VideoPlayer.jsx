@@ -25,30 +25,54 @@ export default function VideoPlayer({
   const containerRef = useRef(null);
   const videoRef = useRef(null);
   const [inView, setInView] = useState(false);
-  const [playing, setPlaying] = useState(false);
+  // Whether playback has begun at least once — hides the poster overlay so the
+  // native controls stay clickable. Deliberately NOT tied to paused/playing:
+  // toggling it on pause would drop the overlay back on top of the controls.
+  const [started, setStarted] = useState(false);
+  const userPausedRef = useRef(false);
 
   // IntersectionObserver — lazy load + pause when offscreen
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+        // The <video> unmounts when offscreen, so playback restarts from zero;
+        // bring the poster overlay back with it.
+        if (!entry.isIntersecting) setStarted(false);
+      },
       { threshold: 0.25 }
     );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
-  // Autoplay native video when in view — only auto-play, don't force-restart if user paused
+  // Autoplay native video when in view. Only reacts to visibility changes —
+  // keying this off play state would immediately undo a user's pause.
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !autoplay) return;
-    if (inView && !playing) {
-      video.play().catch(() => {});
-    } else if (!inView) {
+    if (inView) {
+      if (video.paused && !userPausedRef.current) video.play().catch(() => {});
+    } else {
       video.pause();
     }
-  }, [inView, autoplay, playing]);
+  }, [inView, autoplay]);
+
+  // Click-to-toggle, only for autoplay videos (they render without controls).
+  const toggleAutoplay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      userPausedRef.current = false;
+      v.muted = false;
+      v.play().catch(() => {});
+    } else {
+      userPausedRef.current = true;
+      v.pause();
+    }
+  };
 
   // For iframe embeds, only render the iframe after click (save bandwidth)
   const [iframeActive, setIframeActive] = useState(false);
@@ -116,18 +140,8 @@ export default function VideoPlayer({
           controls={!autoplay}
           preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
-          onClick={() => {
-            const v = videoRef.current;
-            if (!v) return;
-            if (v.paused) {
-              v.muted = false;
-              v.play();
-            } else {
-              v.pause();
-            }
-          }}
-          onPlay={() => setPlaying(true)}
-          onPause={() => setPlaying(false)}
+          onClick={autoplay ? toggleAutoplay : undefined}
+          onPlay={() => setStarted(true)}
         />
       ) : (
         poster && (
@@ -139,13 +153,13 @@ export default function VideoPlayer({
           />
         )
       )}
-      {!autoplay && !playing && (
+      {!autoplay && !started && (
         <button
           onClick={() => {
             const v = videoRef.current;
             if (v) {
               v.muted = false;
-              v.play();
+              v.play().catch(() => {});
             }
           }}
           aria-label={`Play ${title}`}
