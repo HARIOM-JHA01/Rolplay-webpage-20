@@ -50,42 +50,49 @@
     "redWord": "objetivo",
     "items": [
       {
+        "id": "master-coach",
         "name": "Master Coach",
         "tag": "INSIGNIA",
         "desc": "Retroalimentación real. Sesiones rápidas y prácticas donde los representantes graban, refinan y dominan su pitch.",
         "bullets": ["FEEDBACK REAL", "RÁPIDO · PRÁCTICO", "GRABA & REFINA"]
       },
       {
+        "id": "practice-simulator",
         "name": "Simulador de Práctica",
         "tag": "ENTRENAMIENTO",
         "desc": "Practica escenarios del mundo real. Maneja objeciones en un entorno seguro con IA, una y otra vez.",
         "bullets": ["ESCENARIOS REALES", "MANEJO DE OBJECIONES", "REPS ILIMITADOS"]
       },
       {
+        "id": "expert-certificator",
         "name": "Certificador Experto",
         "tag": "CERTIFICACIÓN",
         "desc": "Valida la preparación de tu equipo con evaluaciones de certificación basadas en IA vinculadas a métricas reales.",
         "bullets": ["VERIFICACIÓN", "PUNTUACIÓN IA", "CERTIFICACIONES"]
       },
       {
-        "name": "Coach No Verbal",
+        "id": "rolplay-sense",
+        "name": "Rolplay Sense",
         "tag": "COACHING",
-        "desc": "Analiza el lenguaje corporal, el tono y las microexpresiones para refinar cada dimensión de la comunicación.",
+        "desc": "Rolplay Sense interpreta el lenguaje corporal, el tono y las microexpresiones, y convierte todo lo que tus representantes comunican más allá de las palabras en feedback accionable.",
         "bullets": ["LENGUAJE CORPORAL", "ANÁLISIS DE TONO", "MICROEXPRESIONES"]
       },
       {
-        "name": "Segundo Cerebro",
+        "id": "second-brain",
+        "name": "Second Brain",
         "tag": "CONOCIMIENTO",
-        "desc": "Tu hub de conocimiento potenciado por IA. Respuestas instantáneas, tarjetas de batalla e inteligencia de producto.",
+        "desc": "Second Brain es tu hub de conocimiento potenciado por IA: respuestas instantáneas, tarjetas de batalla e inteligencia de producto al alcance de cada representante.",
         "bullets": ["TARJETAS DE BATALLA", "INTELIGENCIA INSTANTÁNEA", "IA DE CONOCIMIENTO"]
       },
       {
+        "id": "callmentorai",
         "name": "CallMentorAI",
         "tag": "LLAMADAS EN VIVO",
         "desc": "Coaching comercial en tiempo real durante llamadas de venta, con guía inteligente y discreta para mejorar cada conversación.",
         "bullets": ["IA EN TIEMPO REAL", "COACHING SILENCIOSO", "GUÍA EN VIVO"]
       },
       {
+        "id": "rolplay-analytics",
         "name": "Rolplay Analytics",
         "tag": "ANALÍTICA",
         "desc": "Dashboards detallados para toda tu organización comercial. Rastrea curvas de habilidades, tendencias e impacto en ingresos.",

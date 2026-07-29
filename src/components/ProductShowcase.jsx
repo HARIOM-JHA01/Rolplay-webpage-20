@@ -6,30 +6,32 @@ import NeuralNetwork from "@/components/NeuralNetwork";
 import SectionHeader from "@/components/SectionHeader";
 import VideoPlayer from "@/components/VideoPlayer";
 
+// Keyed by the product's `id` in the locale files, never by `name` — names are
+// translated, so name keys silently lose their assets in every other language.
 const VIDEO_MAP = {
-  "Master Coach": { en: "/videos/master-coach-en.mp4", es: "/videos/master-coach-es.mp4" },
-  "Practice Simulator": { en: "/videos/simulator-en.mp4", es: "/videos/simulator-es.mp4" },
-  "Second Brain": { en: "/videos/second-brain-es.mp4", es: "/videos/second-brain-es.mp4" },
-  "CallMentorAI": { en: "/videos/master-coach-en.mp4", es: "/videos/master-coach-es.mp4" },
-  "Rolplay Analytics": { en: "/videos/rolplay-sense-es.mp4", es: "/videos/rolplay-sense-es.mp4" },
+  "master-coach": { en: "/videos/master-coach-en.mp4", es: "/videos/master-coach-es.mp4" },
+  "practice-simulator": { en: "/videos/simulator-en.mp4", es: "/videos/simulator-es.mp4" },
+  "rolplay-sense": { en: "/videos/rolplay-sense-es.mp4", es: "/videos/rolplay-sense-es.mp4" },
+  "second-brain": { en: "/videos/second-brain-es.mp4", es: "/videos/second-brain-es.mp4" },
+  "callmentorai": { en: "/videos/callmentorai-es.mp4", es: "/videos/callmentorai-es.mp4" },
 };
 
 const POSTER_MAP = {
-  "Master Coach": { en: "/videos/posters/master-coach-en.jpg", es: "/videos/posters/master-coach-es.jpg" },
-  "Practice Simulator": { en: "/videos/posters/simulator-en.jpg", es: "/videos/posters/simulator-es.jpg" },
-  "Second Brain": { en: "/videos/posters/second-brain-es.jpg", es: "/videos/posters/second-brain-es.jpg" },
-  "CallMentorAI": { en: "/videos/posters/master-coach-en.jpg", es: "/videos/posters/master-coach-es.jpg" },
-  "Rolplay Analytics": { en: "/videos/posters/rolplay-sense-es.jpg", es: "/videos/posters/rolplay-sense-es.jpg" },
+  "master-coach": { en: "/videos/posters/master-coach-en.jpg", es: "/videos/posters/master-coach-es.jpg" },
+  "practice-simulator": { en: "/videos/posters/simulator-en.jpg", es: "/videos/posters/simulator-es.jpg" },
+  "rolplay-sense": { en: "/videos/posters/rolplay-sense-es.jpg", es: "/videos/posters/rolplay-sense-es.jpg" },
+  "second-brain": { en: "/videos/posters/second-brain-es.jpg", es: "/videos/posters/second-brain-es.jpg" },
+  "callmentorai": { en: "/videos/posters/callmentorai-es.jpg", es: "/videos/posters/callmentorai-es.jpg" },
 };
 
-function getVideoSrc(productName, lang) {
-  const videos = VIDEO_MAP[productName];
+function getVideoSrc(productId, lang) {
+  const videos = VIDEO_MAP[productId];
   if (!videos) return null;
   return videos[lang] || videos.es;
 }
 
-function getPosterSrc(productName, lang) {
-  const posters = POSTER_MAP[productName];
+function getPosterSrc(productId, lang) {
+  const posters = POSTER_MAP[productId];
   if (!posters) return null;
   return posters[lang] || posters.es;
 }
@@ -38,8 +40,8 @@ const ICONS = [Brain, Target, ShieldCheck, Eye, BookOpen, Phone, BarChart3];
 
 function ProductRow({ product, index, lang }) {
   const Icon = ICONS[index] || Brain;
-  const videoSrc = getVideoSrc(product.name, lang);
-  const posterSrc = getPosterSrc(product.name, lang);
+  const videoSrc = getVideoSrc(product.id, lang);
+  const posterSrc = getPosterSrc(product.id, lang);
   const reversed = index % 2 !== 0;
 
   return (

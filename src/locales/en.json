@@ -50,42 +50,49 @@
     "redWord": "goal",
     "items": [
       {
+        "id": "master-coach",
         "name": "Master Coach",
         "tag": "FLAGSHIP",
         "desc": "Real feedback. Fast, practical sessions where reps record, refine and master their pitch.",
         "bullets": ["REAL FEEDBACK", "FAST · PRACTICAL", "RECORD & REFINE"]
       },
       {
+        "id": "practice-simulator",
         "name": "Practice Simulator",
         "tag": "TRAINING",
         "desc": "Practice real-world scenarios. Handle objections in a safe, AI-driven environment, again and again.",
         "bullets": ["REAL SCENARIOS", "OBJECTION HANDLING", "UNLIMITED REPS"]
       },
       {
+        "id": "expert-certificator",
         "name": "Expert Certificator",
         "tag": "CERTIFICATION",
         "desc": "Validate your team's readiness with AI-driven certification assessments tied to real performance metrics.",
         "bullets": ["READINESS CHECKS", "AI SCORING", "CERTIFICATIONS"]
       },
       {
-        "name": "Non-Verbal Coach",
+        "id": "rolplay-sense",
+        "name": "Rolplay Sense",
         "tag": "COACHING",
-        "desc": "Analyse body language, tone and micro-expressions to refine every dimension of communication.",
+        "desc": "Rolplay Sense reads body language, tone and micro-expressions, turning everything your reps say beyond words into coachable feedback.",
         "bullets": ["BODY LANGUAGE", "TONE ANALYSIS", "MICRO-EXPRESSIONS"]
       },
       {
+        "id": "second-brain",
         "name": "Second Brain",
         "tag": "KNOWLEDGE",
-        "desc": "Your AI-powered knowledge hub. Instant answers, battle cards and product intel at your reps' fingertips.",
+        "desc": "Second Brain is your AI-powered knowledge hub: instant answers, battle cards and product intel at your reps' fingertips.",
         "bullets": ["BATTLE CARDS", "INSTANT INTEL", "KNOWLEDGE AI"]
       },
       {
+        "id": "callmentorai",
         "name": "CallMentorAI",
         "tag": "LIVE CALLS",
         "desc": "Real-time commercial coaching during live sales calls, with intelligent and discreet guidance to improve every conversation.",
         "bullets": ["REAL-TIME AI", "WHISPER COACHING", "LIVE GUIDANCE"]
       },
       {
+        "id": "rolplay-analytics",
         "name": "Rolplay Analytics",
         "tag": "ANALYTICS",
         "desc": "Deep-dive dashboards across your entire commercial org. Track skill curves, trends and revenue impact.",
