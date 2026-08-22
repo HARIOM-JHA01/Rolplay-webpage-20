@@ -11,17 +11,21 @@ import VideoPlayer from "@/components/VideoPlayer";
 const VIDEO_MAP = {
   "master-coach": { en: "/videos/master-coach-en.mp4", es: "/videos/master-coach-es.mp4" },
   "practice-simulator": { en: "/videos/simulator-en.mp4", es: "/videos/simulator-es.mp4" },
+  "expert-certificator": { en: "/videos/expert-certificator-es.mp4", es: "/videos/expert-certificator-es.mp4" },
   "rolplay-sense": { en: "/videos/rolplay-sense-es.mp4", es: "/videos/rolplay-sense-es.mp4" },
   "second-brain": { en: "/videos/second-brain-es.mp4", es: "/videos/second-brain-es.mp4" },
   "callmentorai": { en: "/videos/callmentorai-es.mp4", es: "/videos/callmentorai-es.mp4" },
+  "rolplay-analytics": { en: "/videos/rolplay-analytics-es.mp4", es: "/videos/rolplay-analytics-es.mp4" },
 };
 
 const POSTER_MAP = {
   "master-coach": { en: "/videos/posters/master-coach-en.jpg", es: "/videos/posters/master-coach-es.jpg" },
   "practice-simulator": { en: "/videos/posters/simulator-en.jpg", es: "/videos/posters/simulator-es.jpg" },
+  "expert-certificator": { en: "/videos/posters/expert-certificator-es.jpg", es: "/videos/posters/expert-certificator-es.jpg" },
   "rolplay-sense": { en: "/videos/posters/rolplay-sense-es.jpg", es: "/videos/posters/rolplay-sense-es.jpg" },
   "second-brain": { en: "/videos/posters/second-brain-es.jpg", es: "/videos/posters/second-brain-es.jpg" },
   "callmentorai": { en: "/videos/posters/callmentorai-es.jpg", es: "/videos/posters/callmentorai-es.jpg" },
+  "rolplay-analytics": { en: "/videos/posters/rolplay-analytics-es.jpg", es: "/videos/posters/rolplay-analytics-es.jpg" },
 };
 
 function getVideoSrc(productId, lang) {

@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { Sparkles, Play } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import PageShell from "@/components/PageShell";
 import NeuralNetwork from "@/components/NeuralNetwork";
 import GlassCard from "@/components/GlassCard";
 import SectionHeader from "@/components/SectionHeader";
+import VideoPlayer from "@/components/VideoPlayer";
 import { PrimaryCTA } from "@/components/CTAButton";
 
 const MEDAL_IMAGES = [
@@ -101,20 +102,15 @@ export default function Achievements() {
             redWord={t("achievementsPage.caseFilmTitleRed")}
             align="center"
           />
-          <div className="mt-14">
-            <GlassCard className="aspect-video group cursor-pointer" data-testid="achievements-video">
-              <NeuralNetwork className="opacity-30" />
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[#0A0A0E]/90" />
-              <div className="absolute inset-0 grid place-items-center">
-                <div className="text-center">
-                  <motion.div whileHover={{ scale: 1.12 }} className="w-24 h-24 rounded-full bg-[#C0392B] grid place-items-center shadow-[0_0_60px_rgba(192,57,43,0.7)] mx-auto">
-                    <Play size={32} fill="white" className="ml-1" />
-                  </motion.div>
-                  <div className="font-display text-3xl md:text-4xl mt-6">{t("achievementsPage.videoTitle")}</div>
-                  <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase mt-2">{t("achievementsPage.videoDuration")}</div>
-                </div>
-              </div>
-            </GlassCard>
+          <div className="mt-14" data-testid="achievements-video">
+            <VideoPlayer
+              src="/videos/achievements-case-film-es.mp4"
+              poster="/videos/posters/achievements-case-film-es.jpg"
+              title={t("achievementsPage.videoTitle")}
+            />
+            <div className="text-center mt-6">
+              <div className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase">{t("achievementsPage.videoDuration")}</div>
+            </div>
           </div>
           <div className="mt-12 text-center">
             <PrimaryCTA href="/contact" testid="achievements-cta">{t("achievementsPage.ctaText")}</PrimaryCTA>
