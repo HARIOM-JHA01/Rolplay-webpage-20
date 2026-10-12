@@ -32,7 +32,7 @@ const CallMentorLogo = ({ size = 20 }) => (
 const PRODUCT_LINKS = [
   {
     label: "Second Brain",
-    href: "https://second-brain-shz8.onrender.com/",
+    href: "https://second-brain.rolplay.ai/",
     Icon: SecondBrainLogo,
     testid: "nav-second-brain",
   },
