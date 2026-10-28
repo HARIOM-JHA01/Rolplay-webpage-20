@@ -18,7 +18,7 @@ export default function WhatsAppOrb() {
   const [hover, setHover] = useState(false);
   return (
     <a
-      href="https://wa.me/15797986707?text=Como%20funciona%20Rolplay?"
+      href="https://wa.me/525518006006?text=Como%20funciona%20Rolplay?"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-[60] flex items-center gap-3"

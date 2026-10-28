@@ -199,7 +199,7 @@ belong in git.
 | **ElevenLabs** | AI voice assistant (floating button, all pages) | `@11labs/react`, WebRTC; `src/components/ElevenLabsWidget.jsx`; needs `REACT_APP_ELEVENLABS_AGENT_ID` + mic permission |
 | **HubSpot** | Server-side CRM contact push (not an embedded form) | `backend/app/services/hubspot.py`; fired as a background task on every `/api/contact` submit; `HUBSPOT_ACCESS_TOKEN` |
 | **Mailgun** | Transactional email — contact-team notifications + subscriber welcome/broadcast | `backend/app/services/mailgun.py` → `api.mailgun.net/v3`; `MAILGUN_*` |
-| **WhatsApp** | Live chat orb (bottom-right) | `src/components/WhatsAppOrb.jsx` → `https://wa.me/15797986707` |
+| **WhatsApp** | Live chat orb (bottom-right) | `src/components/WhatsAppOrb.jsx` → `https://wa.me/525518006006` |
 | **Calendly** | Meeting booking (direct link, no embed) | `https://calendly.com/viridiana-flores-audioweb/30min` |
 | **Hotjar** | Session recording / heatmaps | Inline snippet in `public/index.html`, site ID `6674847` |
 | **Apollo** | Website visitor tracking (sales intelligence) | Inline snippet in `public/index.html`, loads `assets.apollo.io` tracker, app ID `67be3ef9640bdd0011209d85` |
